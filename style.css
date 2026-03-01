@@ -21,8 +21,9 @@ body, html {
     background-color: #000;
     color: #fff;
     padding: 20px;
-    transition: width 0.3s ease;
+    transition: transform 0.3s ease;
     position: relative;
+    z-index: 1000;
 }
 
 .sidebar h2 {
@@ -59,13 +60,13 @@ body, html {
     cursor: pointer;
     font-size: 20px;
     border-radius: 4px;
+    z-index: 1001;
 }
 
 /* Collapsed Sidebar */
 .sidebar.collapsed {
-    width: 0;
+    transform: translateX(-100%);
     padding: 0;
-    overflow: hidden;
 }
 
 /* Main Content */
@@ -83,4 +84,35 @@ body, html {
 
 .content-section.active {
     display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        width: 220px;
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    #toggleBtn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        right: auto;
+    }
+
+    .content {
+        padding: 20px;
+    }
 }
