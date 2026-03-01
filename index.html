@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar / Menu -->
+        <nav class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li onclick="showContent('home')">Home</li>
+                <li onclick="showContent('categories')">Categories</li>
+                <li onclick="showContent('pos')">POS</li>
+                <li onclick="showContent('products')">Products</li>
+                <li onclick="showContent('clients')">Clients</li>
+                <li onclick="showContent('suppliers')">Suppliers</li>
+                <li onclick="showContent('statistics')">Statistics</li>
+                <li onclick="showContent('credits')">Credits</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <div id="home" class="content-section active">
+                <h1>Welcome to the Dashboard</h1>
+                <p>This is your home page. Use the menu to navigate.</p>
+            </div>
+
+            <div id="categories" class="content-section">
+                <h1>Categories</h1>
+                <p>Manage your product categories here.</p>
+            </div>
+
+            <div id="pos" class="content-section">
+                <h1>POS</h1>
+                <p>Point of Sale interface goes here.</p>
+            </div>
+
+            <div id="products" class="content-section">
+                <h1>Products</h1>
+                <p>View and manage your products.</p>
+            </div>
+
+            <div id="clients" class="content-section">
+                <h1>Clients</h1>
+                <p>Manage your clients.</p>
+            </div>
+
+            <div id="suppliers" class="content-section">
+                <h1>Suppliers</h1>
+                <p>Manage your suppliers.</p>
+            </div>
+
+            <div id="statistics" class="content-section">
+                <h1>Statistics</h1>
+                <p>View sales, products, and client statistics.</p>
+            </div>
+
+            <div id="credits" class="content-section">
+                <h1>Credits</h1>
+                <p>Information about the developers and contributors.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
