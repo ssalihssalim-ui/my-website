@@ -9,23 +9,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
-        <nav class="sidebar" id="sidebar">
-            <button id="toggleBtn">☰</button>
-            <h2>Menu</h2>
-            <ul>
-                <li class="active"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="categories.html"><i class="fas fa-list"></i> Categories</a></li>
-                <li><a href="pos.html"><i class="fas fa-cash-register"></i> POS</a></li>
-                <li><a href="products.html"><i class="fas fa-box"></i> Products</a></li>
-                <li><a href="clients.html"><i class="fas fa-users"></i> Clients</a></li>
-                <li><a href="suppliers.html"><i class="fas fa-truck"></i> Suppliers</a></li>
-                <li><a href="statistics.html"><i class="fas fa-chart-bar"></i> Statistics</a></li>
-                <li><a href="credits.html"><i class="fas fa-info-circle"></i> Credits</a></li>
-            </ul>
-        </nav>
+        <!-- Sidebar container -->
+        <div id="menu-container"></div>
 
-        <!-- Main Content -->
+        <!-- Main content -->
         <main class="content">
             <h1>Welcome to the Dashboard</h1>
             <p>This is your home page. Use the menu to navigate.</p>
@@ -33,5 +20,26 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Load menu.html into #menu-container
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('menu-container').innerHTML = html;
+
+                // Initialize toggle button
+                const toggleBtn = document.getElementById('toggleBtn');
+                const sidebar = document.getElementById('sidebar');
+
+                toggleBtn.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.toggle('show');
+                    } else {
+                        sidebar.classList.toggle('collapsed');
+                    }
+                });
+            })
+            .catch(err => console.error('Failed to load menu:', err));
+    </script>
 </body>
 </html>
