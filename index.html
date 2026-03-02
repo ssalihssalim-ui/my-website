@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Minimarket Admin</title>
+  <title>Minimarket System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -14,36 +14,39 @@
 
     /* Sidebar */
     .sidebar {
-      width: 220px;
-      background: #2c3e50;
+      width: 230px;
+      background: #1e272e;
       color: white;
       display: flex;
       flex-direction: column;
-      padding-top: 20px;
     }
 
     .sidebar h2 {
       text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .sidebar a {
       padding: 15px;
+      border-bottom: 1px solid #444;
+    }
+
+    .sidebar button {
+      background: none;
+      border: none;
       color: white;
-      text-decoration: none;
-      display: block;
-      transition: 0.3s;
+      padding: 15px;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
     }
 
-    .sidebar a:hover {
-      background: #34495e;
+    .sidebar button:hover {
+      background: #485460;
     }
 
-    /* Main Content */
+    /* Content */
     .content {
       flex: 1;
       padding: 20px;
-      background: #f4f6f9;
+      background: #f1f2f6;
       overflow-y: auto;
     }
 
@@ -52,7 +55,7 @@
       padding: 15px;
       margin-bottom: 15px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     h1 {
@@ -69,11 +72,11 @@
         flex-direction: row;
         overflow-x: auto;
       }
-      .sidebar a {
+      .sidebar button {
         flex: 1;
         text-align: center;
+        font-size: 12px;
         padding: 10px;
-        font-size: 14px;
       }
     }
   </style>
@@ -81,68 +84,96 @@
 
 <body>
 
-  <!-- Sidebar -->
+  <!-- Sidebar Menu -->
   <div class="sidebar">
     <h2>Minimarket</h2>
-    <a href="#dashboard">📊 Dashboard</a>
-    <a href="#categories">🗂 Categories</a>
-    <a href="#products">🛒 Products</a>
-    <a href="#clients">👥 Clients</a>
-    <a href="#suppliers">🚚 Suppliers</a>
-    <a href="#statistics">📈 Statistics</a>
-    <a href="#credits">💳 Credits</a>
+    <button onclick="showSection('home')">🏠 Home</button>
+    <button onclick="showSection('pos')">🛒 POS</button>
+    <button onclick="showSection('categories')">🗂 Categories</button>
+    <button onclick="showSection('products')">📦 Products</button>
+    <button onclick="showSection('clients')">👥 Clients</button>
+    <button onclick="showSection('suppliers')">🚚 Suppliers</button>
+    <button onclick="showSection('statistics')">📊 Statistics</button>
+    <button onclick="showSection('credits')">💳 Credits</button>
   </div>
 
   <!-- Main Content -->
-  <div class="content">
-
-    <section id="dashboard">
-      <h1>Dashboard</h1>
-      <div class="card">Total Products: 120</div>
-      <div class="card">Total Clients: 45</div>
-      <div class="card">Today Sales: $350</div>
-    </section>
-
-    <section id="categories">
-      <h1>Categories</h1>
-      <div class="card">🥦 Vegetables</div>
-      <div class="card">🥤 Drinks</div>
-      <div class="card">🍞 Bakery</div>
-      <div class="card">🍫 Snacks</div>
-    </section>
-
-    <section id="products">
-      <h1>Products</h1>
-      <div class="card">Milk - $2</div>
-      <div class="card">Bread - $1.5</div>
-      <div class="card">Cola - $3</div>
-    </section>
-
-    <section id="clients">
-      <h1>Clients</h1>
-      <div class="card">Client A</div>
-      <div class="card">Client B</div>
-    </section>
-
-    <section id="suppliers">
-      <h1>Suppliers</h1>
-      <div class="card">Supplier 1</div>
-      <div class="card">Supplier 2</div>
-    </section>
-
-    <section id="statistics">
-      <h1>Statistics</h1>
-      <div class="card">Monthly Sales: $8,200</div>
-      <div class="card">Best Product: Milk</div>
-    </section>
-
-    <section id="credits">
-      <h1>Credits</h1>
-      <div class="card">Total Credit Given: $1,200</div>
-      <div class="card">Pending Payments: $450</div>
-    </section>
-
+  <div class="content" id="contentArea">
+    <h1>Welcome to Minimarket System</h1>
+    <div class="card">Select a menu item to manage your system.</div>
   </div>
+
+  <script>
+    function showSection(section) {
+      const content = document.getElementById("contentArea");
+
+      if(section === "home"){
+        content.innerHTML = `
+          <h1>Dashboard</h1>
+          <div class="card">Total Sales Today: $350</div>
+          <div class="card">Total Products: 120</div>
+          <div class="card">Total Clients: 45</div>
+        `;
+      }
+
+      if(section === "pos"){
+        content.innerHTML = `
+          <h1>Point of Sale (POS)</h1>
+          <div class="card">Cashier System Coming Soon...</div>
+        `;
+      }
+
+      if(section === "categories"){
+        content.innerHTML = `
+          <h1>Categories</h1>
+          <div class="card">Vegetables</div>
+          <div class="card">Drinks</div>
+          <div class="card">Bakery</div>
+        `;
+      }
+
+      if(section === "products"){
+        content.innerHTML = `
+          <h1>Products</h1>
+          <div class="card">Milk - $2</div>
+          <div class="card">Bread - $1.5</div>
+          <div class="card">Cola - $3</div>
+        `;
+      }
+
+      if(section === "clients"){
+        content.innerHTML = `
+          <h1>Clients</h1>
+          <div class="card">Client A</div>
+          <div class="card">Client B</div>
+        `;
+      }
+
+      if(section === "suppliers"){
+        content.innerHTML = `
+          <h1>Suppliers</h1>
+          <div class="card">Supplier 1</div>
+          <div class="card">Supplier 2</div>
+        `;
+      }
+
+      if(section === "statistics"){
+        content.innerHTML = `
+          <h1>Statistics</h1>
+          <div class="card">Monthly Sales: $8,200</div>
+          <div class="card">Best Product: Milk</div>
+        `;
+      }
+
+      if(section === "credits"){
+        content.innerHTML = `
+          <h1>Credits</h1>
+          <div class="card">Total Credit Given: $1,200</div>
+          <div class="card">Pending Payments: $450</div>
+        `;
+      }
+    }
+  </script>
 
 </body>
 </html>
