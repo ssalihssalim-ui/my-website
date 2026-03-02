@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Business Website</title>
+  <title>My Minimarket</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      background: #f8f9fa;
     }
 
     header {
-      background: #222;
+      background: #28a745;
       color: white;
       padding: 15px;
       text-align: center;
@@ -21,19 +21,18 @@
     nav {
       display: flex;
       justify-content: center;
-      background: #333;
+      background: #218838;
       flex-wrap: wrap;
     }
 
     nav a {
       color: white;
-      padding: 14px 20px;
+      padding: 12px 18px;
       text-decoration: none;
-      display: block;
     }
 
     nav a:hover {
-      background: #555;
+      background: #1e7e34;
     }
 
     section {
@@ -41,44 +40,49 @@
     }
 
     h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 15px;
-      margin-top: 15px;
     }
 
     .card {
       background: white;
       padding: 15px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
-    }
-
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
     }
 
     button {
-      padding: 8px 12px;
-      background: #007bff;
+      background: #28a745;
       color: white;
       border: none;
+      padding: 8px 12px;
       border-radius: 5px;
       cursor: pointer;
     }
 
     button:hover {
-      background: #0056b3;
+      background: #218838;
+    }
+
+    #cart {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      background: #28a745;
+      color: white;
+      padding: 10px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -86,8 +90,8 @@
 <body>
 
 <header>
-  <h1>My Company</h1>
-  <p>Professional Business Website</p>
+  <h1>My Minimarket</h1>
+  <p>Fresh Products Everyday</p>
 </header>
 
 <nav>
@@ -99,17 +103,17 @@
 </nav>
 
 <section id="home">
-  <h2>Welcome</h2>
-  <p>We provide high quality products and services for our clients.</p>
+  <h2>Welcome to Our Minimarket</h2>
+  <p>We offer fresh groceries, drinks, snacks, and daily essentials.</p>
 </section>
 
 <section id="categories">
   <h2>Categories</h2>
   <div class="grid">
-    <div class="card">Electronics</div>
-    <div class="card">Clothing</div>
-    <div class="card">Accessories</div>
-    <div class="card">Home Products</div>
+    <div class="card">🥦 Vegetables</div>
+    <div class="card">🥤 Drinks</div>
+    <div class="card">🍞 Bakery</div>
+    <div class="card">🍫 Snacks</div>
   </div>
 </section>
 
@@ -117,44 +121,64 @@
   <h2>Products</h2>
   <div class="grid">
     <div class="card">
-      <h3>Product 1</h3>
-      <p>$49</p>
-      <button>Buy Now</button>
+      <h3>Milk</h3>
+      <p>$2</p>
+      <button onclick="addToCart('Milk',2)">Add to Cart</button>
     </div>
 
     <div class="card">
-      <h3>Product 2</h3>
-      <p>$79</p>
-      <button>Buy Now</button>
+      <h3>Bread</h3>
+      <p>$1.5</p>
+      <button onclick="addToCart('Bread',1.5)">Add to Cart</button>
     </div>
 
     <div class="card">
-      <h3>Product 3</h3>
-      <p>$99</p>
-      <button>Buy Now</button>
+      <h3>Cola</h3>
+      <p>$3</p>
+      <button onclick="addToCart('Cola',3)">Add to Cart</button>
     </div>
+  </div>
+
+  <div id="cart">
+    <h3>🛒 Shopping Cart</h3>
+    <ul id="cartItems"></ul>
+    <p><strong>Total: $<span id="total">0</span></strong></p>
   </div>
 </section>
 
 <section id="clients">
   <h2>Our Clients</h2>
   <div class="grid">
-    <div class="card">Client A</div>
-    <div class="card">Client B</div>
-    <div class="card">Client C</div>
-    <div class="card">Client D</div>
+    <div class="card">Local Families</div>
+    <div class="card">Restaurants</div>
+    <div class="card">Offices</div>
+    <div class="card">Schools</div>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact Us</h2>
-  <p>Email: info@mycompany.com</p>
-  <p>Phone: +123 456 7890</p>
+  <p>Email: minimarket@email.com</p>
+  <p>Phone: +123 456 789</p>
 </section>
 
 <footer>
-  <p>© 2026 My Company. All rights reserved.</p>
+  <p>© 2026 My Minimarket - All Rights Reserved</p>
 </footer>
+
+<script>
+  let total = 0;
+
+  function addToCart(product, price) {
+    const cartItems = document.getElementById("cartItems");
+    const li = document.createElement("li");
+    li.textContent = product + " - $" + price;
+    cartItems.appendChild(li);
+
+    total += price;
+    document.getElementById("total").textContent = total.toFixed(2);
+  }
+</script>
 
 </body>
 </html>
