@@ -1,184 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Minimarket</title>
+  <title>Minimarket Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f8f9fa;
-    }
-
-    header {
-      background: #28a745;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    nav {
+      font-family: Arial, sans-serif;
       display: flex;
-      justify-content: center;
-      background: #218838;
-      flex-wrap: wrap;
+      height: 100vh;
     }
 
-    nav a {
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #2c3e50;
       color: white;
-      padding: 12px 18px;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      padding: 15px;
+      color: white;
       text-decoration: none;
+      display: block;
+      transition: 0.3s;
     }
 
-    nav a:hover {
-      background: #1e7e34;
+    .sidebar a:hover {
+      background: #34495e;
     }
 
-    section {
+    /* Main Content */
+    .content {
+      flex: 1;
       padding: 20px;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
+      background: #f4f6f9;
+      overflow-y: auto;
     }
 
     .card {
       background: white;
       padding: 15px;
+      margin-bottom: 15px;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    button {
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
+    h1 {
+      margin-top: 0;
     }
 
-    button:hover {
-      background: #218838;
-    }
-
-    #cart {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-
-    footer {
-      text-align: center;
-      background: #28a745;
-      color: white;
-      padding: 10px;
-      margin-top: 20px;
+    /* Mobile */
+    @media(max-width: 768px){
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+      .sidebar a {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>My Minimarket</h1>
-  <p>Fresh Products Everyday</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#categories">Categories</a>
-  <a href="#products">Products</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="home">
-  <h2>Welcome to Our Minimarket</h2>
-  <p>We offer fresh groceries, drinks, snacks, and daily essentials.</p>
-</section>
-
-<section id="categories">
-  <h2>Categories</h2>
-  <div class="grid">
-    <div class="card">🥦 Vegetables</div>
-    <div class="card">🥤 Drinks</div>
-    <div class="card">🍞 Bakery</div>
-    <div class="card">🍫 Snacks</div>
-  </div>
-</section>
-
-<section id="products">
-  <h2>Products</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Milk</h3>
-      <p>$2</p>
-      <button onclick="addToCart('Milk',2)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <h3>Bread</h3>
-      <p>$1.5</p>
-      <button onclick="addToCart('Bread',1.5)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <h3>Cola</h3>
-      <p>$3</p>
-      <button onclick="addToCart('Cola',3)">Add to Cart</button>
-    </div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Minimarket</h2>
+    <a href="#dashboard">📊 Dashboard</a>
+    <a href="#categories">🗂 Categories</a>
+    <a href="#products">🛒 Products</a>
+    <a href="#clients">👥 Clients</a>
+    <a href="#suppliers">🚚 Suppliers</a>
+    <a href="#statistics">📈 Statistics</a>
+    <a href="#credits">💳 Credits</a>
   </div>
 
-  <div id="cart">
-    <h3>🛒 Shopping Cart</h3>
-    <ul id="cartItems"></ul>
-    <p><strong>Total: $<span id="total">0</span></strong></p>
+  <!-- Main Content -->
+  <div class="content">
+
+    <section id="dashboard">
+      <h1>Dashboard</h1>
+      <div class="card">Total Products: 120</div>
+      <div class="card">Total Clients: 45</div>
+      <div class="card">Today Sales: $350</div>
+    </section>
+
+    <section id="categories">
+      <h1>Categories</h1>
+      <div class="card">🥦 Vegetables</div>
+      <div class="card">🥤 Drinks</div>
+      <div class="card">🍞 Bakery</div>
+      <div class="card">🍫 Snacks</div>
+    </section>
+
+    <section id="products">
+      <h1>Products</h1>
+      <div class="card">Milk - $2</div>
+      <div class="card">Bread - $1.5</div>
+      <div class="card">Cola - $3</div>
+    </section>
+
+    <section id="clients">
+      <h1>Clients</h1>
+      <div class="card">Client A</div>
+      <div class="card">Client B</div>
+    </section>
+
+    <section id="suppliers">
+      <h1>Suppliers</h1>
+      <div class="card">Supplier 1</div>
+      <div class="card">Supplier 2</div>
+    </section>
+
+    <section id="statistics">
+      <h1>Statistics</h1>
+      <div class="card">Monthly Sales: $8,200</div>
+      <div class="card">Best Product: Milk</div>
+    </section>
+
+    <section id="credits">
+      <h1>Credits</h1>
+      <div class="card">Total Credit Given: $1,200</div>
+      <div class="card">Pending Payments: $450</div>
+    </section>
+
   </div>
-</section>
-
-<section id="clients">
-  <h2>Our Clients</h2>
-  <div class="grid">
-    <div class="card">Local Families</div>
-    <div class="card">Restaurants</div>
-    <div class="card">Offices</div>
-    <div class="card">Schools</div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Email: minimarket@email.com</p>
-  <p>Phone: +123 456 789</p>
-</section>
-
-<footer>
-  <p>© 2026 My Minimarket - All Rights Reserved</p>
-</footer>
-
-<script>
-  let total = 0;
-
-  function addToCart(product, price) {
-    const cartItems = document.getElementById("cartItems");
-    const li = document.createElement("li");
-    li.textContent = product + " - $" + price;
-    cartItems.appendChild(li);
-
-    total += price;
-    document.getElementById("total").textContent = total.toFixed(2);
-  }
-</script>
 
 </body>
 </html>
