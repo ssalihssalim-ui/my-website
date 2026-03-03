@@ -9,14 +9,16 @@
 <body>
 
   <!-- Menu Button -->
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <button class="menu-btn" onclick="openMenu()">☰</button>
 
   <!-- Overlay -->
-  <div class="overlay" onclick="closeMenu()"></div>
+  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="closeMenu()">✖</button>
     <h2>Minimarket</h2>
+
     <button onclick="showSection('home')">Home</button>
     <button onclick="showSection('pos')">POS</button>
     <button onclick="showSection('categories')">Categories</button>
