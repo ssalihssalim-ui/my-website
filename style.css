@@ -18,7 +18,7 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;ü
     padding: 1rem 2rem;
     background-color: #1e1e1e;
     border-bottom: 1px solid #333;
@@ -59,7 +59,7 @@ body {
 }
 
 /* Responsive menu (mobile) */
-@media (max-width: 998px) {
+@media (max-width: 800px) {
     .menu {
         position: fixed;          /* full screen overlay */
         top: 0;
