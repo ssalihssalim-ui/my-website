@@ -8,7 +8,14 @@
 
 <body>
 
-  <div class="sidebar">
+  <!-- Menu Button -->
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <!-- Overlay -->
+  <div class="overlay" onclick="closeMenu()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
     <h2>Minimarket</h2>
     <button onclick="showSection('home')">Home</button>
     <button onclick="showSection('pos')">POS</button>
@@ -20,6 +27,7 @@
     <button onclick="showSection('credits')">Credits</button>
   </div>
 
+  <!-- Content -->
   <div class="content" id="contentArea">
     <h1>Welcome</h1>
     <div class="card">Select a menu item.</div>
