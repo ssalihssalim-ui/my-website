@@ -35,10 +35,9 @@ body {
 .menu-btn {
     font-size: 1.5rem;
     cursor: pointer;
-    user-select: none;
 }
 
-/* Fullscreen Menu Overlay */
+/* Fullscreen Menu */
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -112,7 +111,7 @@ body {
     color: #ccc;
 }
 
-/* Responsive */
+/* Hide hamburger on desktop if needed */
 @media (min-width: 769px) {
     .menu-btn {
         display: none;
