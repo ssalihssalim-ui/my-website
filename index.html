@@ -1,87 +1,40 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minimarket System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-/* Menu Button */
-.menu-btn {
-  font-size: 24px;
-  padding: 10px 15px;
-  cursor: pointer;
-  border: none;
-  background: #2c3e50;
-  color: white;
-}
+<body>
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -20%; /* Caché au début */
-  width: 20%;
-  height: 100%;
-  background: #2c3e50;
-  color: white;
-  padding: 20px;
-  transition: 0.3s;
-  z-index: 1000;
-}
+  <!-- Menu Button -->
+  <button class="menu-btn" onclick="openMenu()">☰</button>
 
-.sidebar h2 {
-  margin-top: 0;
-}
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-.sidebar button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border: none;
-  background: #34495e;
-  color: white;
-  cursor: pointer;
-}
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="closeMenu()">✖</button>
+    <h2>Minimarket</h2>
 
-.sidebar button:hover {
-  background: #1abc9c;
-}
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('pos')">POS</button>
+    <button onclick="showSection('categories')">Categories</button>
+    <button onclick="showSection('products')">Products</button>
+    <button onclick="showSection('clients')">Clients</button>
+    <button onclick="showSection('suppliers')">Suppliers</button>
+    <button onclick="showSection('statistics')">Statistics</button>
+    <button onclick="showSection('credits')">Credits</button>
+  </div>
 
-/* Close button */
-.close-btn {
-  background: red;
-  float: right;
-  font-size: 16px;
-}
+  <!-- Content -->
+  <div class="content" id="contentArea">
+    <h1>Welcome</h1>
+    <div class="card">Select a menu item.</div>
+  </div>
 
-/* Overlay */
-.overlay {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 900;
-}
-
-/* Active states */
-.sidebar.active {
-  left: 0;
-}
-
-.overlay.active {
-  display: block;
-}
-
-/* Content */
-.content {
-  padding: 20px;
-}
-
-.card {
-  background: #f4f4f4;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 8px;
-}
+  <script src="script.js"></script>
+</body>
+</html>
