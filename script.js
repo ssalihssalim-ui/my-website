@@ -23,6 +23,5 @@ function showSection(section) {
   };
 
   content.innerHTML = sections[section];
-
-  closeMenu(); // Auto close after click
+  closeMenu();
 }
