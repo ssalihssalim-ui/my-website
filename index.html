@@ -3,33 +3,36 @@
 <head>
   <title>Minimarket System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Link CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Sidebar Menu -->
-  <div class="sidebar">
+  <!-- Toggle Button -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <!-- Overlay -->
+  <div class="overlay" onclick="closeMenu()"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
     <h2>Minimarket</h2>
-    <button onclick="showSection('home')">🏠 Home</button>
-    <button onclick="showSection('pos')">🛒 POS</button>
-    <button onclick="showSection('categories')">🗂 Categories</button>
-    <button onclick="showSection('products')">📦 Products</button>
-    <button onclick="showSection('clients')">👥 Clients</button>
-    <button onclick="showSection('suppliers')">🚚 Suppliers</button>
-    <button onclick="showSection('statistics')">📊 Statistics</button>
-    <button onclick="showSection('credits')">💳 Credits</button>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('pos')">POS</button>
+    <button onclick="showSection('categories')">Categories</button>
+    <button onclick="showSection('products')">Products</button>
+    <button onclick="showSection('clients')">Clients</button>
+    <button onclick="showSection('suppliers')">Suppliers</button>
+    <button onclick="showSection('statistics')">Statistics</button>
+    <button onclick="showSection('credits')">Credits</button>
   </div>
 
-  <!-- Main Content -->
+  <!-- Content -->
   <div class="content" id="contentArea">
-    <h1>Welcome to Minimarket System</h1>
-    <div class="card">Select a menu item to manage your system.</div>
+    <h1>Welcome</h1>
+    <div class="card">Select a menu item.</div>
   </div>
 
-  <!-- Link JavaScript -->
   <script src="script.js"></script>
 
 </body>
