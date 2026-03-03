@@ -1,13 +1,3 @@
-function toggleMenu() {
-  document.getElementById("sidebar").classList.toggle("active");
-  document.querySelector(".overlay").classList.toggle("active");
-}
-
-function closeMenu() {
-  document.getElementById("sidebar").classList.remove("active");
-  document.querySelector(".overlay").classList.remove("active");
-}
-
 function showSection(section) {
   const content = document.getElementById("contentArea");
 
@@ -23,5 +13,4 @@ function showSection(section) {
   };
 
   content.innerHTML = sections[section];
-  closeMenu();
 }
