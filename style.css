@@ -61,25 +61,30 @@ body {
 /* Responsive for small screens */
 @media (max-width: 768px) {
     .menu {
-        position: absolute;      /* positioned relative to navbar */
-        top: 100%;               /* appear below navbar */
-        right: 0;
-        background-color: #1e1e1e;
+        position: absolute;       /* absolute below navbar */
+        top: 100%;
+        left: 0;                  /* start from left edge */
+        width: 100%;              /* full width of page */
+        background-color: rgba(30, 30, 30, 0.7); /* transparent dark */
         flex-direction: column;
-        width: 200px;
-        display: none;           /* hidden by default */
-        border-left: 1px solid #333;
-        border-bottom: 1px solid #333;
-        z-index: 1000;           /* make sure menu is on top */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        display: none;            /* hidden by default */
+        border: none;
+        text-align: center;       /* center menu items */
+        padding: 1rem 0;          /* add vertical padding */
+        z-index: 1000;
+        backdrop-filter: blur(8px); /* nice modern blur effect */
+    }
+
+    .menu li {
+        margin: 0.5rem 0;         /* spacing between items */
     }
 
     .menu.show {
-        display: flex;           /* show when toggled */
+        display: flex;            /* show when toggled */
     }
 
     .menu-btn {
-        display: block;          /* show hamburger */
+        display: block;           /* show hamburger */
     }
 }
 
