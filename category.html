@@ -5,104 +5,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ajouter une Catégorie</title>
 <style>
-    body {
-        background-color: #121212;
-        color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
 
-    .container {
-        background-color: #1e1e1e;
-        padding: 2rem;
-        border-radius: 10px;
-        width: 350px;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
+.container {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+}
 
-    h1 {
-        margin-bottom: 1rem;
-    }
+h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
 
-    input[type="text"] {
-        width: 100%;
-        padding: 0.5rem;
-        margin-bottom: 1rem;
-        border-radius: 5px;
-        border: none;
-        font-size: 1rem;
-    }
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
 
-    button {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-        background-color: #00ffcc;
-        color: #000;
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 1rem;
-    }
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ffcc;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
 
-    button:hover {
-        background-color: #00d6a6;
-    }
+button:hover {
+    background-color: #00d6a6;
+}
 
-    .success {
-        margin-top: 1rem;
-        color: #00ffcc;
-        font-size: 0.9rem;
-    }
+.success {
+    margin-top: 1rem;
+    color: #00ffcc;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.category-list {
+    margin-top: 2rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.category-list li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #333;
+}
+
+/* Bouton X pour retourner à index */
+.close-page {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-page:hover {
+    transform: rotate(90deg);
+}
 </style>
 </head>
 <body>
+
 <div class="container">
+    <div class="close-page" id="closePage">✕</div>
     <h1>Ajouter une Catégorie</h1>
     <input type="text" id="categoryName" placeholder="Nom de la catégorie" />
     <button id="saveBtn">Enregistrer</button>
     <div class="success" id="successMsg"></div>
+
+    <ul class="category-list" id="categoryList"></ul>
 </div>
 
 <script>
-document.getElementById('saveBtn').addEventListener('click', () => {
-    const nameInput = document.getElementById('categoryName');
-    const categoryName = nameInput.value.trim();
-    const successMsg = document.getElementById('successMsg');
+const saveBtn = document.getElementById('saveBtn');
+const categoryNameInput = document.getElementById('categoryName');
+const successMsg = document.getElementById('successMsg');
+const categoryList = document.getElementById('categoryList');
+const closePage = document.getElementById('closePage');
 
-    if (!categoryName) {
+// Stockage local des catégories pour la session
+let categories = [];
+
+// Fonction pour afficher la liste des catégories
+function displayCategories() {
+    categoryList.innerHTML = '';
+    categories.forEach(cat => {
+        const li = document.createElement('li');
+        li.textContent = `${cat.id} / ${cat.nomCategory} / ${cat.dateCreatedAt}`;
+        categoryList.appendChild(li);
+    });
+}
+
+// Enregistrer une catégorie
+saveBtn.addEventListener('click', () => {
+    const name = categoryNameInput.value.trim();
+    if (!name) {
         successMsg.textContent = "Veuillez entrer un nom de catégorie.";
         return;
     }
 
-    // Créer l'objet catégorie
     const category = {
-        id: Date.now(), // identifiant unique
-        nomCategory: categoryName,
+        id: Date.now(),
+        nomCategory: name,
         dateCreatedAt: new Date().toISOString()
     };
 
-    // Convertir en JSON
+    categories.push(category);
+
+    // Afficher liste
+    displayCategories();
+
+    // Créer fichier JSON
     const jsonData = JSON.stringify(category, null, 4);
-
-    // Créer un fichier blob
     const blob = new Blob([jsonData], {type: "application/json"});
-
-    // Créer un lien de téléchargement
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = `category_${category.id}.json`;
     link.click();
 
-    // Afficher message
-    successMsg.textContent = `Catégorie "${categoryName}" enregistrée avec succès !`;
+    successMsg.textContent = `Catégorie "${name}" ajoutée !`;
+    categoryNameInput.value = '';
+});
 
-    // Reset input
-    nameInput.value = '';
+// Bouton X pour revenir à index.html
+closePage.addEventListener('click', () => {
+    window.location.href = "index.html";
 });
 </script>
+
 </body>
 </html>
