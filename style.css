@@ -18,11 +18,11 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;ü
+    align-items: center;
     padding: 1rem 2rem;
     background-color: #1e1e1e;
     border-bottom: 1px solid #333;
-    position: relative; /* required for absolute menu positioning */
+    position: relative;
 }
 
 .navbar .logo {
@@ -58,40 +58,50 @@ body {
     background-color: #333;
 }
 
-/* Responsive menu (mobile) */
-@media (max-width: 800px) {
+/* Responsive mobile menu */
+@media (max-width: 768px) {
     .menu {
-        position: fixed;          /* full screen overlay */
+        position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;             /* full width */
-        height: 100vh;            /* full height */
-        background-color: rgba(0, 0, 0, 0.85); /* more transparent black */
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.85);
         flex-direction: column;
-        justify-content: center;  /* vertical center */
-        align-items: center;      /* horizontal center */
-        gap: 2rem;                /* space between menu items */
-        display: none;            /* hidden by default */
-        z-index: 10000;           /* on top of everything */
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        display: none;
+        z-index: 10000;
+        text-align: center;
     }
 
     .menu li {
         width: 100%;
-        text-align: center;       /* center text */
     }
 
     .menu li a {
-        font-size: 1.5rem;        /* larger text for mobile */
+        font-size: 1.5rem;
         display: block;
         width: 100%;
     }
 
+    /* Close button */
+    .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #fff;
+    }
+
     .menu.show {
-        display: flex;            /* show when toggled */
+        display: flex;
     }
 
     .menu-btn {
-        display: block;           /* show hamburger */
+        display: block;
     }
 }
 
