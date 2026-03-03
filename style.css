@@ -1,26 +1,33 @@
 body {
   margin: 0;
   font-family: Arial;
+  transition: margin-left 0.3s;
 }
 
 /* Bouton menu */
 .menu-btn {
   font-size: 24px;
-  padding: 10px;
+  padding: 10px 15px;
   cursor: pointer;
+  border: none;
+  background: #2c3e50;
+  color: white;
 }
 
 /* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -20%; /* caché au début */
+  left: -20%;
   width: 20%;
+  max-width: 300px;
   height: 100%;
   background: #333;
   color: white;
   padding: 20px;
+  box-sizing: border-box;
   transition: left 0.3s;
+  z-index: 1000;
 }
 
 .sidebar button {
@@ -41,17 +48,40 @@ body {
 /* Bouton fermer */
 .close-btn {
   background: red;
-  color: white;
   float: right;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 900;
 }
 
 /* Contenu */
 .content {
-  margin-left: 10px;
   padding: 20px;
+  transition: margin-left 0.3s;
 }
 
-/* Sidebar visible */
+/* Menu visible */
 .sidebar.active {
   left: 0;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70%;
+    left: -70%;
+  }
 }
