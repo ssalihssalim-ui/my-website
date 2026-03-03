@@ -1,13 +1,6 @@
-function toggleMenu() {
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
+const menuBtn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
 
-  sidebar.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-function showSection(section) {
-  const content = document.getElementById("contentArea");
-  content.innerHTML = "<h1>" + section.toUpperCase() + "</h1><p>Contenu de " + section + ".</p>";
-  toggleMenu();
-}
+menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('show');
+});
