@@ -38,7 +38,7 @@ body {
     user-select: none;
 }
 
-/* Menu */
+/* Menu desktop */
 .menu {
     display: flex;
     gap: 1.5rem;
@@ -58,25 +58,32 @@ body {
     background-color: #333;
 }
 
-/* Responsive for small screens */
+/* Responsive menu (mobile) */
 @media (max-width: 768px) {
     .menu {
-        position: absolute;       /* absolute below navbar */
-        top: 100%;
-        left: 0;                  /* start from left edge */
-        width: 100%;              /* full width of page */
-        background-color: rgba(30, 30, 30, 0.7); /* transparent dark */
+        position: fixed;          /* full screen overlay */
+        top: 0;
+        left: 0;
+        width: 100vw;             /* full width */
+        height: 100vh;            /* full height */
+        background-color: rgba(0, 0, 0, 0.85); /* more transparent black */
         flex-direction: column;
+        justify-content: center;  /* vertical center */
+        align-items: center;      /* horizontal center */
+        gap: 2rem;                /* space between menu items */
         display: none;            /* hidden by default */
-        border: none;
-        text-align: center;       /* center menu items */
-        padding: 1rem 0;          /* add vertical padding */
-        z-index: 1000;
-        backdrop-filter: blur(8px); /* nice modern blur effect */
+        z-index: 10000;           /* on top of everything */
     }
 
     .menu li {
-        margin: 0.5rem 0;         /* spacing between items */
+        width: 100%;
+        text-align: center;       /* center text */
+    }
+
+    .menu li a {
+        font-size: 1.5rem;        /* larger text for mobile */
+        display: block;
+        width: 100%;
     }
 
     .menu.show {
@@ -104,7 +111,7 @@ body {
     color: #ccc;
 }
 
-/* Smooth transitions for hover & menu toggle */
+/* Smooth transitions */
 .menu li a, .navbar .logo, .menu-btn {
     transition: all 0.3s ease;
 }
