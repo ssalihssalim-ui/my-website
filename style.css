@@ -59,7 +59,7 @@ body {
 }
 
 /* Responsive menu (mobile) */
-@media (max-width: 768px) {
+@media (max-width: 998px) {
     .menu {
         position: fixed;          /* full screen overlay */
         top: 0;
