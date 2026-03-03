@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Minimarket</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniMarket POS</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Bouton Menu -->
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+<nav class="navbar">
+    <div class="logo">MiniMarket</div>
+    <div class="menu-btn" id="menu-btn">☰</div>
+    <ul class="menu" id="menu">
+        <li><a href="#">POS</a></li>
+        <li><a href="#">Category</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Clients</a></li>
+        <li><a href="#">Suppliers</a></li>
+        <li><a href="#">Credits</a></li>
+        <li><a href="#">Charge</a></li>
+        <li><a href="#">Statistics</a></li>
+    </ul>
+</nav>
 
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <button class="close-btn" onclick="toggleMenu()">✖</button>
-    <h2>Minimarket</h2>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('pos')">POS</button>
-    <button onclick="showSection('categories')">Categories</button>
-    <button onclick="showSection('products')">Products</button>
-  </div>
+<div class="content">
+    <h1>Welcome to MiniMarket POS</h1>
+    <p>Select a menu option to manage your store.</p>
+</div>
 
-  <!-- Overlay -->
-  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-  <!-- Contenu -->
-  <div class="content" id="contentArea">
-    <h1>Bienvenue</h1>
-    <p>Sélectionne un menu.</p>
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
