@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuOverlay.classList.remove('show');
     });
 
-    // Optional: close menu when clicking outside links
+    // Close menu when clicking outside menu items
     menuOverlay.addEventListener('click', (e) => {
         if (e.target === menuOverlay) {
             menuOverlay.classList.remove('show');
