@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajouter une Catégorie</title>
+<style>
+    body {
+        background-color: #121212;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
+    .container {
+        background-color: #1e1e1e;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        border: none;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #00ffcc;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    button:hover {
+        background-color: #00d6a6;
+    }
+
+    .success {
+        margin-top: 1rem;
+        color: #00ffcc;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Ajouter une Catégorie</h1>
+    <input type="text" id="categoryName" placeholder="Nom de la catégorie" />
+    <button id="saveBtn">Enregistrer</button>
+    <div class="success" id="successMsg"></div>
+</div>
+
+<script>
+document.getElementById('saveBtn').addEventListener('click', () => {
+    const nameInput = document.getElementById('categoryName');
+    const categoryName = nameInput.value.trim();
+    const successMsg = document.getElementById('successMsg');
+
+    if (!categoryName) {
+        successMsg.textContent = "Veuillez entrer un nom de catégorie.";
+        return;
+    }
+
+    // Créer l'objet catégorie
+    const category = {
+        id: Date.now(), // identifiant unique
+        nomCategory: categoryName,
+        dateCreatedAt: new Date().toISOString()
+    };
+
+    // Convertir en JSON
+    const jsonData = JSON.stringify(category, null, 4);
+
+    // Créer un fichier blob
+    const blob = new Blob([jsonData], {type: "application/json"});
+
+    // Créer un lien de téléchargement
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `category_${category.id}.json`;
+    link.click();
+
+    // Afficher message
+    successMsg.textContent = `Catégorie "${categoryName}" enregistrée avec succès !`;
+
+    // Reset input
+    nameInput.value = '';
+});
+</script>
+</body>
+</html>
