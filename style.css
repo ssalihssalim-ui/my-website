@@ -1,119 +1,154 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
 }
 
-body {
-    background-color: #121212;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+body{
+
+background:#111;
+display:flex;
+justify-content:center;
+padding:30px;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #1e1e1e;
-    border-bottom: 1px solid #333;
-    position: relative;
-    z-index: 10;
+.menu{
+
+width:1000px;
+min-height:1500px;
+
+background:white;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+
 }
 
-.navbar .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
+.header{
+
+background:linear-gradient(90deg,#d40000,#ff2222);
+
+padding:35px;
+
+color:white;
+
+text-align:center;
+
 }
 
-.menu-btn {
-    font-size: 1.5rem;
-    cursor: pointer;
+.header h1{
+
+font-size:60px;
+letter-spacing:3px;
+
 }
 
-/* Fullscreen Menu */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.85);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
+.header p{
+
+font-size:24px;
+
+margin-top:10px;
+
 }
 
-.menu-overlay.show {
-    opacity: 1;
-    pointer-events: all;
+.grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:20px;
+
+padding:20px;
+
 }
 
-.menu-overlay .menu-items {
-    list-style: none;
-    text-align: center;
+.card{
+
+border-radius:18px;
+
+padding:20px;
+
+color:white;
+
 }
 
-.menu-overlay .menu-items li {
-    margin: 1rem 0;
+.red{
+
+background:#e30613;
+
 }
 
-.menu-overlay .menu-items li a {
-    color: #fff;
-    font-size: 2rem;
-    text-decoration: none;
-    transition: color 0.2s;
+.blue{
+
+background:#0077ff;
+
 }
 
-.menu-overlay .menu-items li a:hover {
-    color: #00ffcc;
+.green{
+
+background:#16a34a;
+
 }
 
-/* Close button */
-.close-btn {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    font-size: 2.5rem;
-    cursor: pointer;
-    color: #fff;
-    transition: transform 0.3s;
+.orange{
+
+background:#ff7b00;
+
 }
 
-.close-btn:hover {
-    transform: rotate(90deg);
+.purple{
+
+background:#7b2cbf;
+
 }
 
-/* Main content */
-.content {
-    flex: 1;
-    padding: 2rem;
+.dark{
+
+background:#222;
+
 }
 
-.content h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.card h2{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+border-bottom:2px solid rgba(255,255,255,.3);
+
+padding-bottom:10px;
+
 }
 
-.content p {
-    font-size: 1rem;
-    color: #ccc;
+.item{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:12px 0;
+
+font-size:24px;
+
+border-bottom:1px dashed rgba(255,255,255,.3);
+
 }
 
-/* Hide hamburger on desktop if needed */
-@media (min-width: 769px) {
-    .menu-btn {
-        display: none;
-    }
+.item span:last-child{
+
+background:#ffd500;
+
+color:#111;
+
+padding:4px 15px;
+
+border-radius:20px;
+
+font-weight:bold;
+
 }
