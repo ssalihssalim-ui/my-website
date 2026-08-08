@@ -1,32 +1,411 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Produits</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Menu Produits</title>
+
+<style>
+
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #d8d8d8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ================================
+   MENU
+   1000 x 1500 pixels
+================================ */
+
+.menu {
+    width: 1000px;
+    height: 1500px;
+
+    margin: 30px auto;
+
+    padding: 60px 70px;
+
+    background: white;
+
+    color: #111;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+
+    overflow: hidden;
+}
+
+
+/* ================================
+   TITRE
+================================ */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.header h1 {
+    font-size: 80px;
+
+    font-weight: 900;
+
+    letter-spacing: 10px;
+}
+
+.header-line {
+    width: 200px;
+    height: 7px;
+
+    background: #e63946;
+
+    border-radius: 20px;
+
+    margin: 20px auto;
+}
+
+
+/* ================================
+   CATEGORIE
+================================ */
+
+.category {
+    margin-bottom: 35px;
+}
+
+.category-title {
+    font-size: 36px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    color: #e63946;
+
+    border-left: 8px solid #111;
+
+    padding-left: 15px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ================================
+   PRODUIT
+================================ */
+
+.product {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 8px 10px;
+
+    min-height: 45px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.product-name {
+    font-size: 25px;
+
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 26px;
+
+    font-weight: 900;
+
+    margin-left: 30px;
+
+    white-space: nowrap;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+    margin-top: 40px;
+
+    padding-top: 15px;
+
+    border-top: 2px solid #111;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+/* ================================
+   PETIT ECRAN
+================================ */
+
+@media screen and (max-width: 1050px) {
+
+    .menu {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}
+
+
+/* ================================
+   IMPRESSION
+================================ */
+
+@media print {
+
+    @page {
+        size: 100cm 150cm;
+        margin: 0;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+
+        background: white;
+    }
+
+    .menu {
+        width: 100cm;
+        height: 150cm;
+
+        margin: 0;
+
+        box-shadow: none;
+
+        padding: 6cm 7cm;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <div class="menu">
 
-        <div class="header">
-            <h1>MENU</h1>
-            <div class="red-line"></div>
-        </div>
+<!-- =================================
+     MENU
+================================= -->
 
-        <div id="menu-content"></div>
+<div class="menu">
 
-        <div class="footer">
-            PRIX EN DIRHAMS
-        </div>
+
+    <!-- TITRE -->
+
+    <div class="header">
+
+        <h1>MENU</h1>
+
+        <div class="header-line"></div>
 
     </div>
 
-    <script src="script.js"></script>
+
+    <!-- PRODUITS -->
+
+    <div id="products"></div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        PRIX EN DIRHAMS
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================
+   TES PRODUITS
+
+   Tu peux modifier cette partie
+===================================== */
+
+const products = [
+
+    {
+        category: "Boissons",
+        name: "Coca Cola",
+        price: "6 DH"
+    },
+
+    {
+        category: "Boissons",
+        name: "Pepsi",
+        price: "6 DH"
+    },
+
+    {
+        category: "Boissons",
+        name: "Eau 1,5 L",
+        price: "5 DH"
+    },
+
+    {
+        category: "Boissons",
+        name: "Jus d'orange",
+        price: "8 DH"
+    },
+
+
+    {
+        category: "Snacks",
+        name: "Chips",
+        price: "8 DH"
+    },
+
+    {
+        category: "Snacks",
+        name: "Biscuits",
+        price: "7 DH"
+    },
+
+    {
+        category: "Snacks",
+        name: "Chocolat",
+        price: "10 DH"
+    },
+
+
+    {
+        category: "Produits laitiers",
+        name: "Yaourt",
+        price: "3 DH"
+    },
+
+    {
+        category: "Produits laitiers",
+        name: "Lait 1 L",
+        price: "9 DH"
+    }
+
+];
+
+
+/* =====================================
+   CREATION DES CATEGORIES
+===================================== */
+
+const container = document.getElementById("products");
+
+const categories = {};
+
+
+/* CLASSER LES PRODUITS */
+
+products.forEach(function(product) {
+
+    if (!categories[product.category]) {
+
+        categories[product.category] = [];
+
+    }
+
+    categories[product.category].push(product);
+
+});
+
+
+/* =====================================
+   AFFICHER LE MENU
+===================================== */
+
+for (const categoryName in categories) {
+
+
+    // CREER CATEGORIE
+
+    const category = document.createElement("div");
+
+    category.className = "category";
+
+
+    // TITRE CATEGORIE
+
+    const title = document.createElement("div");
+
+    title.className = "category-title";
+
+    title.textContent = categoryName;
+
+    category.appendChild(title);
+
+
+    // PRODUITS
+
+    categories[categoryName].forEach(function(product) {
+
+
+        const row = document.createElement("div");
+
+        row.className = "product";
+
+
+        const name = document.createElement("span");
+
+        name.className = "product-name";
+
+        name.textContent = product.name;
+
+
+        const price = document.createElement("span");
+
+        price.className = "product-price";
+
+        price.textContent = product.price;
+
+
+        row.appendChild(name);
+
+        row.appendChild(price);
+
+
+        category.appendChild(row);
+
+    });
+
+
+    container.appendChild(category);
+
+}
+
+</script>
 
 </body>
 </html>
-```
