@@ -7,81 +7,144 @@ const JSON_FILE = "produits_2026-08-08.json";
 
 
 // ==========================================
-// CATÉGORIES À AFFICHER
+// CATÉGORIES DU MENU
+// ==========================================
+//
+// SEULEMENT ces catégories seront affichées
+//
 // ==========================================
 
 const menuCategories = [
+
     "BOISSONS GAZEUSE",
+
     "LAITIERS",
+
     "BISCUITS",
+
     "ENERGY",
+
     "CHIPS-SALE",
+
     "MENAGE",
+
     "ALIMENTATION",
+
     "BEAUTY",
+
     "CONSERVE"
+
 ];
 
 
 // ==========================================
-// CHARGER LE JSON
+// CHARGER LE FICHIER JSON
 // ==========================================
 
 async function loadProducts() {
 
+    const container =
+        document.getElementById("products");
+
+
     try {
 
-        const response = await fetch(JSON_FILE);
+
+        console.log(
+            "Chargement du fichier :",
+            JSON_FILE
+        );
 
 
-        // Vérifier que le fichier existe
+        // --------------------------------------
+        // Charger le fichier
+        // --------------------------------------
+
+        const response =
+            await fetch(JSON_FILE);
+
+
+        // --------------------------------------
+        // Vérifier la réponse
+        // --------------------------------------
+
         if (!response.ok) {
 
             throw new Error(
-                "Impossible de charger le fichier JSON : " +
+                "Erreur HTTP " +
                 response.status
             );
 
         }
 
 
-        // Transformer la réponse en JSON
-        const data = await response.json();
+        // --------------------------------------
+        // Convertir en JSON
+        // --------------------------------------
+
+        const data =
+            await response.json();
 
 
+        // --------------------------------------
         // Vérifier la structure
-        if (!data.produits || !Array.isArray(data.produits)) {
+        // --------------------------------------
+
+        if (
+            !data ||
+            !Array.isArray(data.produits)
+        ) {
 
             throw new Error(
-                "Le fichier JSON ne contient pas de tableau 'produits'."
+                "Le tableau 'produits' est introuvable dans le JSON."
             );
 
         }
 
 
         console.log(
-            "Produits chargés :",
+            "Nombre total de produits :",
             data.produits.length
         );
 
 
+        // --------------------------------------
         // Générer le menu
+        // --------------------------------------
+
         displayMenu(data.produits);
+
 
     }
 
     catch (error) {
 
-        console.error(error);
 
-        const container = document.getElementById("products");
+        console.error(
+            "Erreur :",
+            error
+        );
+
 
         container.innerHTML = `
+
             <div class="menu-error">
-                Impossible de charger les produits.
-                <br>
-                Vérifie le fichier JSON.
+
+                Impossible de charger le menu.
+
+                <br><br>
+
+                Vérifie que le fichier
+
+                <strong>
+                    ${JSON_FILE}
+                </strong>
+
+                est dans le même dossier que
+                index.html.
+
             </div>
+
         `;
 
     }
@@ -93,7 +156,8 @@ async function loadProducts() {
 // FILTRER LES PRODUITS
 // ==========================================
 
-function getMenuProducts(products) {
+function filterMenuProducts(products) {
+
 
     const result = [];
 
@@ -101,7 +165,10 @@ function getMenuProducts(products) {
     products.forEach(function(product) {
 
 
+        // --------------------------------------
         // Vérifier les catégories
+        // --------------------------------------
+
         if (
             !product.categories ||
             !Array.isArray(product.categories)
@@ -112,18 +179,26 @@ function getMenuProducts(products) {
         }
 
 
+        // --------------------------------------
         // Chercher une catégorie autorisée
-        const category = product.categories.find(
-            function(categoryName) {
+        // --------------------------------------
 
-                return menuCategories.includes(categoryName);
+        const category =
+            product.categories.find(
+                function(categoryName) {
 
-            }
-        );
+                    return menuCategories.includes(
+                        categoryName
+                    );
+
+                }
+            );
 
 
-        // Produit ne correspondant à aucune
-        // catégorie du menu
+        // --------------------------------------
+        // Catégorie non autorisée
+        // --------------------------------------
+
         if (!category) {
 
             return;
@@ -131,15 +206,25 @@ function getMenuProducts(products) {
         }
 
 
+        // --------------------------------------
         // Vérifier le nom
-        if (!product.nom) {
+        // --------------------------------------
+
+        if (
+            product.nom === undefined ||
+            product.nom === null ||
+            product.nom === ""
+        ) {
 
             return;
 
         }
 
 
+        // --------------------------------------
         // Vérifier le prix
+        // --------------------------------------
+
         if (
             product.prixVente === undefined ||
             product.prixVente === null
@@ -150,11 +235,15 @@ function getMenuProducts(products) {
         }
 
 
+        // --------------------------------------
+        // Ajouter au menu
+        // --------------------------------------
+
         result.push({
 
             category: category,
 
-            name: product.nom,
+            name: String(product.nom),
 
             price: product.prixVente
 
@@ -169,15 +258,17 @@ function getMenuProducts(products) {
 
 
 // ==========================================
-// CLASSER LES PRODUITS
+// CLASSER LES PRODUITS PAR CATÉGORIE
 // ==========================================
 
 function groupProducts(products) {
+
 
     const groups = {};
 
 
     products.forEach(function(product) {
+
 
         if (!groups[product.category]) {
 
@@ -186,7 +277,9 @@ function groupProducts(products) {
         }
 
 
-        groups[product.category].push(product);
+        groups[product.category].push(
+            product
+        );
 
     });
 
@@ -202,64 +295,88 @@ function groupProducts(products) {
 
 function formatPrice(price) {
 
-    const number = Number(price);
+
+    const number =
+        Number(price);
 
 
+    // Si ce n'est pas un nombre
     if (Number.isNaN(number)) {
 
-        return price + " DH";
+        return String(price) + " DH";
 
     }
 
 
-    // Exemple :
-    // 6     → 6 DH
-    // 5.5   → 5,5 DH
-    // 10.00 → 10 DH
-
-    return number
-        .toLocaleString("fr-FR", {
+    return number.toLocaleString(
+        "fr-FR",
+        {
             maximumFractionDigits: 2
-        })
-        + " DH";
+        }
+    ) + " DH";
 
 }
 
 
 // ==========================================
-// CRÉER UN PRODUIT
+// CRÉER UN PRODUIT HTML
 // ==========================================
 
 function createProductElement(product) {
 
+
     const productElement =
         document.createElement("div");
 
-    productElement.className = "product";
+
+    productElement.className =
+        "product";
 
 
+    // --------------------------------------
     // NOM
+    // --------------------------------------
+
     const productName =
         document.createElement("span");
 
-    productName.className = "product-name";
 
-    productName.textContent = product.name;
+    productName.className =
+        "product-name";
 
 
+    productName.textContent =
+        product.name;
+
+
+    // --------------------------------------
     // PRIX
+    // --------------------------------------
+
     const productPrice =
         document.createElement("span");
 
-    productPrice.className = "product-price";
+
+    productPrice.className =
+        "product-price";
+
 
     productPrice.textContent =
         formatPrice(product.price);
 
 
-    productElement.appendChild(productName);
+    // --------------------------------------
+    // Ajouter les éléments
+    // --------------------------------------
 
-    productElement.appendChild(productPrice);
+    productElement.appendChild(
+        productName
+    );
+
+
+    productElement.appendChild(
+        productPrice
+    );
 
 
     return productElement;
@@ -268,7 +385,7 @@ function createProductElement(product) {
 
 
 // ==========================================
-// CRÉER UNE CATÉGORIE
+// CRÉER UNE CATÉGORIE HTML
 // ==========================================
 
 function createCategoryElement(
@@ -276,31 +393,52 @@ function createCategoryElement(
     products
 ) {
 
+
     const category =
         document.createElement("div");
 
-    category.className = "category";
+
+    category.className =
+        "category";
 
 
+    // --------------------------------------
     // TITRE
+    // --------------------------------------
+
     const title =
         document.createElement("h2");
 
-    title.className = "category-title";
 
-    title.textContent = categoryName;
-
-
-    category.appendChild(title);
+    title.className =
+        "category-title";
 
 
+    title.textContent =
+        categoryName;
+
+
+    category.appendChild(
+        title
+    );
+
+
+    // --------------------------------------
     // PRODUITS
+    // --------------------------------------
+
     products.forEach(function(product) {
 
-        const element =
-            createProductElement(product);
 
-        category.appendChild(element);
+        const productElement =
+            createProductElement(
+                product
+            );
+
+
+        category.appendChild(
+            productElement
+        );
 
     });
 
@@ -316,6 +454,7 @@ function createCategoryElement(
 
 function displayMenu(products) {
 
+
     const container =
         document.getElementById("products");
 
@@ -323,7 +462,7 @@ function displayMenu(products) {
     if (!container) {
 
         console.error(
-            "L'élément #products est introuvable."
+            "L'élément #products n'existe pas."
         );
 
         return;
@@ -331,36 +470,48 @@ function displayMenu(products) {
     }
 
 
+    // --------------------------------------
     // Nettoyer
+    // --------------------------------------
+
     container.innerHTML = "";
 
 
+    // --------------------------------------
     // Filtrer
+    // --------------------------------------
+
     const filteredProducts =
-        getMenuProducts(products);
+        filterMenuProducts(
+            products
+        );
 
 
     console.log(
-        "Produits du menu :",
+        "Produits sélectionnés :",
         filteredProducts.length
     );
 
 
-    // Classer
+    // --------------------------------------
+    // Grouper
+    // --------------------------------------
+
     const groups =
-        groupProducts(filteredProducts);
+        groupProducts(
+            filteredProducts
+        );
 
 
-    // Afficher les catégories
-    // dans l'ordre défini plus haut
+    // --------------------------------------
+    // Afficher dans l'ordre voulu
+    // --------------------------------------
 
     menuCategories.forEach(
         function(categoryName) {
 
 
-            // Si aucun produit dans cette catégorie
-            // on ne l'affiche pas
-
+            // Pas de produit dans cette catégorie
             if (!groups[categoryName]) {
 
                 return;
@@ -383,13 +534,23 @@ function displayMenu(products) {
     );
 
 
-    // Aucun produit
-    if (filteredProducts.length === 0) {
+    // --------------------------------------
+    // Aucun résultat
+    // --------------------------------------
+
+    if (
+        filteredProducts.length === 0
+    ) {
 
         container.innerHTML = `
+
             <div class="menu-error">
-                Aucun produit trouvé.
+
+                Aucun produit trouvé
+                dans les catégories sélectionnées.
+
             </div>
+
         `;
 
     }
@@ -398,8 +559,15 @@ function displayMenu(products) {
 
 
 // ==========================================
-// DÉMARRER
+// DÉMARRAGE
 // ==========================================
 
-loadProducts();
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadProducts();
+
+    }
+);
 ```
