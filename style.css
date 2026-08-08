@@ -1,16 +1,190 @@
-document.querySelectorAll(".item").forEach(item=>{
+/* =========================
+   CONFIGURATION GÉNÉRALE
+========================= */
 
-item.addEventListener("mouseenter",()=>{
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-item.style.transform="scale(1.03)";
-item.style.transition=".3s";
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e9e9e9;
+}
 
-});
+/* =========================
+   MENU : 1m x 1.5m
+========================= */
 
-item.addEventListener("mouseleave",()=>{
+.menu {
+    width: 100cm;
+    height: 150cm;
+    margin: 20px auto;
+    padding: 5cm 6cm;
 
-item.style.transform="scale(1)";
+    background: #ffffff;
+    color: #171717;
 
-});
+    position: relative;
+    overflow: hidden;
 
-});
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 2.5cm;
+}
+
+.menu-header h1 {
+    font-size: 5cm;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0.15cm;
+    color: #111111;
+}
+
+.header-line {
+    width: 18cm;
+    height: 0.35cm;
+    margin: 0.8cm auto 0;
+    background: #e63946;
+    border-radius: 50px;
+}
+
+/* =========================
+   CATÉGORIE
+========================= */
+
+.category {
+    margin-bottom: 2.2cm;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5cm;
+
+    margin-bottom: 0.7cm;
+
+    font-size: 2.1cm;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    color: #e63946;
+}
+
+.category-title::before {
+    content: "";
+    width: 0.35cm;
+    height: 1.8cm;
+    background: #111111;
+    border-radius: 10px;
+}
+
+/* =========================
+   PRODUITS
+========================= */
+
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3cm;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    min-height: 1.9cm;
+
+    padding: 0.2cm 0.5cm;
+
+    border-bottom: 0.04cm solid #d9d9d9;
+}
+
+.product-name {
+    font-size: 1.15cm;
+    font-weight: 600;
+    color: #222222;
+}
+
+.product-price {
+    font-size: 1.2cm;
+    font-weight: 900;
+    color: #111111;
+    white-space: nowrap;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.menu-footer {
+    position: absolute;
+    bottom: 2cm;
+    left: 6cm;
+    right: 6cm;
+
+    text-align: center;
+
+    padding-top: 0.5cm;
+    border-top: 0.08cm solid #111111;
+
+    font-size: 0.7cm;
+    font-weight: 700;
+    letter-spacing: 0.1cm;
+    color: #777777;
+}
+
+/* =========================
+   IMPRESSION
+========================= */
+
+@media print {
+
+    @page {
+        size: 100cm 150cm;
+        margin: 0;
+    }
+
+    html,
+    body {
+        width: 100cm;
+        height: 150cm;
+        background: white;
+    }
+
+    .menu {
+        width: 100cm;
+        height: 150cm;
+        margin: 0;
+        box-shadow: none;
+    }
+}
+
+/* =========================
+   ÉCRAN
+========================= */
+
+@media screen and (max-width: 1100px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .menu {
+        transform-origin: top center;
+        transform: scale(0.7);
+        margin-bottom: -45%;
+    }
+}
