@@ -1,14 +1,32 @@
 ```css
+/* =====================================
+   RESET
+===================================== */
+
 * {
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
 }
 
+
+/* =====================================
+   BODY
+===================================== */
+
 body {
+
     background: #dddddd;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
 }
+
 
 /* =====================================
    MENU
@@ -17,37 +35,56 @@ body {
 ===================================== */
 
 .menu {
+
     width: 1000px;
+
     min-height: 1500px;
 
     margin: 30px auto;
+
     padding: 70px 80px;
 
     background: #ffffff;
+
     color: #111111;
 
     position: relative;
 
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.20);
+    box-shadow:
+        0 10px 40px
+        rgba(0, 0, 0, 0.20);
+
 }
+
 
 /* =====================================
    HEADER
 ===================================== */
 
 .header {
+
     text-align: center;
+
     margin-bottom: 55px;
+
 }
+
 
 .header h1 {
+
     font-size: 75px;
+
     font-weight: 900;
+
     letter-spacing: 8px;
+
 }
 
+
 .red-line {
+
     width: 220px;
+
     height: 8px;
 
     background: #e63946;
@@ -55,21 +92,29 @@ body {
     border-radius: 20px;
 
     margin: 20px auto 0;
+
 }
+
 
 /* =====================================
    CATEGORIE
 ===================================== */
 
 .category {
+
     margin-bottom: 45px;
+
 }
 
+
 .category-title {
+
     display: flex;
+
     align-items: center;
 
     font-size: 36px;
+
     font-weight: 900;
 
     text-transform: uppercase;
@@ -77,12 +122,16 @@ body {
     color: #e63946;
 
     margin-bottom: 15px;
+
 }
 
+
 .category-title::before {
+
     content: "";
 
     width: 8px;
+
     height: 38px;
 
     background: #111111;
@@ -90,13 +139,16 @@ body {
     border-radius: 10px;
 
     margin-right: 15px;
+
 }
+
 
 /* =====================================
    PRODUITS
 ===================================== */
 
 .product {
+
     display: flex;
 
     align-items: center;
@@ -107,40 +159,94 @@ body {
 
     padding: 7px 10px;
 
-    border-bottom: 1px solid #dddddd;
+    border-bottom:
+        1px solid #dddddd;
+
 }
 
+
 .product-name {
+
     font-size: 25px;
+
     font-weight: 600;
 
     color: #222222;
+
+    padding-right: 20px;
+
 }
 
+
 .product-price {
+
     font-size: 26px;
+
     font-weight: 900;
 
     color: #111111;
 
     white-space: nowrap;
+
 }
+
+
+/* =====================================
+   CHARGEMENT
+===================================== */
+
+.loading {
+
+    text-align: center;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #777777;
+
+    padding: 50px 20px;
+
+}
+
+
+/* =====================================
+   ERREUR
+===================================== */
+
+.menu-error {
+
+    text-align: center;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #e63946;
+
+    padding: 50px 20px;
+
+}
+
 
 /* =====================================
    FOOTER
 ===================================== */
 
 .footer {
+
     position: absolute;
 
     bottom: 35px;
 
     left: 80px;
+
     right: 80px;
 
     text-align: center;
 
-    border-top: 2px solid #111111;
+    border-top:
+        2px solid #111111;
 
     padding-top: 15px;
 
@@ -151,7 +257,9 @@ body {
     color: #777777;
 
     letter-spacing: 3px;
+
 }
+
 
 /* =====================================
    PETITS ÉCRANS
@@ -160,13 +268,20 @@ body {
 @media screen and (max-width: 1050px) {
 
     body {
+
         overflow-x: auto;
+
     }
 
+
     .menu {
+
         margin: 10px;
+
     }
+
 }
+
 
 /* =====================================
    IMPRESSION
@@ -174,64 +289,131 @@ body {
 
 @media print {
 
+
     @page {
+
         size: 100cm 150cm;
+
         margin: 0;
+
     }
+
 
     html,
     body {
+
         width: 100cm;
+
         height: 150cm;
 
         margin: 0;
+
         padding: 0;
 
         background: white;
+
     }
 
+
     .menu {
+
         width: 100cm;
+
         height: 150cm;
 
         min-height: 150cm;
 
         margin: 0;
+
         padding: 7cm 8cm;
 
         box-shadow: none;
+
     }
+
+
+    .header {
+
+        margin-bottom: 5.5cm;
+
+    }
+
 
     .header h1 {
+
         font-size: 7.5cm;
+
     }
+
 
     .red-line {
+
         width: 22cm;
+
         height: 0.8cm;
+
     }
+
+
+    .category {
+
+        margin-bottom: 4.5cm;
+
+    }
+
 
     .category-title {
+
         font-size: 3.6cm;
+
+        margin-bottom: 1.5cm;
+
     }
+
 
     .category-title::before {
+
         width: 0.8cm;
+
         height: 3.8cm;
+
+        margin-right: 1.5cm;
+
     }
+
+
+    .product {
+
+        min-height: 5cm;
+
+        padding: 0.7cm 0.5cm;
+
+    }
+
 
     .product-name {
+
         font-size: 2.5cm;
+
     }
+
 
     .product-price {
+
         font-size: 2.6cm;
+
     }
 
+
     .footer {
+
         left: 8cm;
+
         right: 8cm;
+
         bottom: 3.5cm;
+
     }
+
 }
 ```
