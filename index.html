@@ -1,81 +1,102 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>MENU</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Produits</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<header class="header">
+  <div class="header-content">
 
-    <!-- =====================================
-         MENU
-    ====================================== -->
-
-    <div class="menu">
-
-
-        <!-- =================================
-             HEADER
-        ================================== -->
-
-        <div class="header">
-
-            <h1>MENU</h1>
-
-            <div class="red-line"></div>
-
-        </div>
-
-
-        <!-- =================================
-             PRODUITS
-        ================================== -->
-
-        <div id="products">
-
-            <div class="loading">
-                Chargement du menu...
-            </div>
-
-        </div>
-
-
-        <!-- =================================
-             FOOTER
-        ================================== -->
-
-        <div class="footer">
-
-            PRIX EN DIRHAMS
-
-        </div>
-
-
+    <div class="logo">
+      <div class="logo-icon">🛒</div>
+      <div>
+        <h1>MON MENU</h1>
+        <p>Produits & prix</p>
+      </div>
     </div>
 
+    <div class="search-box">
+      <span>🔎</span>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Rechercher un produit..."
+      >
+      <button id="clearSearch">×</button>
+    </div>
 
-    <!-- =====================================
-         JAVASCRIPT
-    ====================================== -->
+    <button class="cart-button" id="openCart">
+      🛒 Panier
+      <span id="cartCount">0</span>
+    </button>
 
-    <script src="script.js"></script>
+  </div>
+</header>
 
+
+<main class="container">
+
+  <div id="categories" class="categories"></div>
+
+  <div class="menu-header">
+    <h2>Notre menu</h2>
+    <span id="productCount"></span>
+  </div>
+
+  <div id="products" class="products"></div>
+
+  <div id="noProducts" class="no-products">
+    <div>🔎</div>
+    <h3>Aucun produit trouvé</h3>
+    <p>Essayez une autre recherche.</p>
+  </div>
+
+</main>
+
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay"></div>
+
+
+<!-- PANIER -->
+<aside id="cart" class="cart">
+
+  <div class="cart-header">
+    <h2>🛒 Mon panier</h2>
+    <button id="closeCart" class="close-button">×</button>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-footer">
+
+    <div class="total">
+      <span>Total</span>
+      <strong id="totalPrice">0 DH</strong>
+    </div>
+
+    <button id="validateOrder" class="validate-button">
+      Valider la commande
+    </button>
+
+    <button id="continueShopping" class="continue-button">
+      Continuer les achats
+    </button>
+
+  </div>
+
+</aside>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
-```
