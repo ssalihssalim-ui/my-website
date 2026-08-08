@@ -1,9 +1,11 @@
+```javascript
+// ==========================================
+// TES PRODUITS
+// ==========================================
+
 const products = [
 
-    // =========================
     // BOISSONS
-    // =========================
-
     {
         category: "Boissons",
         name: "Coca Cola",
@@ -29,10 +31,7 @@ const products = [
     },
 
 
-    // =========================
     // SNACKS
-    // =========================
-
     {
         category: "Snacks",
         name: "Chips",
@@ -52,10 +51,7 @@ const products = [
     },
 
 
-    // =========================
     // PRODUITS LAITIERS
-    // =========================
-
     {
         category: "Produits laitiers",
         name: "Yaourt",
@@ -72,46 +68,50 @@ const products = [
 
 
 // ==========================================
-// CLASSER LES PRODUITS PAR CATÉGORIE
+// CLASSER PAR CATEGORIE
 // ==========================================
 
-function groupByCategory(products) {
+function groupProducts(products) {
 
-    const categories = {};
+    const groups = {};
 
-    products.forEach(product => {
+    products.forEach(function(product) {
 
-        if (!categories[product.category]) {
-            categories[product.category] = [];
+        if (!groups[product.category]) {
+            groups[product.category] = [];
         }
 
-        categories[product.category].push(product);
+        groups[product.category].push(product);
 
     });
 
-    return categories;
+    return groups;
 }
 
 
 // ==========================================
-// AFFICHER LES CATÉGORIES
+// AFFICHER LE MENU
 // ==========================================
 
-function renderMenu() {
+function displayMenu() {
 
-    const container = document.getElementById("categories");
+    const container = document.getElementById("menu-content");
 
     container.innerHTML = "";
 
-    const categories = groupByCategory(products);
+    const groups = groupProducts(products);
 
-    Object.keys(categories).forEach(categoryName => {
 
-        const category = document.createElement("section");
+    // Pour chaque catégorie
+    Object.keys(groups).forEach(function(categoryName) {
+
+        // SECTION CATEGORIE
+        const category = document.createElement("div");
 
         category.className = "category";
 
-        // Titre catégorie
+
+        // NOM CATEGORIE
         const title = document.createElement("h2");
 
         title.className = "category-title";
@@ -121,57 +121,48 @@ function renderMenu() {
         category.appendChild(title);
 
 
-        // Liste produits
-        const productsContainer = document.createElement("div");
-
-        productsContainer.className = "products";
-
-
-        categories[categoryName].forEach(product => {
+        // PRODUITS
+        groups[categoryName].forEach(function(product) {
 
             const productElement = document.createElement("div");
 
             productElement.className = "product";
 
-            productElement.innerHTML = `
-                <span class="product-name">
-                    ${escapeHTML(product.name)}
-                </span>
 
-                <span class="product-price">
-                    ${escapeHTML(product.price)}
-                </span>
-            `;
+            const productName = document.createElement("span");
 
-            productsContainer.appendChild(productElement);
+            productName.className = "product-name";
+
+            productName.textContent = product.name;
+
+
+            const productPrice = document.createElement("span");
+
+            productPrice.className = "product-price";
+
+            productPrice.textContent = product.price;
+
+
+            productElement.appendChild(productName);
+
+            productElement.appendChild(productPrice);
+
+
+            category.appendChild(productElement);
 
         });
 
 
-        category.appendChild(productsContainer);
-
         container.appendChild(category);
 
     });
+
 }
 
 
 // ==========================================
-// SÉCURISER LE TEXTE
+// LANCER
 // ==========================================
 
-function escapeHTML(text) {
-
-    const div = document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
-}
-
-
-// ==========================================
-// LANCER LE MENU
-// ==========================================
-
-renderMenu();
+displayMenu();
+```
