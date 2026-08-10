@@ -1,3 +1,9 @@
+```css
+/* ==========================================
+   AFFICHAGE MENU
+   FORMAT : 100 CM x 150 CM
+========================================== */
+
 @page {
     size: 100cm 150cm;
     margin: 0;
@@ -15,92 +21,110 @@ body {
 
 body {
     width: 100cm;
-    min-height: 150cm;
+    height: 150cm;
+
     background: white;
+
     font-family: Arial, Helvetica, sans-serif;
+
     color: #111;
 }
 
+
+/* ==========================================
+   PAGE
+========================================== */
+
 .menu {
     width: 100cm;
-    min-height: 150cm;
+    height: 150cm;
 
-    padding: 1.6cm 1.8cm;
+    padding: 2cm;
+
+    background: #fff;
 }
 
 
-/* =========================
-   TITRE
-========================= */
+/* ==========================================
+   TITRE MENU
+========================================== */
 
 header {
+    width: 100%;
+
     text-align: center;
 
-    margin-bottom: 1cm;
+    margin-bottom: 1.5cm;
 
-    border-bottom: 0.09cm solid #111;
+    padding-bottom: 0.7cm;
 
-    padding-bottom: 0.6cm;
+    border-bottom: 3px solid #111;
 }
 
 header h1 {
     margin: 0;
 
-    font-size: 2.5cm;
+    font-size: 80px;
+
     line-height: 1;
+
     font-weight: 900;
-    letter-spacing: 0.15cm;
+
+    letter-spacing: 8px;
 }
 
 
-/* =========================
-   3 COLONNES
-========================= */
+/* ==========================================
+   ORGANISATION EN 2 COLONNES
+========================================== */
 
 .columns {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
 
-    gap: 1cm;
+    column-gap: 2.5cm;
 
     align-items: start;
 }
 
 
-/* =========================
+/* ==========================================
    CATEGORIES
-========================= */
+========================================== */
 
 section {
-    margin-bottom: 0.9cm;
+    margin-bottom: 1.3cm;
 
     break-inside: avoid;
     page-break-inside: avoid;
 }
 
+
+/* TITRE CATEGORIE */
+
 section h2 {
-    margin: 0 0 0.18cm 0;
+    margin: 0 0 0.35cm 0;
 
-    padding: 0.22cm 0.22cm;
+    padding: 0.25cm 0.35cm;
 
-    border-bottom: 0.07cm solid #111;
+    border-bottom: 4px solid #111;
 
-    font-size: 0.62cm;
+    font-size: 50px;
 
-    line-height: 1.15;
+    line-height: 1.1;
 
     font-weight: 900;
 
-    letter-spacing: 0.025cm;
-
     text-transform: uppercase;
+
+    letter-spacing: 1px;
 }
 
 
-/* =========================
+/* ==========================================
    PRODUITS
-========================= */
+========================================== */
 
 section p {
     display: flex;
@@ -109,35 +133,58 @@ section p {
 
     align-items: baseline;
 
-    gap: 0.3cm;
+    width: 100%;
 
     margin: 0;
 
-    padding: 0.115cm 0.05cm;
+    padding: 7px 5px;
 
-    font-size: 0.40cm;
+    font-size: 35px;
 
     line-height: 1.25;
+
+    gap: 20px;
 }
 
+
+/* NOM PRODUIT */
+
 section p span {
+    font-size: 35px;
+
     font-weight: 500;
+
+    text-transform: uppercase;
 }
+
+
+/* PRIX */
 
 section p b {
     flex-shrink: 0;
 
-    font-size: 0.40cm;
+    font-size: 35px;
 
-    font-weight: 800;
+    font-weight: 900;
 
     white-space: nowrap;
+
+    text-align: right;
 }
 
 
-/* =========================
+/* ==========================================
+   LIGNES TRES LEGERES
+========================================== */
+
+section p:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* ==========================================
    IMPRESSION
-========================= */
+========================================== */
 
 @media print {
 
@@ -152,27 +199,43 @@ section p b {
 
     .menu {
         width: 100cm;
-        min-height: 150cm;
+        height: 150cm;
+
+        padding: 2cm;
+    }
+
+    header {
+        margin-bottom: 1.5cm;
+    }
+
+    .columns {
+        grid-template-columns: 1fr 1fr;
+
+        column-gap: 2.5cm;
+    }
+
+    section {
+        break-inside: avoid;
+        page-break-inside: avoid;
     }
 }
 
 
-/* =========================
-   APERCU ORDINATEUR
-========================= */
+/* ==========================================
+   APERCU SUR ORDINATEUR
+========================================== */
 
 @media screen {
 
     body {
-        background: #ddd;
+        background: #d5d5d5;
     }
 
     .menu {
-        margin: 20px auto;
-
-        background: white;
+        margin: 30px auto;
 
         box-shadow:
-            0 0 25px rgba(0, 0, 0, 0.2);
+            0 0 30px rgba(0, 0, 0, 0.20);
     }
 }
+```
