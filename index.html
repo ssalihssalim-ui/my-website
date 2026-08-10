@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MENU · 100 x 150 cm</title>
     <style>
-        /* =========================================================
-           FORMAT AFFICHAGE : 100 CM × 150 CM - 3 COLONNES
-        ========================================================= */
-
         @page {
             size: 100cm 150cm;
             margin: 0;
@@ -16,8 +12,6 @@
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         html,
@@ -36,7 +30,7 @@
         .menu {
             width: 100cm;
             min-height: 150cm;
-            padding: 1.2cm;
+            padding: 1.5cm;
             background: white;
         }
 
@@ -47,21 +41,21 @@
 
         .menu-header {
             text-align: center;
-            border-bottom: 0.08cm solid #111;
-            padding-bottom: 0.4cm;
-            margin-bottom: 0.4cm;
+            border-bottom: 0.12cm solid #111;
+            padding-bottom: 0.7cm;
+            margin-bottom: 0.8cm;
         }
 
         .menu-header h1 {
             margin: 0;
-            font-size: 1.6cm;
+            font-size: 2.2cm;
             font-weight: 900;
-            letter-spacing: 0.12cm;
+            letter-spacing: 0.15cm;
         }
 
         .menu-header p {
-            margin: 0.08cm 0 0;
-            font-size: 0.35cm;
+            margin: 0.15cm 0 0;
+            font-size: 0.55cm;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -74,15 +68,12 @@
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.4cm;
+            gap: 0.7cm;
             align-items: start;
         }
 
         .column {
             min-width: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.3cm;
         }
 
 
@@ -91,22 +82,21 @@
         ========================= */
 
         .category {
-            border: 0.04cm solid #222;
-            border-radius: 0.1cm;
-            margin: 0;
+            border: 0.06cm solid #222;
+            border-radius: 0.15cm;
+            margin-bottom: 0.55cm;
             overflow: hidden;
             background: white;
             break-inside: avoid;
             page-break-inside: avoid;
-            width: 100%;
         }
 
         .category h2 {
             margin: 0;
-            padding: 0.08cm 0.12cm;
+            padding: 0.23cm 0.28cm;
             background: #111;
             color: white;
-            font-size: 0.35cm;
+            font-size: 0.48cm;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.02cm;
@@ -114,20 +104,19 @@
 
 
         /* =========================
-           PRODUITS - TAILLE AJUSTÉE
+           PRODUITS
         ========================= */
 
         .product {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 0.08cm;
+            gap: 0.2cm;
             align-items: center;
-            min-height: 0.28cm;
-            padding: 0.03cm 0.08cm;
-            border-bottom: 0.015cm solid #d8d8d8;
-            font-size: 0.22cm;
-            line-height: 1.1;
-            width: 100%;
+            min-height: 0.43cm;
+            padding: 0.08cm 0.18cm;
+            border-bottom: 0.025cm solid #d8d8d8;
+            font-size: 0.31cm;
+            line-height: 1.15;
         }
 
         .product:last-child {
@@ -137,20 +126,13 @@
         .product span {
             font-weight: 600;
             overflow-wrap: break-word;
-            word-break: break-word;
-            font-size: 0.22cm;
         }
 
         .product b {
             white-space: nowrap;
-            font-size: 0.23cm;
+            font-size: 0.32cm;
             font-weight: 900;
             text-align: right;
-            padding-left: 0.05cm;
-        }
-
-        .product:nth-child(even) {
-            background: #fafafa;
         }
 
 
@@ -159,62 +141,11 @@
         ========================= */
 
         .footer {
-            margin-top: 0.3cm;
-            padding-top: 0.2cm;
-            border-top: 0.06cm solid #111;
+            margin-top: 0.5cm;
+            padding-top: 0.35cm;
+            border-top: 0.08cm solid #111;
             text-align: center;
-        }
-
-        .footer-title {
-            font-size: 0.4cm;
-            font-weight: 900;
-            letter-spacing: 0.06cm;
-            margin-bottom: 0.2cm;
-        }
-
-        .footer .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.15cm;
-            width: 100%;
-            margin-bottom: 0.15cm;
-        }
-
-        .footer .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.08cm;
-            padding: 0.05cm;
-            text-align: left;
-        }
-
-        .footer .contact-icon {
-            font-size: 0.5cm;
-            flex-shrink: 0;
-        }
-
-        .footer .contact-text small {
-            display: block;
-            font-size: 0.14cm;
-            font-weight: 800;
-            letter-spacing: 0.02cm;
-            color: #555;
-        }
-
-        .footer .contact-text strong {
-            display: block;
-            font-size: 0.2cm;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        .footer-bottom {
-            margin-top: 0.12cm;
-            font-size: 0.22cm;
-            font-weight: 700;
-            letter-spacing: 0.04cm;
-            color: #777;
+            font-size: 0.45cm;
         }
 
 
@@ -235,7 +166,7 @@
             .menu {
                 width: 100cm;
                 min-height: 150cm;
-                padding: 1.2cm;
+                padding: 1.5cm;
             }
 
             .category {
@@ -243,9 +174,6 @@
                 page-break-inside: avoid;
             }
 
-            .download-btn, .pdf-btn, [class*="download"], [class*="btn"] {
-                display: none !important;
-            }
         }
 
 
@@ -267,7 +195,7 @@
             .menu {
                 margin: auto;
                 box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
-                transform: scale(0.3);
+                transform: scale(0.35);
                 transform-origin: top center;
                 border-radius: 12px;
             }
@@ -276,7 +204,7 @@
 
         @media screen and (max-width: 700px) {
             .menu {
-                transform: scale(0.18);
+                transform: scale(0.2);
                 transform-origin: top center;
                 border-radius: 8px;
             }
@@ -401,32 +329,35 @@
                 <div class="product"><span>Sprite Zero — 1L bouteille</span><b>11,95 DH</b></div>
             </section>
 
-            <!-- LAITS JAOUDA -->
+            <!-- EAUX MINÉRALES -->
             <section class="category">
-                <h2>🥛 LAITS JAOUDA</h2>
-                <div class="product"><span>Beurre pasteurisé Jaouda 1Kg</span><b>74,90 DH</b></div>
-                <div class="product"><span>Crème cuisson Jaouda 500ml</span><b>17,95 DH</b></div>
-                <div class="product"><span>Crème dessert chocolat Jaouda Pack 8</span><b>15,95 DH</b></div>
-                <div class="product"><span>Flan caramel Jaouda Pack 8</span><b>15,95 DH</b></div>
-                <div class="product"><span>Ghilal Jaouda Pack 8</span><b>15,95 DH</b></div>
-                <div class="product"><span>Jben Jaouda 160g</span><b>12,00 DH</b></div>
-                <div class="product"><span>Kéfir naturel Jaouda 320g</span><b>7,95 DH</b></div>
-                <div class="product"><span>Lait croissance Jaouda 0,5L</span><b>7,00 DH</b></div>
-                <div class="product"><span>Lait frais naturel Jaouda 0,5L</span><b>4,00 DH</b></div>
-                <div class="product"><span>Lait nature UHT 200ml</span><b>2,50 DH</b></div>
-                <div class="product"><span>Lait UHT Demi-écrémé Jaouda 1L</span><b>11,50 DH</b></div>
-                <div class="product"><span>Lait UHT Entier Jaouda 1L</span><b>11,00 DH</b></div>
-                <div class="product"><span>Lben Jaouda 0,5L</span><b>5,00 DH</b></div>
-                <div class="product"><span>Nectar orange Press'Up 950g</span><b>8,95 DH</b></div>
-                <div class="product"><span>Pack lait UHT entier 6×1L</span><b>55,95 DH</b></div>
-                <div class="product"><span>Perly fromage frais 80g</span><b>3,00 DH</b></div>
-                <div class="product"><span>Perly fromage frais Pack 8</span><b>18,50 DH</b></div>
-                <div class="product"><span>Perly Nature sucré 80g</span><b>3,00 DH</b></div>
-                <div class="product"><span>Press'Up Orange Jaouda 230g</span><b>3,00 DH</b></div>
-                <div class="product"><span>Raïb Jaouda 900g</span><b>10,00 DH</b></div>
-                <div class="product"><span>Raïbi Jaouda grenade 165g</span><b>2,00 DH</b></div>
-                <div class="product"><span>Yaourt à boire P'tit Déj Jaouda 320g</span><b>4,50 DH</b></div>
-                <div class="product"><span>Yaourt Nature Jaouda 110g</span><b>2,50 DH</b></div>
+                <h2>💧 EAUX MINÉRALES</h2>
+                <div class="product"><span>Aïn Atlas 1.5L</span><b>4,50 DH</b></div>
+                <div class="product"><span>Aïn Ifrane 1.5L</span><b>4,50 DH</b></div>
+                <div class="product"><span>Aïn Ifrane 33cl</span><b>2,00 DH</b></div>
+                <div class="product"><span>Aïn Ifrane 5L</span><b>12,75 DH</b></div>
+                <div class="product"><span>Aïn Ifrane 50cl</span><b>3,00 DH</b></div>
+                <div class="product"><span>Aïn Saïss 1.5L</span><b>4,50 DH</b></div>
+                <div class="product"><span>Aïn Soltane 1.5L</span><b>5,00 DH</b></div>
+                <div class="product"><span>AIN SAISS 0.5 L</span><b>3 DH</b></div>
+                <div class="product"><span>AIN SAISS 1.5 L</span><b>5 DH</b></div>
+                <div class="product"><span>AIN SAISS 5 L</span><b>10 DH</b></div>
+                <div class="product"><span>Aquafina 1.5L</span><b>5,00 DH</b></div>
+                <div class="product"><span>Bahia 1.5L</span><b>4,00 DH</b></div>
+                <div class="product"><span>Ciel 1.5L</span><b>4,50 DH</b></div>
+                <div class="product"><span>Evian 1.5L</span><b>18,00 DH</b></div>
+                <div class="product"><span>OULMES 0.5 L</span><b>5 DH</b></div>
+                <div class="product"><span>OULMES 1 L</span><b>8 DH</b></div>
+                <div class="product"><span>OULMES 1.5 L</span><b>10 DH</b></div>
+                <div class="product"><span>Perrier 33cl</span><b>10,00 DH</b></div>
+                <div class="product"><span>Sidi Ali 1.5L</span><b>5,00 DH</b></div>
+                <div class="product"><span>Sidi Ali 2L</span><b>6,00 DH</b></div>
+                <div class="product"><span>Sidi Ali 50cl</span><b>3,00 DH</b></div>
+                <div class="product"><span>SIDI ALI 0.5 L</span><b>3 DH</b></div>
+                <div class="product"><span>SIDI ALI 1.5 L</span><b>6 DH</b></div>
+                <div class="product"><span>SIDI ALI 5 L</span><b>12 DH</b></div>
+                <div class="product"><span>Sidi Harazem 1.5L</span><b>5,00 DH</b></div>
+                <div class="product"><span>Volvic 1.5L</span><b>15,00 DH</b></div>
             </section>
 
             <!-- BISCUITS (début) -->
@@ -470,6 +401,84 @@
                 <div class="product"><span>Golden BIMO 125g</span><b>2,50 DH</b></div>
                 <div class="product"><span>Golden BIMO 250g</span><b>5,00 DH</b></div>
                 <div class="product"><span>Golden BIMO 50g</span><b>1,00 DH</b></div>
+                <div class="product"><span>GULLON OREO ZERO SUGAR</span><b>4 DH</b></div>
+                <div class="product"><span>HENRYS</span><b>1 DH</b></div>
+                <div class="product"><span>HENRYS</span><b>2,5 DH</b></div>
+                <div class="product"><span>Henry's Boîte métal 617g</span><b>35,00 DH</b></div>
+                <div class="product"><span>Henry's Boîte métal 800g</span><b>45,00 DH</b></div>
+                <div class="product"><span>ITRI</span><b>1 DH</b></div>
+                <div class="product"><span>JAMAL CAKE</span><b>2 DH</b></div>
+                <div class="product"><span>KINDER BUENO</span><b>8 DH</b></div>
+                <div class="product"><span>KINDER CAKE</span><b>5 DH</b></div>
+                <div class="product"><span>KING COOKIES</span><b>2 DH</b></div>
+                <div class="product"><span>King Cookies Chocolat 50g</span><b>2,00 DH</b></div>
+                <div class="product"><span>KITKAT GRAND</span><b>7 DH</b></div>
+                <div class="product"><span>LEKA GAUFRETTE</span><b>1 DH</b></div>
+                <div class="product"><span>Madeleine BIMO 250g</span><b>8,00 DH</b></div>
+                <div class="product"><span>MARIA ELDORADA</span><b>6 DH</b></div>
+                <div class="product"><span>MARS</span><b>7 DH</b></div>
+                <div class="product"><span>MERINDINA</span><b>2 DH</b></div>
+                <div class="product"><span>Merendina BIMO 35g</span><b>1,50 DH</b></div>
+                <div class="product"><span>MILKA</span><b>12 DH</b></div>
+                <div class="product"><span>MM</span><b>8 DH</b></div>
+                <div class="product"><span>MOMO</span><b>1 DH</b></div>
+                <div class="product"><span>NAPOLITAIN</span><b>1 DH</b></div>
+                <div class="product"><span>NAPOLITAIN TABLETTE</span><b>8 DH</b></div>
+                <div class="product"><span>NOCCO 4 DH</span><b>4 DH</b></div>
+                <div class="product"><span>NOCCO 5 DH</span><b>5 DH</b></div>
+                <div class="product"><span>NOCCO CHOCO CROK</span><b>3 DH</b></div>
+                <div class="product"><span>NOCCO MINI BARRE</span><b>2 DH</b></div>
+                <div class="product"><span>NOOCO Barre Croustillante Chocolat 18g</span><b>3,00 DH</b></div>
+                <div class="product"><span>NOOCO Barre Nougat Cacahuète 48g</span><b>5,95 DH</b></div>
+                <div class="product"><span>NOOCO Barre Nougat Caramel 45g</span><b>5,95 DH</b></div>
+                <div class="product"><span>NOOCO Biscuit Chocolat Lait 55g</span><b>4,95 DH</b></div>
+                <div class="product"><span>NOOCO Biscuit Crok Chocolat 44g</span><b>2,95 DH</b></div>
+                <div class="product"><span>NOOCO Biscuit Sandwich Chocolat 35g</span><b>1,90 DH</b></div>
+                <div class="product"><span>NOOCO Mini Barre Crispy 25g</span><b>4,75 DH</b></div>
+                <div class="product"><span>NOOCO Pack Biscuit Chocolat Lait 275g</span><b>28,75 DH</b></div>
+                <div class="product"><span>NUTELLA BISCUIT</span><b>8 DH</b></div>
+                <div class="product"><span>OREO</span><b>2 DH</b></div>
+                <div class="product"><span>OREO</span><b>3,5 DH</b></div>
+                <div class="product"><span>OREO</span><b>4 DH</b></div>
+                <div class="product"><span>OZMO CAKE</span><b>3 DH</b></div>
+                <div class="product"><span>OZMO CORNET</span><b>6 DH</b></div>
+                <div class="product"><span>OZMO FUN</span><b>6 DH</b></div>
+                <div class="product"><span>OZMO HOPPO</span><b>7 DH</b></div>
+                <div class="product"><span>OZMO HOXI POXY</span><b>7 DH</b></div>
+                <div class="product"><span>Petit Beurre BIMO 200g</span><b>5,00 DH</b></div>
+                <div class="product"><span>Petit Henry's 1Kg</span><b>25,75 DH</b></div>
+                <div class="product"><span>Petit Henry's 42g</span><b>1,00 DH</b></div>
+                <div class="product"><span>Petit Henry's 85g</span><b>2,00 DH</b></div>
+                <div class="product"><span>Prince BIMO 150g</span><b>4,50 DH</b></div>
+                <div class="product"><span>SABLE</span><b>1 DH</b></div>
+                <div class="product"><span>SABLE</span><b>1,5 DH</b></div>
+                <div class="product"><span>SABLE</span><b>2,5 DH</b></div>
+                <div class="product"><span>Sablé Coco 1Kg</span><b>25,95 DH</b></div>
+                <div class="product"><span>Sablé Coco 42g</span><b>1,00 DH</b></div>
+                <div class="product"><span>Sablé Coco Cacao 45g</span><b>1,45 DH</b></div>
+                <div class="product"><span>Sablé Original 1Kg</span><b>28,95 DH</b></div>
+                <div class="product"><span>Sablé Original 42g</span><b>1,00 DH</b></div>
+                <div class="product"><span>Sablito BIMO 100g</span><b>2,50 DH</b></div>
+                <div class="product"><span>SAVLE</span><b>1 DH</b></div>
+                <div class="product"><span>SNEAKERS</span><b>7 DH</b></div>
+                <div class="product"><span>Solty BIMO 60g</span><b>2,00 DH</b></div>
+                <div class="product"><span>SPOOFY</span><b>2 DH</b></div>
+                <div class="product"><span>SPOOFY</span><b>5 DH</b></div>
+                <div class="product"><span>SUPREME BE</span><b>2 DH</b></div>
+                <div class="product"><span>Supreme EXCELO 60g</span><b>3,00 DH</b></div>
+                <div class="product"><span>SWEETIES</span><b>5 DH</b></div>
+                <div class="product"><span>Tablette Blanc Aiguebelle 100g</span><b>12,95 DH</b></div>
+                <div class="product"><span>Tablette Lait Aiguebelle 100g</span><b>12,95 DH</b></div>
+                <div class="product"><span>Tablette Noir 55% Aiguebelle 100g</span><b>12,95 DH</b></div>
+                <div class="product"><span>Tablette Noir 55% Aiguebelle 45g</span><b>5,95 DH</b></div>
+                <div class="product"><span>Tagger BIMO 80g</span><b>2,00 DH</b></div>
+                <div class="product"><span>TAMAM</span><b>3 DH</b></div>
+                <div class="product"><span>TONIC BIMO</span><b>1 DH</b></div>
+                <div class="product"><span>Top Cookies Chocolat 30g</span><b>1,00 DH</b></div>
+                <div class="product"><span>Top Cookies Vanille 30g</span><b>1,00 DH</b></div>
+                <div class="product"><span>TOP BEE</span><b>2 DH</b></div>
+                <div class="product"><span>Wafer Chocolat EXCELO 45g</span><b>1,50 DH</b></div>
+                <div class="product"><span>Wafer Vanille EXCELO 45g</span><b>1,50 DH</b></div>
             </section>
 
         </div><!-- fin colonne 1 -->
@@ -478,37 +487,6 @@
         COLONNE 2
         ========================= -->
         <div class="column">
-
-            <!-- EAUX MINÉRALES -->
-            <section class="category">
-                <h2>💧 EAUX MINÉRALES</h2>
-                <div class="product"><span>Aïn Atlas 1.5L</span><b>4,50 DH</b></div>
-                <div class="product"><span>Aïn Ifrane 1.5L</span><b>4,50 DH</b></div>
-                <div class="product"><span>Aïn Ifrane 33cl</span><b>2,00 DH</b></div>
-                <div class="product"><span>Aïn Ifrane 5L</span><b>12,75 DH</b></div>
-                <div class="product"><span>Aïn Ifrane 50cl</span><b>3,00 DH</b></div>
-                <div class="product"><span>Aïn Saïss 1.5L</span><b>4,50 DH</b></div>
-                <div class="product"><span>Aïn Soltane 1.5L</span><b>5,00 DH</b></div>
-                <div class="product"><span>AIN SAISS 0.5 L</span><b>3 DH</b></div>
-                <div class="product"><span>AIN SAISS 1.5 L</span><b>5 DH</b></div>
-                <div class="product"><span>AIN SAISS 5 L</span><b>10 DH</b></div>
-                <div class="product"><span>Aquafina 1.5L</span><b>5,00 DH</b></div>
-                <div class="product"><span>Bahia 1.5L</span><b>4,00 DH</b></div>
-                <div class="product"><span>Ciel 1.5L</span><b>4,50 DH</b></div>
-                <div class="product"><span>Evian 1.5L</span><b>18,00 DH</b></div>
-                <div class="product"><span>OULMES 0.5 L</span><b>5 DH</b></div>
-                <div class="product"><span>OULMES 1 L</span><b>8 DH</b></div>
-                <div class="product"><span>OULMES 1.5 L</span><b>10 DH</b></div>
-                <div class="product"><span>Perrier 33cl</span><b>10,00 DH</b></div>
-                <div class="product"><span>Sidi Ali 1.5L</span><b>5,00 DH</b></div>
-                <div class="product"><span>Sidi Ali 2L</span><b>6,00 DH</b></div>
-                <div class="product"><span>Sidi Ali 50cl</span><b>3,00 DH</b></div>
-                <div class="product"><span>SIDI ALI 0.5 L</span><b>3 DH</b></div>
-                <div class="product"><span>SIDI ALI 1.5 L</span><b>6 DH</b></div>
-                <div class="product"><span>SIDI ALI 5 L</span><b>12 DH</b></div>
-                <div class="product"><span>Sidi Harazem 1.5L</span><b>5,00 DH</b></div>
-                <div class="product"><span>Volvic 1.5L</span><b>15,00 DH</b></div>
-            </section>
 
             <!-- LAITIERS -->
             <section class="category">
@@ -532,6 +510,34 @@
                 <div class="product"><span>RAIB BANANE GRAND</span><b>12 DH</b></div>
                 <div class="product"><span>RAIB BANANE PETIT</span><b>6 DH</b></div>
                 <div class="product"><span>RAIBI ROUGE</span><b>2,5 DH</b></div>
+            </section>
+
+            <!-- LAITS JAOUDA -->
+            <section class="category">
+                <h2>🥛 LAITS JAOUDA</h2>
+                <div class="product"><span>Beurre pasteurisé Jaouda 1Kg</span><b>74,90 DH</b></div>
+                <div class="product"><span>Crème cuisson Jaouda 500ml</span><b>17,95 DH</b></div>
+                <div class="product"><span>Crème dessert chocolat Jaouda Pack 8</span><b>15,95 DH</b></div>
+                <div class="product"><span>Flan caramel Jaouda Pack 8</span><b>15,95 DH</b></div>
+                <div class="product"><span>Ghilal Jaouda Pack 8</span><b>15,95 DH</b></div>
+                <div class="product"><span>Jben Jaouda 160g</span><b>12,00 DH</b></div>
+                <div class="product"><span>Kéfir naturel Jaouda 320g</span><b>7,95 DH</b></div>
+                <div class="product"><span>Lait croissance Jaouda 0,5L</span><b>7,00 DH</b></div>
+                <div class="product"><span>Lait frais naturel Jaouda 0,5L</span><b>4,00 DH</b></div>
+                <div class="product"><span>Lait nature UHT 200ml</span><b>2,50 DH</b></div>
+                <div class="product"><span>Lait UHT Demi-écrémé Jaouda 1L</span><b>11,50 DH</b></div>
+                <div class="product"><span>Lait UHT Entier Jaouda 1L</span><b>11,00 DH</b></div>
+                <div class="product"><span>Lben Jaouda 0,5L</span><b>5,00 DH</b></div>
+                <div class="product"><span>Nectar orange Press'Up 950g</span><b>8,95 DH</b></div>
+                <div class="product"><span>Pack lait UHT entier 6×1L</span><b>55,95 DH</b></div>
+                <div class="product"><span>Perly fromage frais 80g</span><b>3,00 DH</b></div>
+                <div class="product"><span>Perly fromage frais Pack 8</span><b>18,50 DH</b></div>
+                <div class="product"><span>Perly Nature sucré 80g</span><b>3,00 DH</b></div>
+                <div class="product"><span>Press'Up Orange Jaouda 230g</span><b>3,00 DH</b></div>
+                <div class="product"><span>Raïb Jaouda 900g</span><b>10,00 DH</b></div>
+                <div class="product"><span>Raïbi Jaouda grenade 165g</span><b>2,00 DH</b></div>
+                <div class="product"><span>Yaourt à boire P'tit Déj Jaouda 320g</span><b>4,50 DH</b></div>
+                <div class="product"><span>Yaourt Nature Jaouda 110g</span><b>2,50 DH</b></div>
             </section>
 
             <!-- LAITS CENTRALE / SALIM -->
@@ -579,45 +585,6 @@
                 <div class="product"><span>Raïb Salim 470g</span><b>5,00 DH</b></div>
                 <div class="product"><span>Raïb Salim 900g</span><b>10,00 DH</b></div>
             </section>
-
-            <!-- BISCUITS (suite) -->
-            <section class="category">
-                <h2>🍪 BISCUITS (suite)</h2>
-                <div class="product"><span>GULLON OREO ZERO SUGAR</span><b>4 DH</b></div>
-                <div class="product"><span>HENRYS</span><b>1 DH</b></div>
-                <div class="product"><span>HENRYS</span><b>2,5 DH</b></div>
-                <div class="product"><span>Henry's Boîte métal 617g</span><b>35,00 DH</b></div>
-                <div class="product"><span>Henry's Boîte métal 800g</span><b>45,00 DH</b></div>
-                <div class="product"><span>ITRI</span><b>1 DH</b></div>
-                <div class="product"><span>JAMAL CAKE</span><b>2 DH</b></div>
-                <div class="product"><span>KINDER BUENO</span><b>8 DH</b></div>
-                <div class="product"><span>KINDER CAKE</span><b>5 DH</b></div>
-                <div class="product"><span>KING COOKIES</span><b>2 DH</b></div>
-                <div class="product"><span>King Cookies Chocolat 50g</span><b>2,00 DH</b></div>
-                <div class="product"><span>KITKAT GRAND</span><b>7 DH</b></div>
-                <div class="product"><span>LEKA GAUFRETTE</span><b>1 DH</b></div>
-                <div class="product"><span>Madeleine BIMO 250g</span><b>8,00 DH</b></div>
-                <div class="product"><span>MARIA ELDORADA</span><b>6 DH</b></div>
-                <div class="product"><span>MARS</span><b>7 DH</b></div>
-                <div class="product"><span>MERINDINA</span><b>2 DH</b></div>
-                <div class="product"><span>Merendina BIMO 35g</span><b>1,50 DH</b></div>
-                <div class="product"><span>MILKA</span><b>12 DH</b></div>
-                <div class="product"><span>MM</span><b>8 DH</b></div>
-                <div class="product"><span>MOMO</span><b>1 DH</b></div>
-                <div class="product"><span>NAPOLITAIN</span><b>1 DH</b></div>
-                <div class="product"><span>NAPOLITAIN TABLETTE</span><b>8 DH</b></div>
-                <div class="product"><span>NOCCO 4 DH</span><b>4 DH</b></div>
-                <div class="product"><span>NOCCO 5 DH</span><b>5 DH</b></div>
-                <div class="product"><span>NOCCO CHOCO CROK</span><b>3 DH</b></div>
-                <div class="product"><span>NOCCO MINI BARRE</span><b>2 DH</b></div>
-            </section>
-
-        </div><!-- fin colonne 2 -->
-
-        <!-- =========================
-        COLONNE 3
-        ========================= -->
-        <div class="column">
 
             <!-- ENERGY -->
             <section class="category">
@@ -684,6 +651,13 @@
                 <div class="product"><span>PRINGLEZ PETIT</span><b>10 DH</b></div>
             </section>
 
+        </div><!-- fin colonne 2 -->
+
+        <!-- =========================
+        COLONNE 3
+        ========================= -->
+        <div class="column">
+
             <!-- MENAGE -->
             <section class="category">
                 <h2>🧺 MENAGE</h2>
@@ -738,6 +712,42 @@
                 <div class="product"><span>Tide Lessive Main 1,5Kg</span><b>41,50 DH</b></div>
                 <div class="product"><span>Tide Lessive Main 375g</span><b>8,95 DH</b></div>
                 <div class="product"><span>Tide Lessive Main 700g</span><b>20,95 DH</b></div>
+            </section>
+
+            <!-- ALIMENTATION -->
+            <section class="category">
+                <h2>🛒 ALIMENTATION</h2>
+                <div class="product"><span>AVOCAT</span><b>5 DH</b></div>
+                <div class="product"><span>BAROUD THE GRAND</span><b>17 DH</b></div>
+                <div class="product"><span>BAROUD THE PETIT</span><b>8,5 DH</b></div>
+                <div class="product"><span>CASHER</span><b>3 DH</b></div>
+                <div class="product"><span>CAT</span><b>5 DH</b></div>
+                <div class="product"><span>CRYSTAL 1 L</span><b>18 DH</b></div>
+                <div class="product"><span>DELICIA ABRICOT MOYENNE</span><b>15 DH</b></div>
+                <div class="product"><span>FORMAGE 96</span><b>1 DH</b></div>
+                <div class="product"><span>FORMAGE CARRE JAUNE</span><b>24 DH</b></div>
+                <div class="product"><span>HOT SAUCE STAR</span><b>7 DH</b></div>
+                <div class="product"><span>INDOMIE</span><b>2,5 DH</b></div>
+                <div class="product"><span>KETCHUP STAR</span><b>15 DH</b></div>
+                <div class="product"><span>KIRI</span><b>2 DH</b></div>
+                <div class="product"><span>LIO 1 L</span><b>17 DH</b></div>
+                <div class="product"><span>LIO 1/2 L</span><b>9 DH</b></div>
+                <div class="product"><span>MAYONAIZ PETIT</span><b>7 DH</b></div>
+                <div class="product"><span>MAYONNAISE MOYENNE STAR</span><b>13 DH</b></div>
+                <div class="product"><span>MOTARD PETIT</span><b>7 DH</b></div>
+                <div class="product"><span>NASS KOMIRA</span><b>1 DH</b></div>
+                <div class="product"><span>NESCAFE SACHE</span><b>1 DH</b></div>
+                <div class="product"><span>NUTELLA PETIT</span><b>35 DH</b></div>
+                <div class="product"><span>OLLA</span><b>2 DH</b></div>
+                <div class="product"><span>OLLA SAUCE BLANCHE</span><b>5 DH</b></div>
+                <div class="product"><span>OUEFS</span><b>1,5 DH</b></div>
+                <div class="product"><span>SANIDA</span><b>5,5 DH</b></div>
+                <div class="product"><span>SAUCE BURGER CHEEZY ALGERIENNE</span><b>20 DH</b></div>
+                <div class="product"><span>SOLIS</span><b>3 DH</b></div>
+                <div class="product"><span>SOULTANE THE PETIT</span><b>8,5 DH</b></div>
+                <div class="product"><span>THE SEBAA GRAND</span><b>20 DH</b></div>
+                <div class="product"><span>THE SEBAA PETIT</span><b>10 DH</b></div>
+                <div class="product"><span>TRIDENT</span><b>0,5 DH</b></div>
             </section>
 
             <!-- BEAUTY -->
@@ -818,98 +828,6 @@
                 <div class="product"><span>ZIZOIRE IRIDIUM</span><b>5 DH</b></div>
             </section>
 
-            <!-- ALIMENTATION -->
-            <section class="category">
-                <h2>🛒 ALIMENTATION</h2>
-                <div class="product"><span>AVOCAT</span><b>5 DH</b></div>
-                <div class="product"><span>BAROUD THE GRAND</span><b>17 DH</b></div>
-                <div class="product"><span>BAROUD THE PETIT</span><b>8,5 DH</b></div>
-                <div class="product"><span>CASHER</span><b>3 DH</b></div>
-                <div class="product"><span>CAT</span><b>5 DH</b></div>
-                <div class="product"><span>CRYSTAL 1 L</span><b>18 DH</b></div>
-                <div class="product"><span>DELICIA ABRICOT MOYENNE</span><b>15 DH</b></div>
-                <div class="product"><span>FORMAGE 96</span><b>1 DH</b></div>
-                <div class="product"><span>FORMAGE CARRE JAUNE</span><b>24 DH</b></div>
-                <div class="product"><span>HOT SAUCE STAR</span><b>7 DH</b></div>
-                <div class="product"><span>INDOMIE</span><b>2,5 DH</b></div>
-                <div class="product"><span>KETCHUP STAR</span><b>15 DH</b></div>
-                <div class="product"><span>KIRI</span><b>2 DH</b></div>
-                <div class="product"><span>LIO 1 L</span><b>17 DH</b></div>
-                <div class="product"><span>LIO 1/2 L</span><b>9 DH</b></div>
-                <div class="product"><span>MAYONAIZ PETIT</span><b>7 DH</b></div>
-                <div class="product"><span>MAYONNAISE MOYENNE STAR</span><b>13 DH</b></div>
-                <div class="product"><span>MOTARD PETIT</span><b>7 DH</b></div>
-                <div class="product"><span>NASS KOMIRA</span><b>1 DH</b></div>
-                <div class="product"><span>NESCAFE SACHE</span><b>1 DH</b></div>
-                <div class="product"><span>NUTELLA PETIT</span><b>35 DH</b></div>
-                <div class="product"><span>OLLA</span><b>2 DH</b></div>
-                <div class="product"><span>OLLA SAUCE BLANCHE</span><b>5 DH</b></div>
-                <div class="product"><span>OUEFS</span><b>1,5 DH</b></div>
-                <div class="product"><span>SANIDA</span><b>5,5 DH</b></div>
-                <div class="product"><span>SAUCE BURGER CHEEZY ALGERIENNE</span><b>20 DH</b></div>
-                <div class="product"><span>SOLIS</span><b>3 DH</b></div>
-                <div class="product"><span>SOULTANE THE PETIT</span><b>8,5 DH</b></div>
-                <div class="product"><span>THE SEBAA GRAND</span><b>20 DH</b></div>
-                <div class="product"><span>THE SEBAA PETIT</span><b>10 DH</b></div>
-                <div class="product"><span>TRIDENT</span><b>0,5 DH</b></div>
-            </section>
-
-            <!-- BISCUITS (fin) -->
-            <section class="category">
-                <h2>🍪 BISCUITS (fin)</h2>
-                <div class="product"><span>NOOCO Barre Croustillante Chocolat 18g</span><b>3,00 DH</b></div>
-                <div class="product"><span>NOOCO Barre Nougat Cacahuète 48g</span><b>5,95 DH</b></div>
-                <div class="product"><span>NOOCO Barre Nougat Caramel 45g</span><b>5,95 DH</b></div>
-                <div class="product"><span>NOOCO Biscuit Chocolat Lait 55g</span><b>4,95 DH</b></div>
-                <div class="product"><span>NOOCO Biscuit Crok Chocolat 44g</span><b>2,95 DH</b></div>
-                <div class="product"><span>NOOCO Biscuit Sandwich Chocolat 35g</span><b>1,90 DH</b></div>
-                <div class="product"><span>NOOCO Mini Barre Crispy 25g</span><b>4,75 DH</b></div>
-                <div class="product"><span>NOOCO Pack Biscuit Chocolat Lait 275g</span><b>28,75 DH</b></div>
-                <div class="product"><span>NUTELLA BISCUIT</span><b>8 DH</b></div>
-                <div class="product"><span>OREO</span><b>2 DH</b></div>
-                <div class="product"><span>OREO</span><b>3,5 DH</b></div>
-                <div class="product"><span>OREO</span><b>4 DH</b></div>
-                <div class="product"><span>OZMO CAKE</span><b>3 DH</b></div>
-                <div class="product"><span>OZMO CORNET</span><b>6 DH</b></div>
-                <div class="product"><span>OZMO FUN</span><b>6 DH</b></div>
-                <div class="product"><span>OZMO HOPPO</span><b>7 DH</b></div>
-                <div class="product"><span>OZMO HOXI POXY</span><b>7 DH</b></div>
-                <div class="product"><span>Petit Beurre BIMO 200g</span><b>5,00 DH</b></div>
-                <div class="product"><span>Petit Henry's 1Kg</span><b>25,75 DH</b></div>
-                <div class="product"><span>Petit Henry's 42g</span><b>1,00 DH</b></div>
-                <div class="product"><span>Petit Henry's 85g</span><b>2,00 DH</b></div>
-                <div class="product"><span>Prince BIMO 150g</span><b>4,50 DH</b></div>
-                <div class="product"><span>SABLE</span><b>1 DH</b></div>
-                <div class="product"><span>SABLE</span><b>1,5 DH</b></div>
-                <div class="product"><span>SABLE</span><b>2,5 DH</b></div>
-                <div class="product"><span>Sablé Coco 1Kg</span><b>25,95 DH</b></div>
-                <div class="product"><span>Sablé Coco 42g</span><b>1,00 DH</b></div>
-                <div class="product"><span>Sablé Coco Cacao 45g</span><b>1,45 DH</b></div>
-                <div class="product"><span>Sablé Original 1Kg</span><b>28,95 DH</b></div>
-                <div class="product"><span>Sablé Original 42g</span><b>1,00 DH</b></div>
-                <div class="product"><span>Sablito BIMO 100g</span><b>2,50 DH</b></div>
-                <div class="product"><span>SAVLE</span><b>1 DH</b></div>
-                <div class="product"><span>SNEAKERS</span><b>7 DH</b></div>
-                <div class="product"><span>Solty BIMO 60g</span><b>2,00 DH</b></div>
-                <div class="product"><span>SPOOFY</span><b>2 DH</b></div>
-                <div class="product"><span>SPOOFY</span><b>5 DH</b></div>
-                <div class="product"><span>SUPREME BE</span><b>2 DH</b></div>
-                <div class="product"><span>Supreme EXCELO 60g</span><b>3,00 DH</b></div>
-                <div class="product"><span>SWEETIES</span><b>5 DH</b></div>
-                <div class="product"><span>Tablette Blanc Aiguebelle 100g</span><b>12,95 DH</b></div>
-                <div class="product"><span>Tablette Lait Aiguebelle 100g</span><b>12,95 DH</b></div>
-                <div class="product"><span>Tablette Noir 55% Aiguebelle 100g</span><b>12,95 DH</b></div>
-                <div class="product"><span>Tablette Noir 55% Aiguebelle 45g</span><b>5,95 DH</b></div>
-                <div class="product"><span>Tagger BIMO 80g</span><b>2,00 DH</b></div>
-                <div class="product"><span>TAMAM</span><b>3 DH</b></div>
-                <div class="product"><span>TONIC BIMO</span><b>1 DH</b></div>
-                <div class="product"><span>Top Cookies Chocolat 30g</span><b>1,00 DH</b></div>
-                <div class="product"><span>Top Cookies Vanille 30g</span><b>1,00 DH</b></div>
-                <div class="product"><span>TOP BEE</span><b>2 DH</b></div>
-                <div class="product"><span>Wafer Chocolat EXCELO 45g</span><b>1,50 DH</b></div>
-                <div class="product"><span>Wafer Vanille EXCELO 45g</span><b>1,50 DH</b></div>
-            </section>
-
         </div><!-- fin colonne 3 -->
 
     </main>
@@ -918,47 +836,47 @@
     FOOTER
     ========================= -->
     <footer class="footer">
-        <div class="footer-title">MERCI POUR VOTRE VISITE</div>
+        <div style="font-size:0.55cm; font-weight:900; letter-spacing:0.08cm; margin-bottom:0.3cm;">MERCI POUR VOTRE VISITE</div>
 
-        <div class="contact-grid">
-            <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <div class="contact-text">
-                    <small>ADRESSE</small>
-                    <strong>12, Rue des Saveurs<br>Casablanca</strong>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.2cm; width:100%; margin-bottom:0.2cm;">
+            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
+                <span style="font-size:0.7cm;">📍</span>
+                <div>
+                    <small style="display:block; font-size:0.18cm; font-weight:800; color:#555;">ADRESSE</small>
+                    <strong style="display:block; font-size:0.28cm; font-weight:700;">12, Rue des Saveurs<br>Casablanca</strong>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">📞</div>
-                <div class="contact-text">
-                    <small>TÉLÉPHONE</small>
-                    <strong>+212 6 12 34 56 78</strong>
+            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
+                <span style="font-size:0.7cm;">📞</span>
+                <div>
+                    <small style="display:block; font-size:0.18cm; font-weight:800; color:#555;">TÉLÉPHONE</small>
+                    <strong style="display:block; font-size:0.28cm; font-weight:700;">+212 6 12 34 56 78</strong>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">💬</div>
-                <div class="contact-text">
-                    <small>WHATSAPP</small>
-                    <strong>+212 6 12 34 56 78</strong>
+            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
+                <span style="font-size:0.7cm;">💬</span>
+                <div>
+                    <small style="display:block; font-size:0.18cm; font-weight:800; color:#555;">WHATSAPP</small>
+                    <strong style="display:block; font-size:0.28cm; font-weight:700;">+212 6 12 34 56 78</strong>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">📷</div>
-                <div class="contact-text">
-                    <small>INSTAGRAM</small>
-                    <strong>@monmenu</strong>
+            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
+                <span style="font-size:0.7cm;">📷</span>
+                <div>
+                    <small style="display:block; font-size:0.18cm; font-weight:800; color:#555;">INSTAGRAM</small>
+                    <strong style="display:block; font-size:0.28cm; font-weight:700;">@monmenu</strong>
                 </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon">🕒</div>
-                <div class="contact-text">
-                    <small>HORAIRES</small>
-                    <strong>Lun-Sam 8h – 22h</strong>
+            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
+                <span style="font-size:0.7cm;">🕒</span>
+                <div>
+                    <small style="display:block; font-size:0.18cm; font-weight:800; color:#555;">HORAIRES</small>
+                    <strong style="display:block; font-size:0.28cm; font-weight:700;">Lun-Sam 8h – 22h</strong>
                 </div>
             </div>
         </div>
 
-        <div class="footer-bottom">—  bon appétit  —</div>
+        <div style="margin-top:0.2cm; font-size:0.35cm; font-weight:700; letter-spacing:0.05cm; color:#777;">— bon appétit —</div>
     </footer>
 
 </div>
