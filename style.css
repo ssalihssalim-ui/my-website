@@ -1,9 +1,3 @@
-```css
-/* ==========================================
-   AFFICHAGE MENU
-   FORMAT : 100 CM x 150 CM
-========================================== */
-
 @page {
     size: 100cm 150cm;
     margin: 0;
@@ -17,23 +11,21 @@ html,
 body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
-    width: 100cm;
-    height: 150cm;
-
     background: white;
+    color: #111;
 
     font-family: Arial, Helvetica, sans-serif;
-
-    color: #111;
 }
 
 
-/* ==========================================
-   PAGE
-========================================== */
+/* =========================================
+   PAGE MENU : 100 CM × 150 CM
+========================================= */
 
 .menu {
     width: 100cm;
@@ -41,13 +33,13 @@ body {
 
     padding: 2cm;
 
-    background: #fff;
+    background: white;
 }
 
 
-/* ==========================================
-   TITRE MENU
-========================================== */
+/* =========================================
+   TITRE PRINCIPAL
+========================================= */
 
 header {
     width: 100%;
@@ -58,25 +50,24 @@ header {
 
     padding-bottom: 0.7cm;
 
-    border-bottom: 3px solid #111;
+    border-bottom: 4px solid #111;
 }
 
 header h1 {
     margin: 0;
 
     font-size: 80px;
+    font-weight: 900;
 
     line-height: 1;
-
-    font-weight: 900;
 
     letter-spacing: 8px;
 }
 
 
-/* ==========================================
-   ORGANISATION EN 2 COLONNES
-========================================== */
+/* =========================================
+   COLONNES
+========================================= */
 
 .columns {
     display: grid;
@@ -89,9 +80,9 @@ header h1 {
 }
 
 
-/* ==========================================
+/* =========================================
    CATEGORIES
-========================================== */
+========================================= */
 
 section {
     margin-bottom: 1.3cm;
@@ -104,27 +95,28 @@ section {
 /* TITRE CATEGORIE */
 
 section h2 {
-    margin: 0 0 0.35cm 0;
+    margin: 0;
 
-    padding: 0.25cm 0.35cm;
+    margin-bottom: 0.35cm;
 
-    border-bottom: 4px solid #111;
+    padding: 0.25cm 0.3cm;
 
     font-size: 50px;
+    font-weight: 900;
 
     line-height: 1.1;
-
-    font-weight: 900;
 
     text-transform: uppercase;
 
     letter-spacing: 1px;
+
+    border-bottom: 4px solid #111;
 }
 
 
-/* ==========================================
+/* =========================================
    PRODUITS
-========================================== */
+========================================= */
 
 section p {
     display: flex;
@@ -139,22 +131,24 @@ section p {
 
     padding: 7px 5px;
 
-    font-size: 35px;
-
-    line-height: 1.25;
-
-    gap: 20px;
-}
-
-
-/* NOM PRODUIT */
-
-section p span {
-    font-size: 35px;
+    font-size: 40px;
 
     font-weight: 500;
 
-    text-transform: uppercase;
+    line-height: 1.2;
+
+    gap: 25px;
+}
+
+
+/* NOM DU PRODUIT */
+
+section p span {
+    font-size: 40px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
 }
 
 
@@ -163,7 +157,7 @@ section p span {
 section p b {
     flex-shrink: 0;
 
-    font-size: 35px;
+    font-size: 40px;
 
     font-weight: 900;
 
@@ -173,18 +167,18 @@ section p b {
 }
 
 
-/* ==========================================
-   LIGNES TRES LEGERES
-========================================== */
+/* =========================================
+   LIGNE ENTRE PRODUITS
+========================================= */
 
 section p:not(:last-child) {
     border-bottom: 1px solid #ddd;
 }
 
 
-/* ==========================================
+/* =========================================
    IMPRESSION
-========================================== */
+========================================= */
 
 @media print {
 
@@ -195,6 +189,8 @@ section p:not(:last-child) {
 
         margin: 0;
         padding: 0;
+
+        background: white;
     }
 
     .menu {
@@ -209,6 +205,8 @@ section p:not(:last-child) {
     }
 
     .columns {
+        display: grid;
+
         grid-template-columns: 1fr 1fr;
 
         column-gap: 2.5cm;
@@ -221,14 +219,14 @@ section p:not(:last-child) {
 }
 
 
-/* ==========================================
+/* =========================================
    APERCU SUR ORDINATEUR
-========================================== */
+========================================= */
 
 @media screen {
 
     body {
-        background: #d5d5d5;
+        background: #d0d0d0;
     }
 
     .menu {
@@ -238,4 +236,3 @@ section p:not(:last-child) {
             0 0 30px rgba(0, 0, 0, 0.20);
     }
 }
-```
