@@ -155,7 +155,7 @@ section p {
 
     padding: 6px 5px;
 
-    font-size: 40px;
+    font-size: 50px;
 
     line-height: 1.15;
 
@@ -179,6 +179,7 @@ section p span {
     text-align: left;
 
     overflow-wrap: break-word;
+    font-size: 50px;
 
     word-break: normal;
 }
@@ -191,7 +192,7 @@ section p span {
 section p b {
     width: 160px;
 
-    font-size: 40px;
+    font-size: 50px;
 
     line-height: 1;
 
