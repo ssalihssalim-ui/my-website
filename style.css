@@ -1,8 +1,8 @@
 ```css
-/* =====================================================
-   FORMAT IMPRESSION
+/* =========================================================
+   FORMAT EXACT POUR IMPRESSION
    100 CM × 150 CM
-===================================================== */
+========================================================= */
 
 @page {
     size: 100cm 150cm;
@@ -20,126 +20,180 @@ body {
 }
 
 body {
-    width: 100cm;
-    min-height: 150cm;
+    background: #d9d9d9;
 
-    background: #e5e5e5;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    font-family: Arial, Helvetica, sans-serif;
-
-    color: #111;
+    color: #171717;
 }
 
 
-/* =====================================================
-   PAGE
-===================================================== */
+/* =========================================================
+   AFFICHE
+========================================================= */
 
-.menu {
+.poster {
     width: 100cm;
     min-height: 150cm;
 
-    margin: 0 auto;
+    margin: 30px auto;
 
-    padding: 2cm 2.2cm;
+    padding: 1.8cm 2.2cm 2cm;
 
     background: #fff;
+
+    overflow: hidden;
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
-.menu-header {
+.header {
     text-align: center;
 
-    margin-bottom: 1.3cm;
+    margin-bottom: 1.15cm;
 }
 
-.menu-header h1 {
+.header-small {
+    margin-bottom: 0.15cm;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    letter-spacing: 7px;
+
+    color: #666;
+}
+
+.header h1 {
     margin: 0;
 
     font-size: 90px;
 
     font-weight: 900;
 
-    letter-spacing: 12px;
+    letter-spacing: 15px;
 
-    line-height: 1;
+    line-height: 0.95;
 }
 
 .header-line {
     width: 100%;
 
-    height: 5px;
+    height: 6px;
 
-    margin-top: 0.6cm;
+    margin-top: 0.55cm;
 
-    background: #111;
+    background: #171717;
 }
 
 
-/* =====================================================
-   DEUX COLONNES
-===================================================== */
+/* =========================================================
+   GRILLE PRINCIPALE
+========================================================= */
 
-.menu-grid {
+.layout {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
-    column-gap: 2.5cm;
+    gap: 2.3cm;
 
     align-items: start;
 }
 
+.column {
+    min-width: 0;
+}
 
-/* =====================================================
-   CATEGORIES
-===================================================== */
+
+/* =========================================================
+   CATÉGORIE
+========================================================= */
 
 .category {
-    margin-bottom: 1.2cm;
+    margin-bottom: 0.95cm;
 
     break-inside: avoid;
     page-break-inside: avoid;
 }
 
-.category h2 {
-    margin: 0 0 0.35cm 0;
 
-    padding: 0.22cm 0.3cm;
+/* =========================================================
+   TITRE CATÉGORIE
+========================================================= */
+
+.category-title {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 1.55cm;
+
+    margin-bottom: 0.22cm;
+
+    padding: 0.15cm 0.25cm;
+
+    background: #171717;
+
+    color: white;
+}
+
+.category-title > span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    margin-right: 18px;
+
+    border: 2px solid white;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+.category-title h2 {
+    margin: 0;
 
     font-size: 50px;
 
     font-weight: 900;
 
-    line-height: 1.05;
+    line-height: 1;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 
     text-transform: uppercase;
-
-    border-bottom: 5px solid #111;
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUITS
-===================================================== */
+========================================================= */
+
+.products {
+    width: 100%;
+}
 
 .product {
     display: grid;
 
-    /*
-       NOM À GAUCHE
-       PRIX À DROITE
-    */
-
-    grid-template-columns: minmax(0, 1fr) 170px;
-
-    column-gap: 25px;
+    grid-template-columns: minmax(0, 1fr) 165px;
 
     align-items: center;
 
@@ -147,15 +201,17 @@ body {
 
     min-height: 52px;
 
-    padding: 5px 5px;
+    padding: 4px 5px;
+
+    column-gap: 18px;
 
     border-bottom: 1px solid #dedede;
 }
 
 
-/* =====================================================
-   NOM PRODUIT
-===================================================== */
+/* =========================================================
+   NOM
+========================================================= */
 
 .product span {
     min-width: 0;
@@ -164,7 +220,7 @@ body {
 
     font-weight: 500;
 
-    line-height: 1.08;
+    line-height: 1.05;
 
     text-align: left;
 
@@ -172,12 +228,12 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    PRIX
-===================================================== */
+========================================================= */
 
-.product strong {
-    width: 170px;
+.product b {
+    width: 165px;
 
     font-size: 40px;
 
@@ -191,11 +247,25 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
+   ALTERNANCE TRÈS LÉGÈRE
+========================================================= */
+
+.product:nth-child(even) {
+    background: #fafafa;
+}
+
+
+/* =========================================================
    IMPRESSION
-===================================================== */
+========================================================= */
 
 @media print {
+
+    @page {
+        size: 100cm 150cm;
+        margin: 0;
+    }
 
     html,
     body {
@@ -208,40 +278,30 @@ body {
         background: white;
     }
 
-    .menu {
+    .poster {
         width: 100cm;
         height: 150cm;
 
         margin: 0;
 
-        padding: 2cm 2.2cm;
-    }
+        padding: 1.8cm 2.2cm 2cm;
 
-    .menu-grid {
-        grid-template-columns: 1fr 1fr;
+        box-shadow: none;
 
-        column-gap: 2.5cm;
-    }
-
-    .category {
-        break-inside: avoid;
-        page-break-inside: avoid;
+        overflow: hidden;
     }
 }
 
 
-/* =====================================================
-   APERÇU ORDINATEUR
-===================================================== */
+/* =========================================================
+   APERÇU ÉCRAN
+========================================================= */
 
 @media screen {
 
-    .menu {
-        margin-top: 30px;
-        margin-bottom: 30px;
-
+    .poster {
         box-shadow:
-            0 5px 30px rgba(0, 0, 0, 0.18);
+            0 10px 45px rgba(0, 0, 0, 0.18);
     }
 }
 ```
