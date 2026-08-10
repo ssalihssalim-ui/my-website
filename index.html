@@ -3,10 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MENU - 100 x 150 cm</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>MENU · 100 x 150 cm</title>
+    <style>
+        /* ===== RESET & GLOBAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            padding: 20px;
+        }
+
+        /* ===== CONTENEUR PRINCIPAL ===== */
+        .menu {
+            width: 1000px;          /* 100 cm à l'échelle */
+            height: 1500px;         /* 150 cm */
+            background: #fbf7f0;    /* papier crème */
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.7), 0 0 0 2px #d9c9b0 inset;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 28px;
+            transition: all 0.2s;
+            position: relative;
+            overflow-y: auto;       /* sécurité si contenu dépasse */
+        }
+
+        /* ===== HEADER ===== */
+        .menu-header {
+            text-align: center;
+            border-bottom: 4px double #c6a77a;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .menu-header h1 {
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: 10px;
+            color: #3a2c1b;
+            text-shadow: 2px 2px 0 #e2d2bb;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .menu-header p {
+            font-size: 22px;
+            font-weight: 400;
+            color: #5f4a2e;
+            letter-spacing: 4px;
+            background: #e8dbca;
+            display: inline-block;
+            padding: 0 28px;
+            border-radius: 40px;
+            margin-top: 4px;
+        }
+
+        /* ===== GRILLE 3 COLONNES ===== */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px 20px;
+            flex: 1;
+            min-height: 0;          /* flex overflow */
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        /* ===== CATÉGORIES ===== */
+        .category {
+            background: rgba(255, 250, 240, 0.6);
+            border-radius: 18px;
+            padding: 14px 12px 8px 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            border-left: 4px solid #c6a77a;
+        }
+
+        .category h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2f2417;
+            background: #dfd0bb;
+            display: inline-block;
+            padding: 0 16px 0 10px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border: 1px solid #b89e7a;
+            line-height: 1.4;
+        }
+
+        /* ===== PRODUITS ===== */
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 3px 2px 3px 6px;
+            border-bottom: 1px dashed #dacfbe;
+            font-size: 17px;
+            font-weight: 450;
+            color: #2b1f12;
+            line-height: 1.45;
+        }
+
+        .product span {
+            flex: 1;
+            font-weight: 450;
+            letter-spacing: 0.2px;
+            word-break: break-word;
+            padding-right: 8px;
+        }
+
+        .product b {
+            font-weight: 700;
+            color: #2d1d0b;
+            background: #ece2d3;
+            padding: 0 8px;
+            border-radius: 30px;
+            font-size: 16px;
+            white-space: nowrap;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        /* couleur alernative subtile */
+        .product:nth-child(even) {
+            background: rgba(235, 222, 207, 0.2);
+            border-radius: 6px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            margin-top: 18px;
+            padding: 12px 0 4px 0;
+            border-top: 4px double #c6a77a;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            color: #4d3921;
+            background: #ede3d6;
+            border-radius: 60px;
+            flex-shrink: 0;
+        }
+
+        /* ===== SCROLLBAR (pour confort visuel) ===== */
+        .menu::-webkit-scrollbar {
+            width: 6px;
+        }
+        .menu::-webkit-scrollbar-track {
+            background: #ddcfbc;
+            border-radius: 12px;
+        }
+        .menu::-webkit-scrollbar-thumb {
+            background: #a58766;
+            border-radius: 12px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .menu {
+                width: 95vw;
+                height: auto;
+                min-height: 1400px;
+                padding: 18px 16px;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .menu-header h1 {
+                font-size: 40px;
+                letter-spacing: 6px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .menu-header h1 {
+                font-size: 34px;
+            }
+            .product {
+                font-size: 15px;
+            }
+            .category h2 {
+                font-size: 19px;
+            }
+            .footer {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* ===== PETITS AJUSTEMENTS ===== */
+        .product b:empty {
+            display: none;
+        }
+
+        /* pour les prix avec virgule */
+        .product b {
+            font-feature-settings: "tnum";
+        }
+
+        /* correction alignement si "—" */
+        .product b:last-child {
+            font-weight: 700;
+        }
+    </style>
+</head>
 <body>
 
 <div class="menu">
@@ -23,7 +243,6 @@
 
             <section class="category">
                 <h2>🥤 BOISSONS GAZEUSES</h2>
-
                 <div class="product"><span>SHWEPS MOJITO 1L</span><b>13 DH</b></div>
                 <div class="product"><span>COCA 1.5 L</span><b>9 DH</b></div>
                 <div class="product"><span>COCA COLA 2 L</span><b>12 DH</b></div>
@@ -60,7 +279,6 @@
 
             <section class="category">
                 <h2>🥛 LAITIERS</h2>
-
                 <div class="product"><span>PROTEIN CHERGUI ASSIR GR</span><b>20 DH</b></div>
                 <div class="product"><span>DAYA</span><b>6 DH</b></div>
                 <div class="product"><span>LEBEN PETIT</span><b>5 DH</b></div>
@@ -84,7 +302,6 @@
 
             <section class="category">
                 <h2>⚡ ENERGY</h2>
-
                 <div class="product"><span>MONSTER ENERGY TURK</span><b>25 DH</b></div>
                 <div class="product"><span>BURN ENERGY</span><b>11 DH</b></div>
                 <div class="product"><span>PREDATOR</span><b>7 DH</b></div>
@@ -98,13 +315,11 @@
 
         </div>
 
-
         <!-- COLONNE 2 -->
         <div class="column">
 
             <section class="category">
                 <h2>🍪 BISCUITS</h2>
-
                 <div class="product"><span>NOCCO 5 DH</span><b>5 DH</b></div>
                 <div class="product"><span>JAMAL CAKE</span><b>2 DH</b></div>
                 <div class="product"><span>CLORETS</span><b>0,5 DH</b></div>
@@ -168,7 +383,6 @@
 
             <section class="category">
                 <h2>🥜 CHIPS - SALE</h2>
-
                 <div class="product"><span>AGAJOU</span><b>5 DH</b></div>
                 <div class="product"><span>PISTACH 125 GR</span><b>15 DH</b></div>
                 <div class="product"><span>AMENDE 100 GR</span><b>15 DH</b></div>
@@ -187,13 +401,11 @@
 
         </div>
 
-
         <!-- COLONNE 3 -->
         <div class="column">
 
             <section class="category">
                 <h2>🧹 MENAGE</h2>
-
                 <div class="product"><span>MIA</span><b>9 DH</b></div>
                 <div class="product"><span>3SSA CHETABA</span><b>9 DH</b></div>
                 <div class="product"><span>JAVEL MAXIS 1L</span><b>7 DH</b></div>
@@ -210,10 +422,8 @@
                 <div class="product"><span>MAJIX TIDE 1/5 KG</span><b>9 DH</b></div>
             </section>
 
-
             <section class="category">
                 <h2>🛒 ALIMENTATION</h2>
-
                 <div class="product"><span>CRYSTAL 1 L</span><b>18 DH</b></div>
                 <div class="product"><span>MAYONAIZ PETIT</span><b>7 DH</b></div>
                 <div class="product"><span>NESCAFE SACHE</span><b>1 DH</b></div>
@@ -247,10 +457,8 @@
                 <div class="product"><span>BAROUD THE PETIT</span><b>8,5 DH</b></div>
             </section>
 
-
             <section class="category">
                 <h2>🧴 BEAUTY</h2>
-
                 <div class="product"><span>HEAD SHOULDER PETIT</span><b>12 DH</b></div>
                 <div class="product"><span>SIGNAL PETIT</span><b>5 DH</b></div>
                 <div class="product"><span>TAOUS SAVON</span><b>6 DH</b></div>
@@ -278,8 +486,6 @@
     </footer>
 
 </div>
-
-<script src="script.js"></script>
 
 </body>
 </html>
