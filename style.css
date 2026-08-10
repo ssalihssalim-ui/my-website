@@ -1,18 +1,13 @@
 ```css
-/* =========================================================
-   MENU MURAL
-   FORMAT : 100 CM × 150 CM
-========================================================= */
+/* =====================================================
+   FORMAT IMPRESSION
+   100 CM × 150 CM
+===================================================== */
 
 @page {
     size: 100cm 150cm;
     margin: 0;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     box-sizing: border-box;
@@ -24,71 +19,72 @@ body {
     padding: 0;
 }
 
-
-/* =========================================================
-   PAGE
-========================================================= */
-
 body {
     width: 100cm;
     min-height: 150cm;
 
-    background: white;
-
-    color: #111;
+    background: #e5e5e5;
 
     font-family: Arial, Helvetica, sans-serif;
+
+    color: #111;
 }
 
 
-/* =========================================================
-   MENU
-========================================================= */
+/* =====================================================
+   PAGE
+===================================================== */
 
 .menu {
     width: 100cm;
     min-height: 150cm;
 
-    padding: 2cm;
+    margin: 0 auto;
 
-    background: white;
+    padding: 2cm 2.2cm;
+
+    background: #fff;
 }
 
 
-/* =========================================================
-   TITRE PRINCIPAL
-========================================================= */
+/* =====================================================
+   HEADER
+===================================================== */
 
-header {
-    width: 100%;
-
+.menu-header {
     text-align: center;
 
-    margin-bottom: 1.5cm;
-
-    padding-bottom: 0.7cm;
-
-    border-bottom: 4px solid #111;
+    margin-bottom: 1.3cm;
 }
 
-header h1 {
+.menu-header h1 {
     margin: 0;
 
-    font-size: 80px;
-
-    line-height: 1;
+    font-size: 90px;
 
     font-weight: 900;
 
-    letter-spacing: 8px;
+    letter-spacing: 12px;
+
+    line-height: 1;
+}
+
+.header-line {
+    width: 100%;
+
+    height: 5px;
+
+    margin-top: 0.6cm;
+
+    background: #111;
 }
 
 
-/* =========================================================
-   COLONNES
-========================================================= */
+/* =====================================================
+   DEUX COLONNES
+===================================================== */
 
-.columns {
+.menu-grid {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -99,104 +95,95 @@ header h1 {
 }
 
 
-/* =========================================================
+/* =====================================================
    CATEGORIES
-========================================================= */
+===================================================== */
 
-section {
-    margin-bottom: 1.3cm;
+.category {
+    margin-bottom: 1.2cm;
 
     break-inside: avoid;
     page-break-inside: avoid;
 }
 
-
-/* =========================================================
-   TITRE DES CATEGORIES
-========================================================= */
-
-section h2 {
+.category h2 {
     margin: 0 0 0.35cm 0;
 
-    padding: 0.25cm 0.3cm;
+    padding: 0.22cm 0.3cm;
 
     font-size: 50px;
 
-    line-height: 1.1;
-
     font-weight: 900;
 
-    text-transform: uppercase;
+    line-height: 1.05;
 
     letter-spacing: 1px;
 
-    border-bottom: 4px solid #111;
+    text-transform: uppercase;
+
+    border-bottom: 5px solid #111;
 }
 
 
-/* =========================================================
-   PRODUIT + PRIX
-========================================================= */
+/* =====================================================
+   PRODUITS
+===================================================== */
 
-section p {
+.product {
     display: grid;
 
     /*
-       COLONNE 1 = NOM PRODUIT
-       COLONNE 2 = PRIX
+       NOM À GAUCHE
+       PRIX À DROITE
     */
-    grid-template-columns: minmax(0, 1fr) 160px;
+
+    grid-template-columns: minmax(0, 1fr) 170px;
+
+    column-gap: 25px;
 
     align-items: center;
 
     width: 100%;
 
-    margin: 0;
+    min-height: 52px;
 
-    padding: 6px 5px;
+    padding: 5px 5px;
 
-    font-size: 50px;
-
-    line-height: 1.15;
-
-    column-gap: 25px;
+    border-bottom: 1px solid #dedede;
 }
 
 
-/* =========================================================
-   NOM DU PRODUIT
-========================================================= */
+/* =====================================================
+   NOM PRODUIT
+===================================================== */
 
-section p span {
+.product span {
     min-width: 0;
 
-    font-size: 50px;
-
-    line-height: 1.15;
+    font-size: 40px;
 
     font-weight: 500;
+
+    line-height: 1.08;
 
     text-align: left;
 
     overflow-wrap: break-word;
-    font-size: 50px;
-
-    word-break: normal;
 }
 
 
-/* =========================================================
+/* =====================================================
    PRIX
-========================================================= */
+===================================================== */
 
-section p b {
-    width: 160px;
+.product strong {
+    width: 170px;
 
-    font-size: 50px;
-
-    line-height: 1;
+    font-size: 40px;
 
     font-weight: 900;
+
+    line-height: 1;
 
     text-align: right;
 
@@ -204,18 +191,9 @@ section p b {
 }
 
 
-/* =========================================================
-   PETITES LIGNES ENTRE LES PRODUITS
-========================================================= */
-
-section p:not(:last-child) {
-    border-bottom: 1px solid #dddddd;
-}
-
-
-/* =========================================================
+/* =====================================================
    IMPRESSION
-========================================================= */
+===================================================== */
 
 @media print {
 
@@ -234,43 +212,36 @@ section p:not(:last-child) {
         width: 100cm;
         height: 150cm;
 
-        padding: 2cm;
+        margin: 0;
+
+        padding: 2cm 2.2cm;
     }
 
-    header {
-        margin-bottom: 1.5cm;
-    }
-
-    .columns {
-        display: grid;
-
+    .menu-grid {
         grid-template-columns: 1fr 1fr;
 
         column-gap: 2.5cm;
     }
 
-    section {
+    .category {
         break-inside: avoid;
         page-break-inside: avoid;
     }
 }
 
 
-/* =========================================================
-   APERCU SUR ORDINATEUR
-========================================================= */
+/* =====================================================
+   APERÇU ORDINATEUR
+===================================================== */
 
 @media screen {
 
-    body {
-        background: #d0d0d0;
-    }
-
     .menu {
-        margin: 30px auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
 
         box-shadow:
-            0 0 30px rgba(0, 0, 0, 0.20);
+            0 5px 30px rgba(0, 0, 0, 0.18);
     }
 }
 ```
