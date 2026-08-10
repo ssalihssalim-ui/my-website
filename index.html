@@ -30,7 +30,7 @@
         .menu {
             width: 100cm;
             min-height: 150cm;
-            padding: 1.2cm;
+            padding: 1cm;
             background: white;
         }
 
@@ -42,20 +42,20 @@
         .menu-header {
             text-align: center;
             border-bottom: 0.12cm solid #111;
-            padding-bottom: 0.5cm;
-            margin-bottom: 0.5cm;
+            padding-bottom: 0.4cm;
+            margin-bottom: 0.4cm;
         }
 
         .menu-header h1 {
             margin: 0;
-            font-size: 2.2cm;
+            font-size: 2.5cm;
             font-weight: 900;
             letter-spacing: 0.15cm;
         }
 
         .menu-header p {
             margin: 0.1cm 0 0;
-            font-size: 0.55cm;
+            font-size: 0.6cm;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -68,7 +68,7 @@
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.5cm;
+            gap: 0.4cm;
             align-items: start;
         }
 
@@ -76,18 +76,18 @@
             min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.1cm;
+            gap: 0.08cm;
         }
 
 
         /* =========================
-           CATEGORIES
+           CATEGORIES - NOMS À 1cm
         ========================= */
 
         .category {
             border: 0.05cm solid #222;
-            border-radius: 0.12cm;
-            margin-bottom: 0.25cm;
+            border-radius: 0.1cm;
+            margin-bottom: 0.2cm;
             overflow: hidden;
             background: white;
             break-inside: avoid;
@@ -96,13 +96,14 @@
 
         .category h2 {
             margin: 0;
-            padding: 0.15cm 0.2cm;
+            padding: 0.12cm 0.18cm;
             background: #111;
             color: white;
-            font-size: 0.45cm;
+            font-size: 1cm;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.02cm;
+            line-height: 1.1;
         }
 
 
@@ -113,13 +114,13 @@
         .product {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 0.15cm;
+            gap: 0.12cm;
             align-items: center;
             min-height: 0.7cm;
-            padding: 0.06cm 0.12cm;
+            padding: 0.05cm 0.1cm;
             border-bottom: 0.02cm solid #d8d8d8;
             font-size: 0.6cm;
-            line-height: 1.15;
+            line-height: 1.1;
         }
 
         .product:last-child {
@@ -147,7 +148,7 @@
 
 
         /* =========================
-           FOOTER
+           FOOTER - POLICE À 1cm
         ========================= */
 
         .footer {
@@ -155,6 +156,58 @@
             padding-top: 0.25cm;
             border-top: 0.08cm solid #111;
             text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1cm;
+            font-weight: 900;
+            letter-spacing: 0.08cm;
+            margin-bottom: 0.25cm;
+        }
+
+        .footer .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.15cm;
+            width: 100%;
+            margin-bottom: 0.15cm;
+        }
+
+        .footer .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.1cm;
+            padding: 0.05cm;
+            text-align: left;
+        }
+
+        .footer .contact-icon {
+            font-size: 0.8cm;
+            flex-shrink: 0;
+        }
+
+        .footer .contact-text small {
+            display: block;
+            font-size: 0.25cm;
+            font-weight: 800;
+            color: #555;
+            letter-spacing: 0.02cm;
+        }
+
+        .footer .contact-text strong {
+            display: block;
+            font-size: 0.35cm;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .footer-bottom {
+            margin-top: 0.15cm;
+            font-size: 0.5cm;
+            font-weight: 700;
+            letter-spacing: 0.04cm;
+            color: #777;
         }
 
 
@@ -175,7 +228,7 @@
             .menu {
                 width: 100cm;
                 min-height: 150cm;
-                padding: 1.2cm;
+                padding: 1cm;
             }
 
             .category {
@@ -847,50 +900,50 @@
     </main>
 
     <!-- =========================
-    FOOTER
+    FOOTER - TITRE À 1cm
     ========================= -->
     <footer class="footer">
-        <div style="font-size:0.65cm; font-weight:900; letter-spacing:0.08cm; margin-bottom:0.3cm;">MERCI POUR VOTRE VISITE</div>
+        <div class="footer-title">MERCI POUR VOTRE VISITE</div>
 
-        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.2cm; width:100%; margin-bottom:0.2cm;">
-            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
-                <span style="font-size:0.8cm;">📍</span>
-                <div>
-                    <small style="display:block; font-size:0.2cm; font-weight:800; color:#555;">ADRESSE</small>
-                    <strong style="display:block; font-size:0.3cm; font-weight:700;">12, Rue des Saveurs<br>Casablanca</strong>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div class="contact-text">
+                    <small>ADRESSE</small>
+                    <strong>12, Rue des Saveurs<br>Casablanca</strong>
                 </div>
             </div>
-            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
-                <span style="font-size:0.8cm;">📞</span>
-                <div>
-                    <small style="display:block; font-size:0.2cm; font-weight:800; color:#555;">TÉLÉPHONE</small>
-                    <strong style="display:block; font-size:0.3cm; font-weight:700;">+212 6 12 34 56 78</strong>
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div class="contact-text">
+                    <small>TÉLÉPHONE</small>
+                    <strong>+212 6 12 34 56 78</strong>
                 </div>
             </div>
-            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
-                <span style="font-size:0.8cm;">💬</span>
-                <div>
-                    <small style="display:block; font-size:0.2cm; font-weight:800; color:#555;">WHATSAPP</small>
-                    <strong style="display:block; font-size:0.3cm; font-weight:700;">+212 6 12 34 56 78</strong>
+            <div class="contact-item">
+                <span class="contact-icon">💬</span>
+                <div class="contact-text">
+                    <small>WHATSAPP</small>
+                    <strong>+212 6 12 34 56 78</strong>
                 </div>
             </div>
-            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
-                <span style="font-size:0.8cm;">📷</span>
-                <div>
-                    <small style="display:block; font-size:0.2cm; font-weight:800; color:#555;">INSTAGRAM</small>
-                    <strong style="display:block; font-size:0.3cm; font-weight:700;">@monmenu</strong>
+            <div class="contact-item">
+                <span class="contact-icon">📷</span>
+                <div class="contact-text">
+                    <small>INSTAGRAM</small>
+                    <strong>@monmenu</strong>
                 </div>
             </div>
-            <div style="display:flex; align-items:center; justify-content:center; gap:0.15cm; padding:0.05cm;">
-                <span style="font-size:0.8cm;">🕒</span>
-                <div>
-                    <small style="display:block; font-size:0.2cm; font-weight:800; color:#555;">HORAIRES</small>
-                    <strong style="display:block; font-size:0.3cm; font-weight:700;">Lun-Sam 8h – 22h</strong>
+            <div class="contact-item">
+                <span class="contact-icon">🕒</span>
+                <div class="contact-text">
+                    <small>HORAIRES</small>
+                    <strong>Lun-Sam 8h – 22h</strong>
                 </div>
             </div>
         </div>
 
-        <div style="margin-top:0.2cm; font-size:0.4cm; font-weight:700; letter-spacing:0.05cm; color:#777;">— bon appétit —</div>
+        <div class="footer-bottom">— bon appétit —</div>
     </footer>
 
 </div>
