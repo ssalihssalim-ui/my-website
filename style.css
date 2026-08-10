@@ -1,6 +1,6 @@
 ```css
 /* =========================================================
-   FORMAT EXACT POUR IMPRESSION
+   FORMAT AFFICHAGE
    100 CM × 150 CM
 ========================================================= */
 
@@ -8,6 +8,11 @@
     size: 100cm 150cm;
     margin: 0;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -20,14 +25,14 @@ body {
 }
 
 body {
-    background: #d9d9d9;
+    background: #d8d8d8;
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    color: #171717;
+    color: #151515;
 }
 
 
@@ -36,16 +41,23 @@ body {
 ========================================================= */
 
 .poster {
+
     width: 100cm;
     min-height: 150cm;
 
     margin: 30px auto;
 
-    padding: 1.8cm 2.2cm 2cm;
+    padding:
+        1.5cm
+        2.2cm
+        1.4cm;
 
-    background: #fff;
+    background: #ffffff;
 
     overflow: hidden;
+
+    box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.18);
 }
 
 
@@ -54,61 +66,71 @@ body {
 ========================================================= */
 
 .header {
+
+    width: 100%;
+
     text-align: center;
 
-    margin-bottom: 1.15cm;
+    margin-bottom: 0.9cm;
 }
 
-.header-small {
-    margin-bottom: 0.15cm;
+.welcome {
 
     font-size: 22px;
 
     font-weight: 700;
 
-    letter-spacing: 7px;
+    letter-spacing: 8px;
 
-    color: #666;
+    color: #666666;
+
+    margin-bottom: 5px;
 }
 
 .header h1 {
+
     margin: 0;
 
     font-size: 90px;
 
     font-weight: 900;
 
-    letter-spacing: 15px;
-
     line-height: 0.95;
+
+    letter-spacing: 16px;
 }
 
 .header-line {
+
     width: 100%;
 
     height: 6px;
 
-    margin-top: 0.55cm;
+    margin-top: 0.45cm;
 
-    background: #171717;
+    background: #151515;
 }
 
 
 /* =========================================================
-   GRILLE PRINCIPALE
+   GRILLE 2 COLONNES
 ========================================================= */
 
-.layout {
+.menu-grid {
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
-    gap: 2.3cm;
+    column-gap: 2cm;
 
     align-items: start;
 }
 
-.column {
+.menu-column {
+
     min-width: 0;
 }
 
@@ -118,9 +140,13 @@ body {
 ========================================================= */
 
 .category {
-    margin-bottom: 0.95cm;
+
+    width: 100%;
+
+    margin-bottom: 0.7cm;
 
     break-inside: avoid;
+
     page-break-inside: avoid;
 }
 
@@ -130,44 +156,63 @@ body {
 ========================================================= */
 
 .category-title {
+
     display: flex;
 
     align-items: center;
 
     width: 100%;
 
-    min-height: 1.55cm;
+    min-height: 1.65cm;
 
-    margin-bottom: 0.22cm;
+    padding:
+        0.13cm
+        0.25cm;
 
-    padding: 0.15cm 0.25cm;
+    margin-bottom: 0.15cm;
 
-    background: #171717;
+    background: #151515;
 
-    color: white;
+    color: #ffffff;
+
+    border-radius: 7px;
 }
 
-.category-title > span {
+
+/* =========================================================
+   ICÔNE
+========================================================= */
+
+.category-icon {
+
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    width: 48px;
-    height: 48px;
+    flex-shrink: 0;
 
-    margin-right: 18px;
+    width: 75px;
 
-    border: 2px solid white;
+    height: 75px;
 
-    border-radius: 50%;
+    margin-right: 20px;
 
-    font-size: 20px;
+    font-size: 54px;
 
-    font-weight: 700;
+    color: #ffffff;
+
+    text-align: center;
 }
 
+
+/* =========================================================
+   NOM CATÉGORIE
+========================================================= */
+
 .category-title h2 {
+
     margin: 0;
 
     font-size: 50px;
@@ -176,44 +221,58 @@ body {
 
     line-height: 1;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
 
     text-transform: uppercase;
 }
 
 
 /* =========================================================
-   PRODUITS
+   LISTE PRODUITS
 ========================================================= */
 
 .products {
+
     width: 100%;
 }
 
+
+/* =========================================================
+   PRODUIT
+========================================================= */
+
 .product {
+
     display: grid;
 
-    grid-template-columns: minmax(0, 1fr) 165px;
+    grid-template-columns:
+        minmax(0, 1fr)
+        160px;
 
     align-items: center;
 
     width: 100%;
 
-    min-height: 52px;
+    min-height: 50px;
 
-    padding: 4px 5px;
+    padding:
+        3px
+        5px;
 
-    column-gap: 18px;
+    column-gap: 15px;
 
-    border-bottom: 1px solid #dedede;
+    border-bottom:
+        1px solid
+        #dddddd;
 }
 
 
 /* =========================================================
-   NOM
+   NOM PRODUIT
 ========================================================= */
 
 .product span {
+
     min-width: 0;
 
     font-size: 40px;
@@ -232,8 +291,9 @@ body {
    PRIX
 ========================================================= */
 
-.product b {
-    width: 165px;
+.product strong {
+
+    width: 160px;
 
     font-size: 40px;
 
@@ -248,11 +308,183 @@ body {
 
 
 /* =========================================================
-   ALTERNANCE TRÈS LÉGÈRE
+   ALTERNANCE PRODUITS
 ========================================================= */
 
 .product:nth-child(even) {
+
     background: #fafafa;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    width: 100%;
+
+    margin-top: 0.5cm;
+
+    text-align: center;
+
+    break-inside: avoid;
+}
+
+
+/* =========================================================
+   LIGNE FOOTER
+========================================================= */
+
+.footer-line {
+
+    width: 100%;
+
+    height: 5px;
+
+    margin-bottom: 0.3cm;
+
+    background: #151515;
+}
+
+
+/* =========================================================
+   TITRE FOOTER
+========================================================= */
+
+.footer-title {
+
+    font-size: 34px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 0.35cm;
+}
+
+
+/* =========================================================
+   INFORMATIONS CONTACT
+========================================================= */
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr;
+
+    gap: 25px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-item {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 105px;
+
+    padding: 15px;
+
+    border:
+        3px solid
+        #151515;
+
+    border-radius: 8px;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   ICÔNE CONTACT
+========================================================= */
+
+.contact-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 70px;
+
+    min-width: 70px;
+
+    height: 70px;
+
+    margin-right: 15px;
+
+    font-size: 42px;
+}
+
+
+/* =========================================================
+   TEXTE CONTACT
+========================================================= */
+
+.contact-text {
+
+    min-width: 0;
+}
+
+.contact-text small {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #666666;
+}
+
+.contact-text strong {
+
+    display: block;
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    line-height: 1.05;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   FOOTER FINAL
+========================================================= */
+
+.footer-bottom {
+
+    margin-top: 0.3cm;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+    color: #555555;
 }
 
 
@@ -263,28 +495,40 @@ body {
 @media print {
 
     @page {
+
         size: 100cm 150cm;
+
         margin: 0;
     }
 
     html,
     body {
+
         width: 100cm;
+
         height: 150cm;
 
         margin: 0;
+
         padding: 0;
 
-        background: white;
+        background: #ffffff;
     }
 
     .poster {
+
         width: 100cm;
+
         height: 150cm;
+
+        min-height: 150cm;
 
         margin: 0;
 
-        padding: 1.8cm 2.2cm 2cm;
+        padding:
+            1.5cm
+            2.2cm
+            1.4cm;
 
         box-shadow: none;
 
@@ -294,14 +538,14 @@ body {
 
 
 /* =========================================================
-   APERÇU ÉCRAN
+   ÉCRAN
 ========================================================= */
 
 @media screen {
 
     .poster {
-        box-shadow:
-            0 10px 45px rgba(0, 0, 0, 0.18);
+
+        max-width: 100cm;
     }
 }
 ```
