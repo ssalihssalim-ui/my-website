@@ -30,7 +30,7 @@
         .menu {
             width: 100cm;
             min-height: 150cm;
-            padding: 1.5cm;
+            padding: 1.2cm;
             background: white;
         }
 
@@ -42,20 +42,20 @@
         .menu-header {
             text-align: center;
             border-bottom: 0.12cm solid #111;
-            padding-bottom: 0.7cm;
-            margin-bottom: 0.8cm;
+            padding-bottom: 0.5cm;
+            margin-bottom: 0.5cm;
         }
 
         .menu-header h1 {
             margin: 0;
-            font-size: 2.4cm;
+            font-size: 2.2cm;
             font-weight: 900;
             letter-spacing: 0.15cm;
         }
 
         .menu-header p {
-            margin: 0.15cm 0 0;
-            font-size: 0.6cm;
+            margin: 0.1cm 0 0;
+            font-size: 0.55cm;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -68,7 +68,7 @@
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.7cm;
+            gap: 0.5cm;
             align-items: start;
         }
 
@@ -76,7 +76,7 @@
             min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.15cm;
+            gap: 0.1cm;
         }
 
 
@@ -85,9 +85,9 @@
         ========================= */
 
         .category {
-            border: 0.06cm solid #222;
-            border-radius: 0.15cm;
-            margin-bottom: 0.4cm;
+            border: 0.05cm solid #222;
+            border-radius: 0.12cm;
+            margin-bottom: 0.25cm;
             overflow: hidden;
             background: white;
             break-inside: avoid;
@@ -96,10 +96,10 @@
 
         .category h2 {
             margin: 0;
-            padding: 0.23cm 0.28cm;
+            padding: 0.15cm 0.2cm;
             background: #111;
             color: white;
-            font-size: 0.52cm;
+            font-size: 0.45cm;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.02cm;
@@ -107,19 +107,19 @@
 
 
         /* =========================
-           PRODUITS - POLICE AUGMENTÉE
+           PRODUITS - POLICE 0.6cm / PRIX 0.7cm
         ========================= */
 
         .product {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 0.25cm;
+            gap: 0.15cm;
             align-items: center;
-            min-height: 0.5cm;
-            padding: 0.1cm 0.18cm;
-            border-bottom: 0.025cm solid #d8d8d8;
-            font-size: 0.35cm;
-            line-height: 1.2;
+            min-height: 0.7cm;
+            padding: 0.06cm 0.12cm;
+            border-bottom: 0.02cm solid #d8d8d8;
+            font-size: 0.6cm;
+            line-height: 1.15;
         }
 
         .product:last-child {
@@ -129,14 +129,16 @@
         .product span {
             font-weight: 600;
             overflow-wrap: break-word;
-            font-size: 0.35cm;
+            word-break: break-word;
+            font-size: 0.6cm;
         }
 
         .product b {
             white-space: nowrap;
-            font-size: 0.36cm;
+            font-size: 0.7cm;
             font-weight: 900;
             text-align: right;
+            padding-left: 0.05cm;
         }
 
         .product:nth-child(even) {
@@ -149,8 +151,8 @@
         ========================= */
 
         .footer {
-            margin-top: 0.5cm;
-            padding-top: 0.35cm;
+            margin-top: 0.3cm;
+            padding-top: 0.25cm;
             border-top: 0.08cm solid #111;
             text-align: center;
         }
@@ -173,7 +175,7 @@
             .menu {
                 width: 100cm;
                 min-height: 150cm;
-                padding: 1.5cm;
+                padding: 1.2cm;
             }
 
             .category {
