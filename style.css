@@ -1,18 +1,12 @@
 ```css
 /* =========================================================
-   FORMAT AFFICHAGE
-   100 CM × 150 CM
+   FORMAT AFFICHAGE : 100 CM × 150 CM
 ========================================================= */
 
 @page {
     size: 100cm 150cm;
     margin: 0;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     box-sizing: border-box;
@@ -25,13 +19,8 @@ body {
 }
 
 body {
-    background: #d8d8d8;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    background: #e5e5e5;
+    font-family: Arial, Helvetica, sans-serif;
     color: #151515;
 }
 
@@ -41,23 +30,18 @@ body {
 ========================================================= */
 
 .poster {
-
     width: 100cm;
     min-height: 150cm;
 
     margin: 30px auto;
 
-    padding:
-        1.5cm
-        2.2cm
-        1.4cm;
+    padding: 1.5cm 2.2cm 1.2cm;
 
     background: #ffffff;
 
     overflow: hidden;
 
-    box-shadow:
-        0 12px 45px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -66,58 +50,44 @@ body {
 ========================================================= */
 
 .header {
-
     width: 100%;
-
     text-align: center;
-
-    margin-bottom: 0.9cm;
+    margin-bottom: 0.8cm;
 }
 
 .welcome {
-
     font-size: 22px;
-
     font-weight: 700;
-
     letter-spacing: 8px;
-
-    color: #666666;
-
+    color: #777;
     margin-bottom: 5px;
 }
 
 .header h1 {
-
     margin: 0;
 
     font-size: 90px;
-
     font-weight: 900;
 
     line-height: 0.95;
-
     letter-spacing: 16px;
 }
 
 .header-line {
-
     width: 100%;
+    height: 4px;
 
-    height: 6px;
-
-    margin-top: 0.45cm;
+    margin-top: 0.35cm;
 
     background: #151515;
 }
 
 
 /* =========================================================
-   GRILLE 2 COLONNES
+   DEUX COLONNES
 ========================================================= */
 
 .menu-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -130,7 +100,6 @@ body {
 }
 
 .menu-column {
-
     min-width: 0;
 }
 
@@ -140,13 +109,11 @@ body {
 ========================================================= */
 
 .category {
-
     width: 100%;
 
-    margin-bottom: 0.7cm;
+    margin-bottom: 0.65cm;
 
     break-inside: avoid;
-
     page-break-inside: avoid;
 }
 
@@ -156,7 +123,6 @@ body {
 ========================================================= */
 
 .category-title {
-
     display: flex;
 
     align-items: center;
@@ -165,45 +131,36 @@ body {
 
     min-height: 1.65cm;
 
-    padding:
-        0.13cm
-        0.25cm;
-
-    margin-bottom: 0.15cm;
+    padding: 0.13cm 0.25cm;
 
     background: #151515;
 
-    color: #ffffff;
+    color: white;
 
     border-radius: 7px;
 }
 
 
 /* =========================================================
-   ICÔNE
+   ICÔNE CATÉGORIE
 ========================================================= */
 
 .category-icon {
-
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     flex-shrink: 0;
 
     width: 75px;
-
     height: 75px;
 
     margin-right: 20px;
 
     font-size: 54px;
 
-    color: #ffffff;
-
-    text-align: center;
+    color: white;
 }
 
 
@@ -212,7 +169,6 @@ body {
 ========================================================= */
 
 .category-title h2 {
-
     margin: 0;
 
     font-size: 50px;
@@ -228,12 +184,14 @@ body {
 
 
 /* =========================================================
-   LISTE PRODUITS
+   ESPACE ENTRE CATÉGORIE ET PRODUITS
+   EXACTEMENT 10 PX
 ========================================================= */
 
 .products {
-
     width: 100%;
+
+    margin-top: 10px;
 }
 
 
@@ -242,7 +200,6 @@ body {
 ========================================================= */
 
 .product {
-
     display: grid;
 
     grid-template-columns:
@@ -255,15 +212,12 @@ body {
 
     min-height: 50px;
 
-    padding:
-        3px
-        5px;
+    padding: 3px 5px;
 
     column-gap: 15px;
 
-    border-bottom:
-        1px solid
-        #dddddd;
+    /* Pas de ligne sur chaque produit */
+    border-bottom: none;
 }
 
 
@@ -272,7 +226,6 @@ body {
 ========================================================= */
 
 .product span {
-
     min-width: 0;
 
     font-size: 40px;
@@ -288,11 +241,10 @@ body {
 
 
 /* =========================================================
-   PRIX
+   PRIX À DROITE
 ========================================================= */
 
 .product strong {
-
     width: 160px;
 
     font-size: 40px;
@@ -308,11 +260,10 @@ body {
 
 
 /* =========================================================
-   ALTERNANCE PRODUITS
+   ALTERNANCE TRÈS LÉGÈRE
 ========================================================= */
 
 .product:nth-child(even) {
-
     background: #fafafa;
 }
 
@@ -322,10 +273,9 @@ body {
 ========================================================= */
 
 .footer {
-
     width: 100%;
 
-    margin-top: 0.5cm;
+    margin-top: 0.45cm;
 
     text-align: center;
 
@@ -334,14 +284,13 @@ body {
 
 
 /* =========================================================
-   LIGNE FOOTER
+   UNE SEULE LIGNE AVANT FOOTER
 ========================================================= */
 
 .footer-line {
-
     width: 100%;
 
-    height: 5px;
+    height: 3px;
 
     margin-bottom: 0.3cm;
 
@@ -354,23 +303,22 @@ body {
 ========================================================= */
 
 .footer-title {
-
-    font-size: 34px;
+    font-size: 32px;
 
     font-weight: 900;
 
     letter-spacing: 5px;
 
-    margin-bottom: 0.35cm;
+    margin-bottom: 0.3cm;
 }
 
 
 /* =========================================================
-   INFORMATIONS CONTACT
+   CONTACTS
+   SANS CADRES
 ========================================================= */
 
 .contact-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -378,31 +326,29 @@ body {
         1fr
         1fr;
 
-    gap: 25px;
+    gap: 30px;
 
     width: 100%;
 }
 
 
 /* =========================================================
-   CONTACT
+   CONTACT ITEM
 ========================================================= */
 
 .contact-item {
-
     display: flex;
 
     align-items: center;
 
-    min-height: 105px;
+    min-height: 75px;
 
-    padding: 15px;
+    padding: 5px 10px;
 
-    border:
-        3px solid
-        #151515;
+    /* Aucun encadrement */
+    border: none;
 
-    border-radius: 8px;
+    background: transparent;
 
     text-align: left;
 }
@@ -413,20 +359,17 @@ body {
 ========================================================= */
 
 .contact-icon {
-
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    width: 70px;
+    width: 65px;
+    min-width: 65px;
 
-    min-width: 70px;
+    height: 65px;
 
-    height: 70px;
-
-    margin-right: 15px;
+    margin-right: 12px;
 
     font-size: 42px;
 }
@@ -437,30 +380,27 @@ body {
 ========================================================= */
 
 .contact-text {
-
     min-width: 0;
 }
 
 .contact-text small {
-
     display: block;
 
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 
-    font-size: 18px;
+    font-size: 16px;
 
     font-weight: 800;
 
     letter-spacing: 2px;
 
-    color: #666666;
+    color: #777;
 }
 
 .contact-text strong {
-
     display: block;
 
-    font-size: 27px;
+    font-size: 25px;
 
     font-weight: 900;
 
@@ -471,20 +411,19 @@ body {
 
 
 /* =========================================================
-   FOOTER FINAL
+   MESSAGE FINAL
 ========================================================= */
 
 .footer-bottom {
+    margin-top: 0.25cm;
 
-    margin-top: 0.3cm;
-
-    font-size: 19px;
+    font-size: 18px;
 
     font-weight: 700;
 
     letter-spacing: 5px;
 
-    color: #555555;
+    color: #777;
 }
 
 
@@ -495,40 +434,30 @@ body {
 @media print {
 
     @page {
-
         size: 100cm 150cm;
-
         margin: 0;
     }
 
     html,
     body {
-
         width: 100cm;
-
         height: 150cm;
 
         margin: 0;
-
         padding: 0;
 
-        background: #ffffff;
+        background: white;
     }
 
     .poster {
-
         width: 100cm;
-
         height: 150cm;
 
         min-height: 150cm;
 
         margin: 0;
 
-        padding:
-            1.5cm
-            2.2cm
-            1.4cm;
+        padding: 1.5cm 2.2cm 1.2cm;
 
         box-shadow: none;
 
@@ -544,7 +473,6 @@ body {
 @media screen {
 
     .poster {
-
         max-width: 100cm;
     }
 }
