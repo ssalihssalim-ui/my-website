@@ -5,487 +5,855 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MENU · 100 x 150 cm</title>
     <style>
-        /* ===== RESET & GLOBAL ===== */
-        * {
+        /* =========================================================
+           FORMAT AFFICHAGE : 100 CM × 150 CM
+        ========================================================= */
+
+        @page {
+            size: 100cm 150cm;
             margin: 0;
-            padding: 0;
+        }
+
+        * {
             box-sizing: border-box;
         }
 
+        html,
         body {
-            background: #1e1e1e;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #e5e5e5;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #151515;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-            padding: 20px;
         }
 
-        /* ===== CONTENEUR PRINCIPAL ===== */
-        .menu {
-            width: 1000px;          /* 100 cm à l'échelle */
-            height: 1500px;         /* 150 cm */
-            background: #fbf7f0;    /* papier crème */
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.7), 0 0 0 2px #d9c9b0 inset;
-            display: flex;
-            flex-direction: column;
-            padding: 24px 28px;
-            transition: all 0.2s;
-            position: relative;
-            overflow-y: auto;       /* sécurité si contenu dépasse */
+
+        /* =========================================================
+           AFFICHE
+        ========================================================= */
+
+        .poster {
+            width: 100cm;
+            min-height: 150cm;
+
+            margin: 30px auto;
+
+            padding: 1.5cm 2.2cm 1.2cm;
+
+            background: #ffffff;
+
+            overflow: hidden;
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
         }
 
-        /* ===== HEADER ===== */
-        .menu-header {
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+            width: 100%;
             text-align: center;
-            border-bottom: 4px double #c6a77a;
-            padding-bottom: 14px;
-            margin-bottom: 20px;
-            flex-shrink: 0;
+            margin-bottom: 0.8cm;
         }
 
-        .menu-header h1 {
-            font-size: 52px;
-            font-weight: 800;
-            letter-spacing: 10px;
-            color: #3a2c1b;
-            text-shadow: 2px 2px 0 #e2d2bb;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .menu-header p {
+        .welcome {
             font-size: 22px;
-            font-weight: 400;
-            color: #5f4a2e;
-            letter-spacing: 4px;
-            background: #e8dbca;
-            display: inline-block;
-            padding: 0 28px;
-            border-radius: 40px;
-            margin-top: 4px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            color: #777;
+            margin-bottom: 5px;
         }
 
-        /* ===== GRILLE 3 COLONNES ===== */
+        .header h1 {
+            margin: 0;
+
+            font-size: 90px;
+            font-weight: 900;
+
+            line-height: 0.95;
+            letter-spacing: 16px;
+        }
+
+        .header-line {
+            width: 100%;
+            height: 4px;
+
+            margin-top: 0.35cm;
+
+            background: #151515;
+        }
+
+
+        /* =========================================================
+           DEUX COLONNES
+        ========================================================= */
+
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px 20px;
-            flex: 1;
-            min-height: 0;          /* flex overflow */
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr);
+
+            column-gap: 2cm;
+
+            align-items: start;
         }
 
-        .column {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
+        .menu-column {
+            min-width: 0;
         }
 
-        /* ===== CATÉGORIES ===== */
+
+        /* =========================================================
+           CATÉGORIE
+        ========================================================= */
+
         .category {
-            background: rgba(255, 250, 240, 0.6);
-            border-radius: 18px;
-            padding: 14px 12px 8px 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-            border-left: 4px solid #c6a77a;
+            width: 100%;
+
+            margin-bottom: 0.65cm;
+
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        .category h2 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #2f2417;
-            background: #dfd0bb;
-            display: inline-block;
-            padding: 0 16px 0 10px;
-            border-radius: 30px;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            border: 1px solid #b89e7a;
-            line-height: 1.4;
-        }
 
-        /* ===== PRODUITS ===== */
-        .product {
+        /* =========================================================
+           TITRE CATÉGORIE
+        ========================================================= */
+
+        .category-title {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 3px 2px 3px 6px;
-            border-bottom: 1px dashed #dacfbe;
-            font-size: 17px;
-            font-weight: 450;
-            color: #2b1f12;
-            line-height: 1.45;
+
+            align-items: center;
+
+            width: 100%;
+
+            min-height: 1.65cm;
+
+            padding: 0.13cm 0.25cm;
+
+            background: #151515;
+
+            color: white;
+
+            border-radius: 7px;
         }
+
+
+        /* =========================================================
+           ICÔNE CATÉGORIE
+        ========================================================= */
+
+        .category-icon {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            width: 75px;
+            height: 75px;
+
+            margin-right: 20px;
+
+            font-size: 54px;
+
+            color: white;
+        }
+
+
+        /* =========================================================
+           NOM CATÉGORIE
+        ========================================================= */
+
+        .category-title h2 {
+            margin: 0;
+
+            font-size: 50px;
+
+            font-weight: 900;
+
+            line-height: 1;
+
+            letter-spacing: 0.3px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           ESPACE ENTRE CATÉGORIE ET PRODUITS
+           EXACTEMENT 10 PX
+        ========================================================= */
+
+        .products {
+            width: 100%;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================================================
+           PRODUIT
+        ========================================================= */
+
+        .product {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                160px;
+
+            align-items: center;
+
+            width: 100%;
+
+            min-height: 50px;
+
+            padding: 3px 5px;
+
+            column-gap: 15px;
+
+            /* Pas de ligne sur chaque produit */
+            border-bottom: none;
+        }
+
+
+        /* =========================================================
+           NOM PRODUIT
+        ========================================================= */
 
         .product span {
-            flex: 1;
-            font-weight: 450;
-            letter-spacing: 0.2px;
-            word-break: break-word;
-            padding-right: 8px;
+            min-width: 0;
+
+            font-size: 40px;
+
+            font-weight: 500;
+
+            line-height: 1.05;
+
+            text-align: left;
+
+            overflow-wrap: break-word;
         }
 
-        .product b {
-            font-weight: 700;
-            color: #2d1d0b;
-            background: #ece2d3;
-            padding: 0 8px;
-            border-radius: 30px;
-            font-size: 16px;
-            white-space: nowrap;
-            min-width: 50px;
+
+        /* =========================================================
+           PRIX À DROITE
+        ========================================================= */
+
+        .product strong {
+            width: 160px;
+
+            font-size: 40px;
+
+            font-weight: 900;
+
+            line-height: 1;
+
             text-align: right;
+
+            white-space: nowrap;
         }
 
-        /* couleur alernative subtile */
+
+        /* =========================================================
+           ALTERNANCE TRÈS LÉGÈRE
+        ========================================================= */
+
         .product:nth-child(even) {
-            background: rgba(235, 222, 207, 0.2);
-            border-radius: 6px;
+            background: #fafafa;
         }
 
-        /* ===== FOOTER ===== */
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
         .footer {
-            margin-top: 18px;
-            padding: 12px 0 4px 0;
-            border-top: 4px double #c6a77a;
+            width: 100%;
+
+            margin-top: 0.45cm;
+
             text-align: center;
-            font-size: 28px;
+
+            break-inside: avoid;
+        }
+
+
+        /* =========================================================
+           UNE SEULE LIGNE AVANT FOOTER
+        ========================================================= */
+
+        .footer-line {
+            width: 100%;
+
+            height: 3px;
+
+            margin-bottom: 0.3cm;
+
+            background: #151515;
+        }
+
+
+        /* =========================================================
+           TITRE FOOTER
+        ========================================================= */
+
+        .footer-title {
+            font-size: 32px;
+
+            font-weight: 900;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 0.3cm;
+        }
+
+
+        /* =========================================================
+           CONTACTS
+           SANS CADRES
+        ========================================================= */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr;
+
+            gap: 30px;
+
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           CONTACT ITEM
+        ========================================================= */
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            min-height: 75px;
+
+            padding: 5px 10px;
+
+            /* Aucun encadrement */
+            border: none;
+
+            background: transparent;
+
+            text-align: left;
+        }
+
+
+        /* =========================================================
+           ICÔNE CONTACT
+        ========================================================= */
+
+        .contact-icon {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 65px;
+            min-width: 65px;
+
+            height: 65px;
+
+            margin-right: 12px;
+
+            font-size: 42px;
+        }
+
+
+        /* =========================================================
+           TEXTE CONTACT
+        ========================================================= */
+
+        .contact-text {
+            min-width: 0;
+        }
+
+        .contact-text small {
+            display: block;
+
+            margin-bottom: 3px;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #777;
+        }
+
+        .contact-text strong {
+            display: block;
+
+            font-size: 25px;
+
+            font-weight: 900;
+
+            line-height: 1.05;
+
+            overflow-wrap: break-word;
+        }
+
+
+        /* =========================================================
+           MESSAGE FINAL
+        ========================================================= */
+
+        .footer-bottom {
+            margin-top: 0.25cm;
+
+            font-size: 18px;
+
             font-weight: 700;
-            letter-spacing: 6px;
-            color: #4d3921;
-            background: #ede3d6;
-            border-radius: 60px;
-            flex-shrink: 0;
+
+            letter-spacing: 5px;
+
+            color: #777;
         }
 
-        /* ===== SCROLLBAR (pour confort visuel) ===== */
-        .menu::-webkit-scrollbar {
-            width: 6px;
-        }
-        .menu::-webkit-scrollbar-track {
-            background: #ddcfbc;
-            border-radius: 12px;
-        }
-        .menu::-webkit-scrollbar-thumb {
-            background: #a58766;
-            border-radius: 12px;
-        }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1100px) {
-            .menu {
-                width: 95vw;
-                height: auto;
-                min-height: 1400px;
-                padding: 18px 16px;
-            }
-            .menu-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            .menu-header h1 {
-                font-size: 40px;
-                letter-spacing: 6px;
-            }
-        }
+        /* =========================================================
+           IMPRESSION
+        ========================================================= */
 
-        @media (max-width: 680px) {
-            .menu-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
+        @media print {
+
+            @page {
+                size: 100cm 150cm;
+                margin: 0;
             }
-            .menu-header h1 {
-                font-size: 34px;
+
+            html,
+            body {
+                width: 100cm;
+                height: 150cm;
+
+                margin: 0;
+                padding: 0;
+
+                background: white;
             }
-            .product {
-                font-size: 15px;
-            }
-            .category h2 {
-                font-size: 19px;
-            }
-            .footer {
-                font-size: 20px;
-                letter-spacing: 2px;
+
+            .poster {
+                width: 100cm;
+                height: 150cm;
+
+                min-height: 150cm;
+
+                margin: 0;
+
+                padding: 1.5cm 2.2cm 1.2cm;
+
+                box-shadow: none;
+
+                overflow: hidden;
             }
         }
 
-        /* ===== PETITS AJUSTEMENTS ===== */
-        .product b:empty {
-            display: none;
+
+        /* =========================================================
+           ÉCRAN
+        ========================================================= */
+
+        @media screen {
+
+            .poster {
+                max-width: 100cm;
+            }
         }
 
-        /* pour les prix avec virgule */
-        .product b {
-            font-feature-settings: "tnum";
+        /* =========================================================
+           RÉGLAGE FIN : SUR LES ÉCRANS, ON REDUIT L'ÉCHELLE 
+           POUR VOIR L'ENSEMBLE (SANS DÉFORMATION)
+        ========================================================= */
+        @media screen and (max-width: 1200px) {
+            .poster {
+                transform: scale(0.45);
+                transform-origin: top center;
+                margin: 10px auto;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+                border-radius: 20px;
+            }
         }
-
-        /* correction alignement si "—" */
-        .product b:last-child {
-            font-weight: 700;
+        @media screen and (max-width: 700px) {
+            .poster {
+                transform: scale(0.25);
+                transform-origin: top center;
+                margin: 0 auto;
+                border-radius: 12px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="menu">
+<div class="poster">
 
-    <header class="menu-header">
+    <!-- =========================================================
+    HEADER
+    ========================================================= -->
+    <div class="header">
+        <div class="welcome">BIENVENUE</div>
         <h1>MENU</h1>
-        <p>Nos produits & nos prix</p>
-    </header>
+        <div class="header-line"></div>
+    </div>
 
-    <main class="menu-grid">
+    <!-- =========================================================
+    GRILLE 2 COLONNES
+    ========================================================= -->
+    <div class="menu-grid">
 
-        <!-- COLONNE 1 -->
-        <div class="column">
+        <!-- =========================================================
+        COLONNE GAUCHE
+        ========================================================= -->
+        <div class="menu-column">
 
-            <section class="category">
-                <h2>🥤 BOISSONS GAZEUSES</h2>
-                <div class="product"><span>SHWEPS MOJITO 1L</span><b>13 DH</b></div>
-                <div class="product"><span>COCA 1.5 L</span><b>9 DH</b></div>
-                <div class="product"><span>COCA COLA 2 L</span><b>12 DH</b></div>
-                <div class="product"><span>HAWAII 1.5 L</span><b>11 DH</b></div>
-                <div class="product"><span>MONSTER NOIR COCA</span><b>20 DH</b></div>
-                <div class="product"><span>SHWEPS MOJITO CANETTE</span><b>6 DH</b></div>
-                <div class="product"><span>COCA CANETTE</span><b>5 DH</b></div>
-                <div class="product"><span>HAWAII 70CL</span><b>3,5 DH</b></div>
-                <div class="product"><span>SHWEPS CITRON 1 L</span><b>0 DH</b></div>
-                <div class="product"><span>SPRITE 1.5 L</span><b>7,5 DH</b></div>
-                <div class="product"><span>FANTA 1.5 L</span><b>7,5 DH</b></div>
-                <div class="product"><span>OULMES 1 L</span><b>8 DH</b></div>
-                <div class="product"><span>PUPLY PETIT</span><b>4,5 DH</b></div>
-                <div class="product"><span>COCA COLA 1L</span><b>8 DH</b></div>
-                <div class="product"><span>COCA</span><b>3 DH</b></div>
-                <div class="product"><span>MARRAKECH 1 L</span><b>13 DH</b></div>
-                <div class="product"><span>HAWAI 1 L</span><b>9 DH</b></div>
-                <div class="product"><span>SPRITE</span><b>3 DH</b></div>
-                <div class="product"><span>AQUARIUS</span><b>8 DH</b></div>
-                <div class="product"><span>ABTAL</span><b>2 DH</b></div>
-                <div class="product"><span>FANTA CANNETTE</span><b>5 DH</b></div>
-                <div class="product"><span>HAWAII CANNETTE</span><b>5 DH</b></div>
-                <div class="product"><span>COCA MAXI</span><b>5,5 DH</b></div>
-                <div class="product"><span>SHWEPS TONIC MAXI</span><b>7,5 DH</b></div>
-                <div class="product"><span>OIASIS VERRE</span><b>15 DH</b></div>
-                <div class="product"><span>COCA CHERRY VANILLA</span><b>12 DH</b></div>
-                <div class="product"><span>MARRAKECH</span><b>2 DH</b></div>
-                <div class="product"><span>REDBULL COLORS</span><b>20 DH</b></div>
-                <div class="product"><span>OULMES 0.5 L</span><b>5 DH</b></div>
-                <div class="product"><span>OULMESS MINI</span><b>4 DH</b></div>
-                <div class="product"><span>SHWEPS COLORS TURKIE</span><b>18 DH</b></div>
-                <div class="product"><span>FRUT JUS 1L</span><b>6 DH</b></div>
-            </section>
+            <!-- CATÉGORIE : BOISSONS GAZEUSES -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">🥤</div>
+                    <h2>BOISSONS GAZEUSES</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>SHWEPS MOJITO 1L</span><strong>13 DH</strong></div>
+                    <div class="product"><span>COCA 1.5 L</span><strong>9 DH</strong></div>
+                    <div class="product"><span>COCA COLA 2 L</span><strong>12 DH</strong></div>
+                    <div class="product"><span>HAWAII 1.5 L</span><strong>11 DH</strong></div>
+                    <div class="product"><span>MONSTER NOIR COCA</span><strong>20 DH</strong></div>
+                    <div class="product"><span>SHWEPS MOJITO CANETTE</span><strong>6 DH</strong></div>
+                    <div class="product"><span>COCA CANETTE</span><strong>5 DH</strong></div>
+                    <div class="product"><span>HAWAII 70CL</span><strong>3,5 DH</strong></div>
+                    <div class="product"><span>SHWEPS CITRON 1 L</span><strong>0 DH</strong></div>
+                    <div class="product"><span>SPRITE 1.5 L</span><strong>7,5 DH</strong></div>
+                    <div class="product"><span>FANTA 1.5 L</span><strong>7,5 DH</strong></div>
+                    <div class="product"><span>OULMES 1 L</span><strong>8 DH</strong></div>
+                    <div class="product"><span>PUPLY PETIT</span><strong>4,5 DH</strong></div>
+                    <div class="product"><span>COCA COLA 1L</span><strong>8 DH</strong></div>
+                    <div class="product"><span>COCA</span><strong>3 DH</strong></div>
+                    <div class="product"><span>MARRAKECH 1 L</span><strong>13 DH</strong></div>
+                    <div class="product"><span>HAWAI 1 L</span><strong>9 DH</strong></div>
+                    <div class="product"><span>SPRITE</span><strong>3 DH</strong></div>
+                    <div class="product"><span>AQUARIUS</span><strong>8 DH</strong></div>
+                    <div class="product"><span>ABTAL</span><strong>2 DH</strong></div>
+                    <div class="product"><span>FANTA CANNETTE</span><strong>5 DH</strong></div>
+                    <div class="product"><span>HAWAII CANNETTE</span><strong>5 DH</strong></div>
+                    <div class="product"><span>COCA MAXI</span><strong>5,5 DH</strong></div>
+                    <div class="product"><span>SHWEPS TONIC MAXI</span><strong>7,5 DH</strong></div>
+                    <div class="product"><span>OIASIS VERRE</span><strong>15 DH</strong></div>
+                    <div class="product"><span>COCA CHERRY VANILLA</span><strong>12 DH</strong></div>
+                    <div class="product"><span>MARRAKECH</span><strong>2 DH</strong></div>
+                    <div class="product"><span>REDBULL COLORS</span><strong>20 DH</strong></div>
+                    <div class="product"><span>OULMES 0.5 L</span><strong>5 DH</strong></div>
+                    <div class="product"><span>OULMESS MINI</span><strong>4 DH</strong></div>
+                    <div class="product"><span>SHWEPS COLORS TURKIE</span><strong>18 DH</strong></div>
+                    <div class="product"><span>FRUT JUS 1L</span><strong>6 DH</strong></div>
+                </div>
+            </div>
 
-            <section class="category">
-                <h2>🥛 LAITIERS</h2>
-                <div class="product"><span>PROTEIN CHERGUI ASSIR GR</span><b>20 DH</b></div>
-                <div class="product"><span>DAYA</span><b>6 DH</b></div>
-                <div class="product"><span>LEBEN PETIT</span><b>5 DH</b></div>
-                <div class="product"><span>KEFIR PETIT</span><b>12 DH</b></div>
-                <div class="product"><span>PROTEIN DANONE</span><b>15 DH</b></div>
-                <div class="product"><span>CARAMEL CHOCOLAT CHERGUI MAXI</span><b>8 DH</b></div>
-                <div class="product"><span>PLAISIR PETIT CHERGUI</span><b>4 DH</b></div>
-                <div class="product"><span>FAWAKIH 1 L</span><b>13 DH</b></div>
-                <div class="product"><span>FAWAKIH</span><b>5 DH</b></div>
-                <div class="product"><span>RAIB BANANE PETIT</span><b>6 DH</b></div>
-                <div class="product"><span>RAIB BANANE GRAND</span><b>12 DH</b></div>
-                <div class="product"><span>JNANE DANONE</span><b>2,5 DH</b></div>
-                <div class="product"><span>RAIBI ROUGE</span><b>2,5 DH</b></div>
-                <div class="product"><span>DAYA PETIT</span><b>3,5 DH</b></div>
-                <div class="product"><span>CREMY CHERGUI</span><b>2,5 DH</b></div>
-                <div class="product"><span>JBEN CHERGUI</span><b>15 DH</b></div>
-                <div class="product"><span>BRASSE 70CL</span><b>3,5 DH</b></div>
-                <div class="product"><span>BRASSE MAXI</span><b>6 DH</b></div>
-                <div class="product"><span>LAIT NORMAL</span><b>4 DH</b></div>
-            </section>
+            <!-- CATÉGORIE : LAITIERS -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">🥛</div>
+                    <h2>LAITIERS</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>PROTEIN CHERGUI ASSIR GR</span><strong>20 DH</strong></div>
+                    <div class="product"><span>DAYA</span><strong>6 DH</strong></div>
+                    <div class="product"><span>LEBEN PETIT</span><strong>5 DH</strong></div>
+                    <div class="product"><span>KEFIR PETIT</span><strong>12 DH</strong></div>
+                    <div class="product"><span>PROTEIN DANONE</span><strong>15 DH</strong></div>
+                    <div class="product"><span>CARAMEL CHOCOLAT CHERGUI MAXI</span><strong>8 DH</strong></div>
+                    <div class="product"><span>PLAISIR PETIT CHERGUI</span><strong>4 DH</strong></div>
+                    <div class="product"><span>FAWAKIH 1 L</span><strong>13 DH</strong></div>
+                    <div class="product"><span>FAWAKIH</span><strong>5 DH</strong></div>
+                    <div class="product"><span>RAIB BANANE PETIT</span><strong>6 DH</strong></div>
+                    <div class="product"><span>RAIB BANANE GRAND</span><strong>12 DH</strong></div>
+                    <div class="product"><span>JNANE DANONE</span><strong>2,5 DH</strong></div>
+                    <div class="product"><span>RAIBI ROUGE</span><strong>2,5 DH</strong></div>
+                    <div class="product"><span>DAYA PETIT</span><strong>3,5 DH</strong></div>
+                    <div class="product"><span>CREMY CHERGUI</span><strong>2,5 DH</strong></div>
+                    <div class="product"><span>JBEN CHERGUI</span><strong>15 DH</strong></div>
+                    <div class="product"><span>BRASSE 70CL</span><strong>3,5 DH</strong></div>
+                    <div class="product"><span>BRASSE MAXI</span><strong>6 DH</strong></div>
+                    <div class="product"><span>LAIT NORMAL</span><strong>4 DH</strong></div>
+                </div>
+            </div>
 
-            <section class="category">
-                <h2>⚡ ENERGY</h2>
-                <div class="product"><span>MONSTER ENERGY TURK</span><b>25 DH</b></div>
-                <div class="product"><span>BURN ENERGY</span><b>11 DH</b></div>
-                <div class="product"><span>PREDATOR</span><b>7 DH</b></div>
-                <div class="product"><span>ROCKSTAR ENERGY</span><b>20 DH</b></div>
-                <div class="product"><span>STING ENERGY</span><b>6 DH</b></div>
-                <div class="product"><span>REDBULL COLORS</span><b>20 DH</b></div>
-                <div class="product"><span>ROCKSTAR FRESH</span><b>0 DH</b></div>
-                <div class="product"><span>EXTREME ENERGY</span><b>7 DH</b></div>
-                <div class="product"><span>ENERGY ZEGEA</span><b>7 DH</b></div>
-            </section>
+            <!-- CATÉGORIE : ENERGY -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">⚡</div>
+                    <h2>ENERGY</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>MONSTER ENERGY TURK</span><strong>25 DH</strong></div>
+                    <div class="product"><span>BURN ENERGY</span><strong>11 DH</strong></div>
+                    <div class="product"><span>PREDATOR</span><strong>7 DH</strong></div>
+                    <div class="product"><span>ROCKSTAR ENERGY</span><strong>20 DH</strong></div>
+                    <div class="product"><span>STING ENERGY</span><strong>6 DH</strong></div>
+                    <div class="product"><span>REDBULL COLORS</span><strong>20 DH</strong></div>
+                    <div class="product"><span>ROCKSTAR FRESH</span><strong>0 DH</strong></div>
+                    <div class="product"><span>EXTREME ENERGY</span><strong>7 DH</strong></div>
+                    <div class="product"><span>ENERGY ZEGEA</span><strong>7 DH</strong></div>
+                </div>
+            </div>
 
+        </div><!-- fin colonne gauche -->
+
+        <!-- =========================================================
+        COLONNE DROITE
+        ========================================================= -->
+        <div class="menu-column">
+
+            <!-- CATÉGORIE : BISCUITS -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">🍪</div>
+                    <h2>BISCUITS</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>NOCCO 5 DH</span><strong>5 DH</strong></div>
+                    <div class="product"><span>JAMAL CAKE</span><strong>2 DH</strong></div>
+                    <div class="product"><span>CLORETS</span><strong>0,5 DH</strong></div>
+                    <div class="product"><span>SAVLE</span><strong>1 DH</strong></div>
+                    <div class="product"><span>HENRYS</span><strong>1 DH</strong></div>
+                    <div class="product"><span>CAPRI</span><strong>2 DH</strong></div>
+                    <div class="product"><span>MARIA ELDORADA</span><strong>6 DH</strong></div>
+                    <div class="product"><span>CHOCUP</span><strong>1 DH</strong></div>
+                    <div class="product"><span>AMADA STARZ</span><strong>3 DH</strong></div>
+                    <div class="product"><span>AMADA STIX</span><strong>7 DH</strong></div>
+                    <div class="product"><span>OZMO HOXI POXY</span><strong>7 DH</strong></div>
+                    <div class="product"><span>OZMO FUN</span><strong>6 DH</strong></div>
+                    <div class="product"><span>OZMO CORNET</span><strong>6 DH</strong></div>
+                    <div class="product"><span>OZMO HOPPO</span><strong>7 DH</strong></div>
+                    <div class="product"><span>MARS</span><strong>7 DH</strong></div>
+                    <div class="product"><span>SNEAKERS</span><strong>7 DH</strong></div>
+                    <div class="product"><span>SWEETIES</span><strong>5 DH</strong></div>
+                    <div class="product"><span>KINDER CAKE</span><strong>5 DH</strong></div>
+                    <div class="product"><span>SUPREME BE</span><strong>2 DH</strong></div>
+                    <div class="product"><span>KINDER BUENO</span><strong>8 DH</strong></div>
+                    <div class="product"><span>TOP BEE</span><strong>2 DH</strong></div>
+                    <div class="product"><span>MERINDINA</span><strong>2 DH</strong></div>
+                    <div class="product"><span>DONUT BEE</span><strong>2 DH</strong></div>
+                    <div class="product"><span>TONIC BIMO</span><strong>1 DH</strong></div>
+                    <div class="product"><span>KING COOKIES</span><strong>2 DH</strong></div>
+                    <div class="product"><span>ETO</span><strong>2 DH</strong></div>
+                    <div class="product"><span>CHOCOLAT</span><strong>1 DH</strong></div>
+                    <div class="product"><span>MOMO</span><strong>1 DH</strong></div>
+                    <div class="product"><span>BONO</span><strong>1 DH</strong></div>
+                    <div class="product"><span>OREO</span><strong>3,5 DH</strong></div>
+                    <div class="product"><span>AIGUEBELLE TABLETTE</span><strong>7 DH</strong></div>
+                    <div class="product"><span>NOCCO 4 DH</span><strong>4 DH</strong></div>
+                    <div class="product"><span>EYO</span><strong>1 DH</strong></div>
+                    <div class="product"><span>MILKA</span><strong>12 DH</strong></div>
+                    <div class="product"><span>NOCCO MINI BARRE</span><strong>2 DH</strong></div>
+                    <div class="product"><span>KITKAT GRAND</span><strong>7 DH</strong></div>
+                    <div class="product"><span>AIGUEBELLE</span><strong>2 DH</strong></div>
+                    <div class="product"><span>AIGUEBELLE</span><strong>1 DH</strong></div>
+                    <div class="product"><span>ITRI</span><strong>1 DH</strong></div>
+                    <div class="product"><span>SPOOFY</span><strong>2 DH</strong></div>
+                    <div class="product"><span>SABLE</span><strong>1,5 DH</strong></div>
+                    <div class="product"><span>SPOOFY</span><strong>5 DH</strong></div>
+                    <div class="product"><span>HENRYS</span><strong>2,5 DH</strong></div>
+                    <div class="product"><span>LEKA GAUFRETTE</span><strong>1 DH</strong></div>
+                    <div class="product"><span>NOCCO CHOCO CROK</span><strong>3 DH</strong></div>
+                    <div class="product"><span>OREO</span><strong>4 DH</strong></div>
+                    <div class="product"><span>OZMO CAKE</span><strong>3 DH</strong></div>
+                    <div class="product"><span>GULLON OREO ZERO SUGAR</span><strong>4 DH</strong></div>
+                    <div class="product"><span>NAPOLITAIN</span><strong>1 DH</strong></div>
+                    <div class="product"><span>OREO</span><strong>2 DH</strong></div>
+                    <div class="product"><span>CIGAR LEKA</span><strong>1 DH</strong></div>
+                    <div class="product"><span>NUTELLA BISCUIT</span><strong>8 DH</strong></div>
+                    <div class="product"><span>CAKE COCO</span><strong>2 DH</strong></div>
+                    <div class="product"><span>CIGAR HENRYS</span><strong>1 DH</strong></div>
+                    <div class="product"><span>MM</span><strong>8 DH</strong></div>
+                    <div class="product"><span>NAPOLITAIN TABLETTE</span><strong>8 DH</strong></div>
+                    <div class="product"><span>TAMAM</span><strong>3 DH</strong></div>
+                    <div class="product"><span>SABLE</span><strong>2,5 DH</strong></div>
+                    <div class="product"><span>SABLE</span><strong>1 DH</strong></div>
+                </div>
+            </div>
+
+            <!-- CATÉGORIE : CHIPS - SALE -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">🥜</div>
+                    <h2>CHIPS - SALE</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>AGAJOU</span><strong>5 DH</strong></div>
+                    <div class="product"><span>PISTACH 125 GR</span><strong>15 DH</strong></div>
+                    <div class="product"><span>AMENDE 100 GR</span><strong>15 DH</strong></div>
+                    <div class="product"><span>LEADER</span><strong>3 DH</strong></div>
+                    <div class="product"><span>PISTACH AQAJOU</span><strong>5 DH</strong></div>
+                    <div class="product"><span>LEADER</span><strong>1 DH</strong></div>
+                    <div class="product"><span>KAKAW SACHE</span><strong>2 DH</strong></div>
+                    <div class="product"><span>POTAGER</span><strong>1 DH</strong></div>
+                    <div class="product"><span>CONIKOS</span><strong>3 DH</strong></div>
+                    <div class="product"><span>PIPAS ZARI3A NOUARA</span><strong>3 DH</strong></div>
+                    <div class="product"><span>PISTACH</span><strong>3 DH</strong></div>
+                    <div class="product"><span>PIPAS EL INDIO</span><strong>3 DH</strong></div>
+                    <div class="product"><span>PRINGLEZ PETIT</span><strong>10 DH</strong></div>
+                    <div class="product"><span>NUTS MIX PISTACH AGAJOU</span><strong>40 DH</strong></div>
+                </div>
+            </div>
+
+            <!-- CATÉGORIE : MENAGE -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">🧹</div>
+                    <h2>MENAGE</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>MIA</span><strong>9 DH</strong></div>
+                    <div class="product"><span>3SSA CHETABA</span><strong>9 DH</strong></div>
+                    <div class="product"><span>JAVEL MAXIS 1L</span><strong>7 DH</strong></div>
+                    <div class="product"><span>SANICROOX 1L</span><strong>13 DH</strong></div>
+                    <div class="product"><span>MAXIS ONI 1.2L</span><strong>15 DH</strong></div>
+                    <div class="product"><span>PAPIER GENIQUE DALAA</span><strong>6 DH</strong></div>
+                    <div class="product"><span>MAXIS ONI PETIT</span><strong>6 DH</strong></div>
+                    <div class="product"><span>SANICROIX SACHE</span><strong>1 DH</strong></div>
+                    <div class="product"><span>MAJOX TIDE 1 KG</span><strong>17 DH</strong></div>
+                    <div class="product"><span>LINJIT</span><strong>12 DH</strong></div>
+                    <div class="product"><span>MAJIX AUTOMATIQUE 1 KG</span><strong>20 DH</strong></div>
+                    <div class="product"><span>MAJIX TIDE 1 KG</span><strong>17 DH</strong></div>
+                    <div class="product"><span>PAPIER CUISINE SANY CITRON</span><strong>13 DH</strong></div>
+                    <div class="product"><span>MAJIX TIDE 1/5 KG</span><strong>9 DH</strong></div>
+                </div>
+            </div>
+
+            <!-- CATÉGORIE : ALIMENTATION -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">🛒</div>
+                    <h2>ALIMENTATION</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>CRYSTAL 1 L</span><strong>18 DH</strong></div>
+                    <div class="product"><span>MAYONAIZ PETIT</span><strong>7 DH</strong></div>
+                    <div class="product"><span>NESCAFE SACHE</span><strong>1 DH</strong></div>
+                    <div class="product"><span>THE SEBAA GRAND</span><strong>20 DH</strong></div>
+                    <div class="product"><span>THE SEBAA PETIT</span><strong>10 DH</strong></div>
+                    <div class="product"><span>TRIDENT</span><strong>0,5 DH</strong></div>
+                    <div class="product"><span>DELICIA ABRICOT MOYENNE</span><strong>15 DH</strong></div>
+                    <div class="product"><span>SOLIS</span><strong>3 DH</strong></div>
+                    <div class="product"><span>AVOCAT</span><strong>5 DH</strong></div>
+                    <div class="product"><span>CAT</span><strong>5 DH</strong></div>
+                    <div class="product"><span>BAROUD THE GRAND</span><strong>17 DH</strong></div>
+                    <div class="product"><span>FORMAGE 96</span><strong>1 DH</strong></div>
+                    <div class="product"><span>NASS KOMIRA</span><strong>1 DH</strong></div>
+                    <div class="product"><span>KIRI</span><strong>2 DH</strong></div>
+                    <div class="product"><span>INDOMIE</span><strong>2,5 DH</strong></div>
+                    <div class="product"><span>FORMAGE CARRE JAUNE</span><strong>24 DH</strong></div>
+                    <div class="product"><span>HOT SAUCE STAR</span><strong>7 DH</strong></div>
+                    <div class="product"><span>OUEFS</span><strong>1,5 DH</strong></div>
+                    <div class="product"><span>OLLA</span><strong>2 DH</strong></div>
+                    <div class="product"><span>SANIDA</span><strong>5,5 DH</strong></div>
+                    <div class="product"><span>LIO 1 L</span><strong>17 DH</strong></div>
+                    <div class="product"><span>MOTARD PETIT</span><strong>7 DH</strong></div>
+                    <div class="product"><span>SOULTANE THE PETIT</span><strong>8,5 DH</strong></div>
+                    <div class="product"><span>NUTELLA PETIT</span><strong>35 DH</strong></div>
+                    <div class="product"><span>SAUCE BURGER CHEEZY ALGERIENNE</span><strong>20 DH</strong></div>
+                    <div class="product"><span>OLLA SAUCE BLANCHE</span><strong>5 DH</strong></div>
+                    <div class="product"><span>MAYONNAISE MOYENNE STAR</span><strong>13 DH</strong></div>
+                    <div class="product"><span>CASHER</span><strong>3 DH</strong></div>
+                    <div class="product"><span>KETCHUP STAR</span><strong>15 DH</strong></div>
+                    <div class="product"><span>LIO 1/2 L</span><strong>9 DH</strong></div>
+                    <div class="product"><span>BAROUD THE PETIT</span><strong>8,5 DH</strong></div>
+                </div>
+            </div>
+
+            <!-- CATÉGORIE : BEAUTY -->
+            <div class="category">
+                <div class="category-title">
+                    <div class="category-icon">🧴</div>
+                    <h2>BEAUTY</h2>
+                </div>
+                <div class="products">
+                    <div class="product"><span>HEAD SHOULDER PETIT</span><strong>12 DH</strong></div>
+                    <div class="product"><span>SIGNAL PETIT</span><strong>5 DH</strong></div>
+                    <div class="product"><span>TAOUS SAVON</span><strong>6 DH</strong></div>
+                    <div class="product"><span>ZIZOIRE IRIDIUM</span><strong>5 DH</strong></div>
+                    <div class="product"><span>CLINIX</span><strong>1,5 DH</strong></div>
+                    <div class="product"><span>COLGATE MOYEN</span><strong>8 DH</strong></div>
+                    <div class="product"><span>CADUM PETIT</span><strong>7 DH</strong></div>
+                    <div class="product"><span>SHAMPOING SACHE</span><strong>0,5 DH</strong></div>
+                    <div class="product"><span>GILETTE</span><strong>5 DH</strong></div>
+                    <div class="product"><span>GILETTE</span><strong>6 DH</strong></div>
+                    <div class="product"><span>BIC RAZOIRE</span><strong>1,5 DH</strong></div>
+                    <div class="product"><span>GILETTE BLUE 3</span><strong>10 DH</strong></div>
+                    <div class="product"><span>SHAMPO VITAIA PETIT</span><strong>7 DH</strong></div>
+                    <div class="product"><span>BROSSE DENT</span><strong>5 DH</strong></div>
+                    <div class="product"><span>PANTENE PETIT</span><strong>11 DH</strong></div>
+                    <div class="product"><span>DOVE SAVON</span><strong>—</strong></div>
+                </div>
+            </div>
+
+        </div><!-- fin colonne droite -->
+
+    </div><!-- fin menu-grid -->
+
+    <!-- =========================================================
+    FOOTER
+    ========================================================= -->
+    <div class="footer">
+        <div class="footer-line"></div>
+        <div class="footer-title">MERCI POUR VOTRE VISITE</div>
+
+        <!-- contacts -->
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-text">
+                    <small>ADRESSE</small>
+                    <strong>12, Rue des Saveurs<br>Casablanca</strong>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div class="contact-text">
+                    <small>TÉLÉPHONE</small>
+                    <strong>+212 6 12 34 56 78</strong>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🕒</div>
+                <div class="contact-text">
+                    <small>HORAIRES</small>
+                    <strong>Lun-Sam 8h – 22h</strong>
+                </div>
+            </div>
         </div>
 
-        <!-- COLONNE 2 -->
-        <div class="column">
+        <div class="footer-bottom">—  bon appétit  —</div>
+    </div>
 
-            <section class="category">
-                <h2>🍪 BISCUITS</h2>
-                <div class="product"><span>NOCCO 5 DH</span><b>5 DH</b></div>
-                <div class="product"><span>JAMAL CAKE</span><b>2 DH</b></div>
-                <div class="product"><span>CLORETS</span><b>0,5 DH</b></div>
-                <div class="product"><span>SAVLE</span><b>1 DH</b></div>
-                <div class="product"><span>HENRYS</span><b>1 DH</b></div>
-                <div class="product"><span>CAPRI</span><b>2 DH</b></div>
-                <div class="product"><span>MARIA ELDORADA</span><b>6 DH</b></div>
-                <div class="product"><span>CHOCUP</span><b>1 DH</b></div>
-                <div class="product"><span>AMADA STARZ</span><b>3 DH</b></div>
-                <div class="product"><span>AMADA STIX</span><b>7 DH</b></div>
-                <div class="product"><span>OZMO HOXI POXY</span><b>7 DH</b></div>
-                <div class="product"><span>OZMO FUN</span><b>6 DH</b></div>
-                <div class="product"><span>OZMO CORNET</span><b>6 DH</b></div>
-                <div class="product"><span>OZMO HOPPO</span><b>7 DH</b></div>
-                <div class="product"><span>MARS</span><b>7 DH</b></div>
-                <div class="product"><span>SNEAKERS</span><b>7 DH</b></div>
-                <div class="product"><span>SWEETIES</span><b>5 DH</b></div>
-                <div class="product"><span>KINDER CAKE</span><b>5 DH</b></div>
-                <div class="product"><span>SUPREME BE</span><b>2 DH</b></div>
-                <div class="product"><span>KINDER BUENO</span><b>8 DH</b></div>
-                <div class="product"><span>TOP BEE</span><b>2 DH</b></div>
-                <div class="product"><span>MERINDINA</span><b>2 DH</b></div>
-                <div class="product"><span>DONUT BEE</span><b>2 DH</b></div>
-                <div class="product"><span>TONIC BIMO</span><b>1 DH</b></div>
-                <div class="product"><span>KING COOKIES</span><b>2 DH</b></div>
-                <div class="product"><span>ETO</span><b>2 DH</b></div>
-                <div class="product"><span>CHOCOLAT</span><b>1 DH</b></div>
-                <div class="product"><span>MOMO</span><b>1 DH</b></div>
-                <div class="product"><span>BONO</span><b>1 DH</b></div>
-                <div class="product"><span>OREO</span><b>3,5 DH</b></div>
-                <div class="product"><span>AIGUEBELLE TABLETTE</span><b>7 DH</b></div>
-                <div class="product"><span>NOCCO 4 DH</span><b>4 DH</b></div>
-                <div class="product"><span>EYO</span><b>1 DH</b></div>
-                <div class="product"><span>MILKA</span><b>12 DH</b></div>
-                <div class="product"><span>NOCCO MINI BARRE</span><b>2 DH</b></div>
-                <div class="product"><span>KITKAT GRAND</span><b>7 DH</b></div>
-                <div class="product"><span>AIGUEBELLE</span><b>2 DH</b></div>
-                <div class="product"><span>AIGUEBELLE</span><b>1 DH</b></div>
-                <div class="product"><span>ITRI</span><b>1 DH</b></div>
-                <div class="product"><span>SPOOFY</span><b>2 DH</b></div>
-                <div class="product"><span>SABLE</span><b>1,5 DH</b></div>
-                <div class="product"><span>SPOOFY</span><b>5 DH</b></div>
-                <div class="product"><span>HENRYS</span><b>2,5 DH</b></div>
-                <div class="product"><span>LEKA GAUFRETTE</span><b>1 DH</b></div>
-                <div class="product"><span>NOCCO CHOCO CROK</span><b>3 DH</b></div>
-                <div class="product"><span>OREO</span><b>4 DH</b></div>
-                <div class="product"><span>OZMO CAKE</span><b>3 DH</b></div>
-                <div class="product"><span>GULLON OREO ZERO SUGAR</span><b>4 DH</b></div>
-                <div class="product"><span>NAPOLITAIN</span><b>1 DH</b></div>
-                <div class="product"><span>OREO</span><b>2 DH</b></div>
-                <div class="product"><span>CIGAR LEKA</span><b>1 DH</b></div>
-                <div class="product"><span>NUTELLA BISCUIT</span><b>8 DH</b></div>
-                <div class="product"><span>CAKE COCO</span><b>2 DH</b></div>
-                <div class="product"><span>CIGAR HENRYS</span><b>1 DH</b></div>
-                <div class="product"><span>MM</span><b>8 DH</b></div>
-                <div class="product"><span>NAPOLITAIN TABLETTE</span><b>8 DH</b></div>
-                <div class="product"><span>TAMAM</span><b>3 DH</b></div>
-                <div class="product"><span>SABLE</span><b>2,5 DH</b></div>
-                <div class="product"><span>SABLE</span><b>1 DH</b></div>
-            </section>
-
-            <section class="category">
-                <h2>🥜 CHIPS - SALE</h2>
-                <div class="product"><span>AGAJOU</span><b>5 DH</b></div>
-                <div class="product"><span>PISTACH 125 GR</span><b>15 DH</b></div>
-                <div class="product"><span>AMENDE 100 GR</span><b>15 DH</b></div>
-                <div class="product"><span>LEADER</span><b>3 DH</b></div>
-                <div class="product"><span>PISTACH AQAJOU</span><b>5 DH</b></div>
-                <div class="product"><span>LEADER</span><b>1 DH</b></div>
-                <div class="product"><span>KAKAW SACHE</span><b>2 DH</b></div>
-                <div class="product"><span>POTAGER</span><b>1 DH</b></div>
-                <div class="product"><span>CONIKOS</span><b>3 DH</b></div>
-                <div class="product"><span>PIPAS ZARI3A NOUARA</span><b>3 DH</b></div>
-                <div class="product"><span>PISTACH</span><b>3 DH</b></div>
-                <div class="product"><span>PIPAS EL INDIO</span><b>3 DH</b></div>
-                <div class="product"><span>PRINGLEZ PETIT</span><b>10 DH</b></div>
-                <div class="product"><span>NUTS MIX PISTACH AGAJOU</span><b>40 DH</b></div>
-            </section>
-
-        </div>
-
-        <!-- COLONNE 3 -->
-        <div class="column">
-
-            <section class="category">
-                <h2>🧹 MENAGE</h2>
-                <div class="product"><span>MIA</span><b>9 DH</b></div>
-                <div class="product"><span>3SSA CHETABA</span><b>9 DH</b></div>
-                <div class="product"><span>JAVEL MAXIS 1L</span><b>7 DH</b></div>
-                <div class="product"><span>SANICROOX 1L</span><b>13 DH</b></div>
-                <div class="product"><span>MAXIS ONI 1.2L</span><b>15 DH</b></div>
-                <div class="product"><span>PAPIER GENIQUE DALAA</span><b>6 DH</b></div>
-                <div class="product"><span>MAXIS ONI PETIT</span><b>6 DH</b></div>
-                <div class="product"><span>SANICROIX SACHE</span><b>1 DH</b></div>
-                <div class="product"><span>MAJOX TIDE 1 KG</span><b>17 DH</b></div>
-                <div class="product"><span>LINJIT</span><b>12 DH</b></div>
-                <div class="product"><span>MAJIX AUTOMATIQUE 1 KG</span><b>20 DH</b></div>
-                <div class="product"><span>MAJIX TIDE 1 KG</span><b>17 DH</b></div>
-                <div class="product"><span>PAPIER CUISINE SANY CITRON</span><b>13 DH</b></div>
-                <div class="product"><span>MAJIX TIDE 1/5 KG</span><b>9 DH</b></div>
-            </section>
-
-            <section class="category">
-                <h2>🛒 ALIMENTATION</h2>
-                <div class="product"><span>CRYSTAL 1 L</span><b>18 DH</b></div>
-                <div class="product"><span>MAYONAIZ PETIT</span><b>7 DH</b></div>
-                <div class="product"><span>NESCAFE SACHE</span><b>1 DH</b></div>
-                <div class="product"><span>THE SEBAA GRAND</span><b>20 DH</b></div>
-                <div class="product"><span>THE SEBAA PETIT</span><b>10 DH</b></div>
-                <div class="product"><span>TRIDENT</span><b>0,5 DH</b></div>
-                <div class="product"><span>DELICIA ABRICOT MOYENNE</span><b>15 DH</b></div>
-                <div class="product"><span>SOLIS</span><b>3 DH</b></div>
-                <div class="product"><span>AVOCAT</span><b>5 DH</b></div>
-                <div class="product"><span>CAT</span><b>5 DH</b></div>
-                <div class="product"><span>BAROUD THE GRAND</span><b>17 DH</b></div>
-                <div class="product"><span>FORMAGE 96</span><b>1 DH</b></div>
-                <div class="product"><span>NASS KOMIRA</span><b>1 DH</b></div>
-                <div class="product"><span>KIRI</span><b>2 DH</b></div>
-                <div class="product"><span>INDOMIE</span><b>2,5 DH</b></div>
-                <div class="product"><span>FORMAGE CARRE JAUNE</span><b>24 DH</b></div>
-                <div class="product"><span>HOT SAUCE STAR</span><b>7 DH</b></div>
-                <div class="product"><span>OUEFS</span><b>1,5 DH</b></div>
-                <div class="product"><span>OLLA</span><b>2 DH</b></div>
-                <div class="product"><span>SANIDA</span><b>5,5 DH</b></div>
-                <div class="product"><span>LIO 1 L</span><b>17 DH</b></div>
-                <div class="product"><span>MOTARD PETIT</span><b>7 DH</b></div>
-                <div class="product"><span>SOULTANE THE PETIT</span><b>8,5 DH</b></div>
-                <div class="product"><span>NUTELLA PETIT</span><b>35 DH</b></div>
-                <div class="product"><span>SAUCE BURGER CHEEZY ALGERIENNE</span><b>20 DH</b></div>
-                <div class="product"><span>OLLA SAUCE BLANCHE</span><b>5 DH</b></div>
-                <div class="product"><span>MAYONNAISE MOYENNE STAR</span><b>13 DH</b></div>
-                <div class="product"><span>CASHER</span><b>3 DH</b></div>
-                <div class="product"><span>KETCHUP STAR</span><b>15 DH</b></div>
-                <div class="product"><span>LIO 1/2 L</span><b>9 DH</b></div>
-                <div class="product"><span>BAROUD THE PETIT</span><b>8,5 DH</b></div>
-            </section>
-
-            <section class="category">
-                <h2>🧴 BEAUTY</h2>
-                <div class="product"><span>HEAD SHOULDER PETIT</span><b>12 DH</b></div>
-                <div class="product"><span>SIGNAL PETIT</span><b>5 DH</b></div>
-                <div class="product"><span>TAOUS SAVON</span><b>6 DH</b></div>
-                <div class="product"><span>ZIZOIRE IRIDIUM</span><b>5 DH</b></div>
-                <div class="product"><span>CLINIX</span><b>1,5 DH</b></div>
-                <div class="product"><span>COLGATE MOYEN</span><b>8 DH</b></div>
-                <div class="product"><span>CADUM PETIT</span><b>7 DH</b></div>
-                <div class="product"><span>SHAMPOING SACHE</span><b>0,5 DH</b></div>
-                <div class="product"><span>GILETTE</span><b>5 DH</b></div>
-                <div class="product"><span>GILETTE</span><b>6 DH</b></div>
-                <div class="product"><span>BIC RAZOIRE</span><b>1,5 DH</b></div>
-                <div class="product"><span>GILETTE BLUE 3</span><b>10 DH</b></div>
-                <div class="product"><span>SHAMPO VITAIA PETIT</span><b>7 DH</b></div>
-                <div class="product"><span>BROSSE DENT</span><b>5 DH</b></div>
-                <div class="product"><span>PANTENE PETIT</span><b>11 DH</b></div>
-                <div class="product"><span>DOVE SAVON</span><b>—</b></div>
-            </section>
-
-        </div>
-
-    </main>
-
-    <footer class="footer">
-        <strong>MERCI POUR VOTRE VISITE</strong>
-    </footer>
-
-</div>
+</div><!-- fin poster -->
 
 </body>
 </html>
