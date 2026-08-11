@@ -43,8 +43,8 @@
 
         .menu-header {
             text-align: center;
-            border-bottom: 0.1cm solid #111;
-            padding-bottom: 0.3cm;
+            border-bottom: 0.08cm solid #111;
+            padding-bottom: 0.2cm;
             margin-bottom: 0.2cm;
         }
 
@@ -52,7 +52,7 @@
             margin: 0;
             font-size: 3cm;
             font-weight: 900;
-            letter-spacing: 0.15cm;
+            letter-spacing: 0.12cm;
         }
 
         .menu-header p {
@@ -72,7 +72,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 0.25cm;
             align-items: start;
-            height: calc(100% - 3.8cm);
+            height: calc(100% - 2.8cm);
         }
 
         .column {
@@ -84,7 +84,7 @@
 
 
         /* =========================
-           CATEGORIES - 2 COLONNES POUR LES PRODUITS
+           CATEGORIES - TITRE 0.9cm / ICÔNE 1.5cm
         ========================= */
 
         .category {
@@ -102,14 +102,24 @@
             padding: 0.05cm 0.08cm;
             background: #111;
             color: white;
-            font-size: 0.6cm;
+            font-size: 0.9cm;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.01cm;
             line-height: 1.1;
+            display: flex;
+            align-items: center;
+            gap: 0.1cm;
         }
 
-        /* === PRODUITS EN 2 COLONNES À L'INTÉRIEUR DE LA CATÉGORIE === */
+        .category h2 .cat-icon {
+            font-size: 1.5cm;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+
+        /* === PRODUITS EN 2 COLONNES === */
         .products-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -122,10 +132,10 @@
             grid-template-columns: 1fr auto;
             gap: 0.04cm;
             align-items: center;
-            min-height: 0.35cm;
+            min-height: 0.5cm;
             padding: 0.02cm 0.03cm;
             border-bottom: 0.01cm solid #e0e0e0;
-            font-size: 0.5cm;
+            font-size: 0.7cm;
             line-height: 1.05;
         }
 
@@ -142,12 +152,12 @@
             font-weight: 600;
             overflow-wrap: break-word;
             word-break: break-word;
-            font-size: 0.5cm;
+            font-size: 0.7cm;
         }
 
         .product b {
             white-space: nowrap;
-            font-size: 0.55cm;
+            font-size: 0.8cm;
             font-weight: 900;
             text-align: right;
             padding-left: 0.03cm;
@@ -155,20 +165,20 @@
 
 
         /* =========================
-           FOOTER - 3cm
+           FOOTER - TITRE 2cm / ICÔNES 2cm
         ========================= */
 
         .footer {
             margin-top: 0.15cm;
             padding-top: 0.12cm;
-            border-top: 0.08cm solid #111;
+            border-top: 0.06cm solid #111;
             text-align: center;
         }
 
         .footer-title {
-            font-size: 3cm;
+            font-size: 2cm;
             font-weight: 900;
-            letter-spacing: 0.08cm;
+            letter-spacing: 0.06cm;
             margin-bottom: 0.08cm;
         }
 
@@ -184,19 +194,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.04cm;
+            gap: 0.06cm;
             padding: 0.02cm;
             text-align: left;
         }
 
         .footer .contact-icon {
-            font-size: 0.5cm;
+            font-size: 2cm;
             flex-shrink: 0;
+            line-height: 1;
         }
 
         .footer .contact-text small {
             display: block;
-            font-size: 0.14cm;
+            font-size: 0.16cm;
             font-weight: 800;
             color: #555;
             letter-spacing: 0.01cm;
@@ -204,7 +215,7 @@
 
         .footer .contact-text strong {
             display: block;
-            font-size: 0.2cm;
+            font-size: 0.22cm;
             font-weight: 700;
             line-height: 1.1;
         }
@@ -303,13 +314,13 @@
     <main class="menu-grid">
 
         <!-- =========================
-        COLONNE 1 : BOISSONS GAZEUSES, EAUX, LAITIERS, JAOUDA, CENTRALE/SALIM
+        COLONNE 1
         ========================= -->
         <div class="column">
 
             <!-- BOISSONS GAZEUSES -->
             <section class="category">
-                <h2>🥤 BOISSONS GAZEUSES</h2>
+                <h2><span class="cat-icon">🥤</span> BOISSONS GAZEUSES</h2>
                 <div class="products-grid">
                     <div class="product"><span>7UP 1.5L</span><b>7,00 DH</b></div>
                     <div class="product"><span>7UP 1L</span><b>6,00 DH</b></div>
@@ -407,7 +418,7 @@
 
             <!-- EAUX MINÉRALES -->
             <section class="category">
-                <h2>💧 EAUX MINÉRALES</h2>
+                <h2><span class="cat-icon">💧</span> EAUX MINÉRALES</h2>
                 <div class="products-grid">
                     <div class="product"><span>Aïn Atlas 1.5L</span><b>4,50 DH</b></div>
                     <div class="product"><span>Aïn Ifrane 1.5L</span><b>4,50 DH</b></div>
@@ -440,7 +451,7 @@
 
             <!-- LAITIERS -->
             <section class="category">
-                <h2>🥛 LAITIERS</h2>
+                <h2><span class="cat-icon">🥛</span> LAITIERS</h2>
                 <div class="products-grid">
                     <div class="product"><span>BRASSE 70CL</span><b>3,5 DH</b></div>
                     <div class="product"><span>BRASSE MAXI</span><b>6 DH</b></div>
@@ -466,7 +477,7 @@
 
             <!-- LAITS JAOUDA -->
             <section class="category">
-                <h2>🥛 LAITS JAOUDA</h2>
+                <h2><span class="cat-icon">🥛</span> LAITS JAOUDA</h2>
                 <div class="products-grid">
                     <div class="product"><span>Beurre pasteurisé Jaouda 1Kg</span><b>74,90 DH</b></div>
                     <div class="product"><span>Crème cuisson Jaouda 500ml</span><b>17,95 DH</b></div>
@@ -496,7 +507,7 @@
 
             <!-- LAITS CENTRALE / SALIM -->
             <section class="category">
-                <h2>🥛 LAITS CENTRALE/SALIM</h2>
+                <h2><span class="cat-icon">🥛</span> LAITS CENTRALE/SALIM</h2>
                 <div class="products-grid">
                     <div class="product"><span>Actimel 100g</span><b>4,00 DH</b></div>
                     <div class="product"><span>Activia à boire 300g</span><b>6,00 DH</b></div>
@@ -545,13 +556,13 @@
         </div><!-- fin colonne 1 -->
 
         <!-- =========================
-        COLONNE 2 : ENERGY, BISCUITS, CHIPS - SALE
+        COLONNE 2
         ========================= -->
         <div class="column">
 
             <!-- ENERGY -->
             <section class="category">
-                <h2>⚡ ENERGY</h2>
+                <h2><span class="cat-icon">⚡</span> ENERGY</h2>
                 <div class="products-grid">
                     <div class="product"><span>BURN ENERGY</span><b>11 DH</b></div>
                     <div class="product"><span>ENERGY ZEGEA</span><b>7 DH</b></div>
@@ -567,7 +578,7 @@
 
             <!-- BISCUITS -->
             <section class="category">
-                <h2>🍪 BISCUITS</h2>
+                <h2><span class="cat-icon">🍪</span> BISCUITS</h2>
                 <div class="products-grid">
                     <div class="product"><span>AIGUEBELLE</span><b>1 DH</b></div>
                     <div class="product"><span>AIGUEBELLE</span><b>2 DH</b></div>
@@ -690,7 +701,7 @@
 
             <!-- CHIPS - SALE -->
             <section class="category">
-                <h2>🥜 CHIPS - SALE</h2>
+                <h2><span class="cat-icon">🥜</span> CHIPS - SALE</h2>
                 <div class="products-grid">
                     <div class="product"><span>AGAJOU</span><b>5 DH</b></div>
                     <div class="product"><span>AMENDE 100 GR</span><b>15 DH</b></div>
@@ -744,13 +755,13 @@
         </div><!-- fin colonne 2 -->
 
         <!-- =========================
-        COLONNE 3 : MENAGE, ALIMENTATION, BEAUTY
+        COLONNE 3
         ========================= -->
         <div class="column">
 
             <!-- MENAGE -->
             <section class="category">
-                <h2>🧺 MENAGE</h2>
+                <h2><span class="cat-icon">🧺</span> MENAGE</h2>
                 <div class="products-grid">
                     <div class="product"><span>Ariel Lessive Machine 5,5Kg</span><b>109,95 DH</b></div>
                     <div class="product"><span>Ariel Lessive Main 1Kg</span><b>20,90 DH</b></div>
@@ -808,7 +819,7 @@
 
             <!-- ALIMENTATION -->
             <section class="category">
-                <h2>🛒 ALIMENTATION</h2>
+                <h2><span class="cat-icon">🛒</span> ALIMENTATION</h2>
                 <div class="products-grid">
                     <div class="product"><span>AVOCAT</span><b>5 DH</b></div>
                     <div class="product"><span>BAROUD THE GRAND</span><b>17 DH</b></div>
@@ -846,7 +857,7 @@
 
             <!-- BEAUTY -->
             <section class="category">
-                <h2>🧴 BEAUTY</h2>
+                <h2><span class="cat-icon">🧴</span> BEAUTY</h2>
                 <div class="products-grid">
                     <div class="product"><span>Always Serviette Pack</span><b>15,00 DH</b></div>
                     <div class="product"><span>Axe Déodorant Spray</span><b>30,00 DH</b></div>
@@ -929,7 +940,7 @@
     </main>
 
     <!-- =========================
-    FOOTER - 3cm
+    FOOTER - TITRE 2cm / ICÔNES 2cm
     ========================= -->
     <footer class="footer">
         <div class="footer-title">MERCI POUR VOTRE VISITE</div>
