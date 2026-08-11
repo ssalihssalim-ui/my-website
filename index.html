@@ -32,7 +32,7 @@
         .menu {
             width: 100cm;
             min-height: 150cm;
-            padding: 0.5cm;
+            padding: 0.8cm;
             background: white;
         }
 
@@ -44,8 +44,8 @@
         .menu-header {
             text-align: center;
             border-bottom: 0.08cm solid #111;
-            padding-bottom: 0.12cm;
-            margin-bottom: 0.12cm;
+            padding-bottom: 0.2cm;
+            margin-bottom: 0.2cm;
         }
 
         .menu-header h1 {
@@ -56,41 +56,41 @@
         }
 
         .menu-header p {
-            margin: 0.04cm 0 0;
-            font-size: 0.35cm;
+            margin: 0.05cm 0 0;
+            font-size: 0.5cm;
             font-weight: bold;
             text-transform: uppercase;
         }
 
 
         /* =========================
-           2 COLONNES PRINCIPALES
+           3 COLONNES PRINCIPALES
         ========================= */
 
         .menu-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.2cm;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.25cm;
             align-items: start;
-            height: calc(100% - 3.2cm);
+            height: calc(100% - 2.8cm);
         }
 
         .column {
             min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.03cm;
+            gap: 0.05cm;
         }
 
 
         /* =========================
-           CATEGORIES - TITRE 1cm / ICÔNE 1.5cm
+           CATEGORIES - TITRE 0.9cm / ICÔNE 1.5cm
         ========================= */
 
         .category {
             border: 0.04cm solid #222;
-            border-radius: 0.06cm;
-            margin-bottom: 0.05cm;
+            border-radius: 0.07cm;
+            margin-bottom: 0.08cm;
             overflow: hidden;
             background: white;
             break-inside: avoid;
@@ -99,17 +99,17 @@
 
         .category h2 {
             margin: 0;
-            padding: 0.04cm 0.07cm;
+            padding: 0.05cm 0.08cm;
             background: #111;
             color: white;
-            font-size: 1cm;
+            font-size: 0.9cm;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.01cm;
             line-height: 1.1;
             display: flex;
             align-items: center;
-            gap: 0.08cm;
+            gap: 0.1cm;
         }
 
         .category h2 .cat-icon {
@@ -119,23 +119,23 @@
         }
 
 
-        /* === PRODUITS EN 2 COLONNES - 0.8cm / PRIX 0.9cm === */
+        /* === PRODUITS EN 2 COLONNES === */
         .products-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.02cm 0.05cm;
-            padding: 0.02cm 0.03cm;
+            gap: 0.02cm 0.08cm;
+            padding: 0.03cm 0.05cm;
         }
 
         .product {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 0.03cm;
+            gap: 0.04cm;
             align-items: center;
             min-height: 0.5cm;
-            padding: 0.015cm 0.03cm;
-            border-bottom: 0.008cm solid #e0e0e0;
-            font-size: 0.8cm;
+            padding: 0.02cm 0.03cm;
+            border-bottom: 0.01cm solid #e0e0e0;
+            font-size: 0.7cm;
             line-height: 1.05;
         }
 
@@ -152,12 +152,12 @@
             font-weight: 600;
             overflow-wrap: break-word;
             word-break: break-word;
-            font-size: 0.8cm;
+            font-size: 0.7cm;
         }
 
         .product b {
             white-space: nowrap;
-            font-size: 0.9cm;
+            font-size: 0.8cm;
             font-weight: 900;
             text-align: right;
             padding-left: 0.03cm;
@@ -165,12 +165,12 @@
 
 
         /* =========================
-           FOOTER - TITRE 2cm / ICÔNES 2cm / TEXTE 1.5cm
+           FOOTER - TITRE 2cm / ICÔNES 2cm
         ========================= */
 
         .footer {
-            margin-top: 0.1cm;
-            padding-top: 0.08cm;
+            margin-top: 0.15cm;
+            padding-top: 0.12cm;
             border-top: 0.06cm solid #111;
             text-align: center;
         }
@@ -179,35 +179,35 @@
             font-size: 2cm;
             font-weight: 900;
             letter-spacing: 0.06cm;
-            margin-bottom: 0.05cm;
+            margin-bottom: 0.08cm;
         }
 
         .footer .contact-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 0.04cm;
+            gap: 0.06cm;
             width: 100%;
-            margin-bottom: 0.04cm;
+            margin-bottom: 0.06cm;
         }
 
         .footer .contact-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.05cm;
-            padding: 0.015cm;
+            gap: 0.06cm;
+            padding: 0.02cm;
             text-align: left;
         }
 
         .footer .contact-icon {
-            font-size: 1.8cm;
+            font-size: 2cm;
             flex-shrink: 0;
             line-height: 1;
         }
 
         .footer .contact-text small {
             display: block;
-            font-size: 0.35cm;
+            font-size: 0.16cm;
             font-weight: 800;
             color: #555;
             letter-spacing: 0.01cm;
@@ -215,13 +215,13 @@
 
         .footer .contact-text strong {
             display: block;
-            font-size: 1.5cm;
+            font-size: 0.22cm;
             font-weight: 700;
             line-height: 1.1;
         }
 
         .footer-bottom {
-            margin-top: 0.03cm;
+            margin-top: 0.05cm;
             font-size: 0.25cm;
             font-weight: 700;
             letter-spacing: 0.03cm;
@@ -246,7 +246,7 @@
             .menu {
                 width: 100cm;
                 min-height: 150cm;
-                padding: 0.5cm;
+                padding: 0.8cm;
             }
 
             .category {
@@ -309,12 +309,12 @@
     </header>
 
     <!-- =========================
-    GRILLE 2 COLONNES PRINCIPALES
+    GRILLE 3 COLONNES PRINCIPALES
     ========================= -->
     <main class="menu-grid">
 
         <!-- =========================
-        COLONNE 1 : BOISSONS GAZEUSES, EAUX, LAITIERS, JAOUDA, CENTRALE/SALIM, ENERGY, CHIPS
+        COLONNE 1
         ========================= -->
         <div class="column">
 
@@ -553,6 +553,13 @@
                 </div>
             </section>
 
+        </div><!-- fin colonne 1 -->
+
+        <!-- =========================
+        COLONNE 2
+        ========================= -->
+        <div class="column">
+
             <!-- ENERGY -->
             <section class="category">
                 <h2><span class="cat-icon">⚡</span> ENERGY</h2>
@@ -568,66 +575,6 @@
                     <div class="product"><span>STING ENERGY</span><b>6 DH</b></div>
                 </div>
             </section>
-
-            <!-- CHIPS - SALE -->
-            <section class="category">
-                <h2><span class="cat-icon">🥜</span> CHIPS - SALE</h2>
-                <div class="products-grid">
-                    <div class="product"><span>AGAJOU</span><b>5 DH</b></div>
-                    <div class="product"><span>AMENDE 100 GR</span><b>15 DH</b></div>
-                    <div class="product"><span>Cheetos Cheese Balls 100g</span><b>18,00 DH</b></div>
-                    <div class="product"><span>Cheetos Cheese Balls 50g</span><b>8,00 DH</b></div>
-                    <div class="product"><span>Cheetos Flaming Hot 80g</span><b>14,95 DH</b></div>
-                    <div class="product"><span>Cheetos Flaming Hot 96g</span><b>17,95 DH</b></div>
-                    <div class="product"><span>Cheetos Gustosines 96g</span><b>14,95 DH</b></div>
-                    <div class="product"><span>Cheetos Palitos 35g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Cheetos Palitos 96g</span><b>17,75 DH</b></div>
-                    <div class="product"><span>Cheetos Pelotazos 130g</span><b>14,95 DH</b></div>
-                    <div class="product"><span>Cheetos Rolitos 100g</span><b>18,90 DH</b></div>
-                    <div class="product"><span>CONIKOS</span><b>3 DH</b></div>
-                    <div class="product"><span>KAKAW SACHE</span><b>2 DH</b></div>
-                    <div class="product"><span>LEADER</span><b>1 DH</b></div>
-                    <div class="product"><span>LEADER</span><b>3 DH</b></div>
-                    <div class="product"><span>Leader Campesina 85g</span><b>11,00 DH</b></div>
-                    <div class="product"><span>Leader Chili 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Chili 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Fromage 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Fromage 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Kebab 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Kebab 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Paprika 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Paprika 90g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Sel 30g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Leader Sel 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader X-Trem Crème Oignon</span><b>3,99 DH</b></div>
-                    <div class="product"><span>NUTS MIX PISTACH AGAJOU</span><b>40 DH</b></div>
-                    <div class="product"><span>PIPAS EL INDIO</span><b>3 DH</b></div>
-                    <div class="product"><span>PIPAS ZARI3A NOUARA</span><b>3 DH</b></div>
-                    <div class="product"><span>PISTACH</span><b>3 DH</b></div>
-                    <div class="product"><span>PISTACH 125 GR</span><b>15 DH</b></div>
-                    <div class="product"><span>PISTACH AQAJOU</span><b>5 DH</b></div>
-                    <div class="product"><span>POTAGER</span><b>1 DH</b></div>
-                    <div class="product"><span>Pringles BBQ 165g</span><b>21,95 DH</b></div>
-                    <div class="product"><span>Pringles BBQ 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Cheese 165g</span><b>21,95 DH</b></div>
-                    <div class="product"><span>Pringles Hot Spicy 165g</span><b>21,95 DH</b></div>
-                    <div class="product"><span>Pringles Hot Spicy 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Original 165g</span><b>19,00 DH</b></div>
-                    <div class="product"><span>Pringles Original 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Paprika 165g</span><b>19,00 DH</b></div>
-                    <div class="product"><span>Pringles Paprika 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Sour Cream Onion 165g</span><b>19,00 DH</b></div>
-                    <div class="product"><span>Pringles Sour Cream Onion 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>PRINGLEZ PETIT</span><b>10 DH</b></div>
-                </div>
-            </section>
-
-        </div><!-- fin colonne 1 -->
-
-        <!-- =========================
-        COLONNE 2 : BISCUITS, MENAGE, ALIMENTATION, BEAUTY
-        ========================= -->
-        <div class="column">
 
             <!-- BISCUITS -->
             <section class="category">
@@ -751,6 +698,66 @@
                     <div class="product"><span>Wafer Vanille EXCELO</span><b>1,50 DH</b></div>
                 </div>
             </section>
+
+            <!-- CHIPS - SALE -->
+            <section class="category">
+                <h2><span class="cat-icon">🥜</span> CHIPS - SALE</h2>
+                <div class="products-grid">
+                    <div class="product"><span>AGAJOU</span><b>5 DH</b></div>
+                    <div class="product"><span>AMENDE 100 GR</span><b>15 DH</b></div>
+                    <div class="product"><span>Cheetos Cheese Balls 100g</span><b>18,00 DH</b></div>
+                    <div class="product"><span>Cheetos Cheese Balls 50g</span><b>8,00 DH</b></div>
+                    <div class="product"><span>Cheetos Flaming Hot 80g</span><b>14,95 DH</b></div>
+                    <div class="product"><span>Cheetos Flaming Hot 96g</span><b>17,95 DH</b></div>
+                    <div class="product"><span>Cheetos Gustosines 96g</span><b>14,95 DH</b></div>
+                    <div class="product"><span>Cheetos Palitos 35g</span><b>4,00 DH</b></div>
+                    <div class="product"><span>Cheetos Palitos 96g</span><b>17,75 DH</b></div>
+                    <div class="product"><span>Cheetos Pelotazos 130g</span><b>14,95 DH</b></div>
+                    <div class="product"><span>Cheetos Rolitos 100g</span><b>18,90 DH</b></div>
+                    <div class="product"><span>CONIKOS</span><b>3 DH</b></div>
+                    <div class="product"><span>KAKAW SACHE</span><b>2 DH</b></div>
+                    <div class="product"><span>LEADER</span><b>1 DH</b></div>
+                    <div class="product"><span>LEADER</span><b>3 DH</b></div>
+                    <div class="product"><span>Leader Campesina 85g</span><b>11,00 DH</b></div>
+                    <div class="product"><span>Leader Chili 35g</span><b>3,20 DH</b></div>
+                    <div class="product"><span>Leader Chili 85g</span><b>10,50 DH</b></div>
+                    <div class="product"><span>Leader Fromage 35g</span><b>3,20 DH</b></div>
+                    <div class="product"><span>Leader Fromage 85g</span><b>10,50 DH</b></div>
+                    <div class="product"><span>Leader Kebab 35g</span><b>3,20 DH</b></div>
+                    <div class="product"><span>Leader Kebab 85g</span><b>10,50 DH</b></div>
+                    <div class="product"><span>Leader Paprika 35g</span><b>3,20 DH</b></div>
+                    <div class="product"><span>Leader Paprika 90g</span><b>10,50 DH</b></div>
+                    <div class="product"><span>Leader Sel 30g</span><b>3,00 DH</b></div>
+                    <div class="product"><span>Leader Sel 85g</span><b>10,50 DH</b></div>
+                    <div class="product"><span>Leader X-Trem Crème Oignon</span><b>3,99 DH</b></div>
+                    <div class="product"><span>NUTS MIX PISTACH AGAJOU</span><b>40 DH</b></div>
+                    <div class="product"><span>PIPAS EL INDIO</span><b>3 DH</b></div>
+                    <div class="product"><span>PIPAS ZARI3A NOUARA</span><b>3 DH</b></div>
+                    <div class="product"><span>PISTACH</span><b>3 DH</b></div>
+                    <div class="product"><span>PISTACH 125 GR</span><b>15 DH</b></div>
+                    <div class="product"><span>PISTACH AQAJOU</span><b>5 DH</b></div>
+                    <div class="product"><span>POTAGER</span><b>1 DH</b></div>
+                    <div class="product"><span>Pringles BBQ 165g</span><b>21,95 DH</b></div>
+                    <div class="product"><span>Pringles BBQ 40g</span><b>10,00 DH</b></div>
+                    <div class="product"><span>Pringles Cheese 165g</span><b>21,95 DH</b></div>
+                    <div class="product"><span>Pringles Hot Spicy 165g</span><b>21,95 DH</b></div>
+                    <div class="product"><span>Pringles Hot Spicy 40g</span><b>10,00 DH</b></div>
+                    <div class="product"><span>Pringles Original 165g</span><b>19,00 DH</b></div>
+                    <div class="product"><span>Pringles Original 40g</span><b>10,00 DH</b></div>
+                    <div class="product"><span>Pringles Paprika 165g</span><b>19,00 DH</b></div>
+                    <div class="product"><span>Pringles Paprika 40g</span><b>10,00 DH</b></div>
+                    <div class="product"><span>Pringles Sour Cream Onion 165g</span><b>19,00 DH</b></div>
+                    <div class="product"><span>Pringles Sour Cream Onion 40g</span><b>10,00 DH</b></div>
+                    <div class="product"><span>PRINGLEZ PETIT</span><b>10 DH</b></div>
+                </div>
+            </section>
+
+        </div><!-- fin colonne 2 -->
+
+        <!-- =========================
+        COLONNE 3
+        ========================= -->
+        <div class="column">
 
             <!-- MENAGE -->
             <section class="category">
@@ -928,12 +935,12 @@
                 </div>
             </section>
 
-        </div><!-- fin colonne 2 -->
+        </div><!-- fin colonne 3 -->
 
     </main>
 
     <!-- =========================
-    FOOTER - TITRE 2cm / ICÔNES 2cm / TEXTE 1.5cm
+    FOOTER - TITRE 2cm / ICÔNES 2cm
     ========================= -->
     <footer class="footer">
         <div class="footer-title">MERCI POUR VOTRE VISITE</div>
