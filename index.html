@@ -1,992 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MENU · 100 x 150 cm</title>
-    <style>
-        @page {
-            size: 100cm 150cm;
-            margin: 0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            background: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            width: 100cm;
-            min-height: 150cm;
-        }
-
-        .menu {
-            width: 100cm;
-            min-height: 150cm;
-            padding: 0.8cm;
-            background: white;
-        }
-
-
-        /* =========================
-           HEADER - 4cm / TEXTE 1cm
-        ========================= */
-
-        .menu-header {
-            text-align: center;
-            border-bottom: 0.08cm solid #111;
-            padding-bottom: 0.2cm;
-            margin-bottom: 0.2cm;
-        }
-
-        .menu-header h1 {
-            margin: 0;
-            font-size: 4cm;
-            font-weight: 900;
-            letter-spacing: 0.12cm;
-        }
-
-        .menu-header p {
-            margin: 0.05cm 0 0;
-            font-size: 1cm;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-
-        /* =========================
-           3 COLONNES PRINCIPALES
-        ========================= */
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.25cm;
-            align-items: start;
-            height: calc(100% - 3.2cm);
-        }
-
-        .column {
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.05cm;
-        }
-
-
-        /* =========================
-           CATEGORIES - TITRE 1.5cm / ICÔNE 2cm
-        ========================= */
-
-        .category {
-            border: 0.04cm solid #222;
-            border-radius: 0.07cm;
-            margin-bottom: 0.08cm;
-            overflow: hidden;
-            background: white;
-            break-inside: avoid;
-            page-break-inside: avoid;
-        }
-
-        .category h2 {
-            margin: 0;
-            padding: 0.05cm 0.08cm;
-            background: #111;
-            color: white;
-            font-size: 1.5cm;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.01cm;
-            line-height: 1.1;
-            display: flex;
-            align-items: center;
-            gap: 0.1cm;
-        }
-
-        .category h2 .cat-icon {
-            font-size: 2cm;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-
-        /* === PRODUITS EN 2 COLONNES - 0.9cm / PRIX 1cm === */
-        .products-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.02cm 0.08cm;
-            padding: 0.03cm 0.05cm;
-        }
-
-        .product {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 0.04cm;
-            align-items: center;
-            min-height: 0.6cm;
-            padding: 0.02cm 0.03cm;
-            border-bottom: 0.01cm solid #e0e0e0;
-            font-size: 0.9cm;
-            line-height: 1.05;
-        }
-
-        .product:nth-child(even) {
-            background: #f5f5f5;
-        }
-
-        .product:last-child,
-        .product:nth-last-child(2) {
-            border-bottom: none;
-        }
-
-        .product span {
-            font-weight: 600;
-            overflow-wrap: break-word;
-            word-break: break-word;
-            font-size: 0.9cm;
-        }
-
-        .product b {
-            white-space: nowrap;
-            font-size: 1cm;
-            font-weight: 900;
-            text-align: right;
-            padding-left: 0.03cm;
-        }
-
-
-        /* =========================
-           FOOTER - TITRE 1.5cm / ICÔNES 2cm / TEXTE 1.5cm
-        ========================= */
-
-        .footer {
-            margin-top: 0.15cm;
-            padding-top: 0.12cm;
-            border-top: 0.06cm solid #111;
-            text-align: center;
-        }
-
-        .footer-title {
-            font-size: 1.5cm;
-            font-weight: 900;
-            letter-spacing: 0.06cm;
-            margin-bottom: 0.08cm;
-        }
-
-        .footer .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.06cm;
-            width: 100%;
-            margin-bottom: 0.06cm;
-        }
-
-        .footer .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.06cm;
-            padding: 0.02cm;
-            text-align: left;
-        }
-
-        .footer .contact-icon {
-            font-size: 2cm;
-            flex-shrink: 0;
-            line-height: 1;
-        }
-
-        .footer .contact-text small {
-            display: block;
-            font-size: 0.5cm;
-            font-weight: 800;
-            color: #555;
-            letter-spacing: 0.01cm;
-        }
-
-        .footer .contact-text strong {
-            display: block;
-            font-size: 1.5cm;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        .footer-bottom {
-            margin-top: 0.05cm;
-            font-size: 0.35cm;
-            font-weight: 700;
-            letter-spacing: 0.03cm;
-            color: #777;
-        }
-
-
-        /* =========================
-           IMPRESSION
-        ========================= */
-
-        @media print {
-
-            html,
-            body {
-                width: 100cm;
-                min-height: 150cm;
-                margin: 0;
-                padding: 0;
-            }
-
-            .menu {
-                width: 100cm;
-                min-height: 150cm;
-                padding: 0.8cm;
-            }
-
-            .category {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            .product {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-        }
-
-
-        /* =========================
-           APERCU ECRAN
-        ========================= */
-
-        @media screen {
-
-            body {
-                background: #ddd;
-                padding: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-            }
-
-            .menu {
-                margin: auto;
-                box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
-                transform: scale(0.35);
-                transform-origin: top center;
-                border-radius: 12px;
-            }
-
-        }
-
-        @media screen and (max-width: 700px) {
-            .menu {
-                transform: scale(0.2);
-                transform-origin: top center;
-                border-radius: 8px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MANORA · Beauty & Wellness</title>
+  <!-- Font Awesome (icônes) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="menu">
+  <!-- PROMO BAR -->
+  <div class="promo-bar">
+    <span><i class="fas fa-sparkles"></i> Nouvelle collection beauté & bien-être</span>
+    <i class="fas fa-circle" style="font-size: 0.2rem; vertical-align: middle;"></i>
+    <span>Shop Now <i class="fas fa-arrow-right" style="font-size: 0.5rem;"></i></span>
+  </div>
 
-    <!-- =========================
-    HEADER - 4cm / TEXTE 1cm
-    ========================= -->
-    <header class="menu-header">
-        <h1>MENU</h1>
-        <p>Nos produits &amp; nos prix</p>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="#" class="logo" id="logoLink"><i class="fas fa-leaf"></i> MANORA</a>
+      <nav class="nav-links">
+        <!-- Navbar vide -->
+      </nav>
+      <div class="header-icons">
+        <i class="fas fa-search" data-icon="search"></i>
+        <i class="far fa-user" data-icon="user" id="userIcon"></i>
+        <i class="fas fa-shopping-bag" data-icon="bag"></i>
+        <span class="user-status" id="userStatus"></span>
+      </div>
     </header>
 
-    <!-- =========================
-    GRILLE 3 COLONNES PRINCIPALES
-    ========================= -->
-    <main class="menu-grid">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-tag"><i class="fas fa-star" style="color: #e8a87c; margin-right: 0.4rem;"></i> nouvelle collection</div>
+      
+      <h1>
+        Beauté <span class="gold-accent">&</span> Bien-être
+      </h1>
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 0.2rem;">
+        <span class="lunch-easter" id="lunchBadge"><i class="fas fa-spa" style="margin-right: 0.3rem;"></i> wellness</span>
+        <span style="font-size: 0.7rem; letter-spacing: 0.2em; color: #e8a87c;">✦</span>
+        <span style="font-size: 0.6rem; letter-spacing: 0.1em; color: #999;">édition limitée</span>
+      </div>
 
-        <!-- =========================
-        COLONNE 1
-        ========================= -->
-        <div class="column">
+      <p class="hero-sub">Découvrez notre nouvelle collection</p>
+      
+      <button class="btn-primary" id="shopNowBtn">Shop Now</button>
 
-            <!-- BOISSONS GAZEUSES -->
-            <section class="category">
-                <h2><span class="cat-icon">🥤</span> BOISSONS GAZEUSES</h2>
-                <div class="products-grid">
-                    <div class="product"><span>7UP 1.5L</span><b>7,00 DH</b></div>
-                    <div class="product"><span>7UP 1L</span><b>6,00 DH</b></div>
-                    <div class="product"><span>7UP 33cl</span><b>5,00 DH</b></div>
-                    <div class="product"><span>ABTAL</span><b>2 DH</b></div>
-                    <div class="product"><span>AQUARIUS</span><b>8 DH</b></div>
-                    <div class="product"><span>COCA</span><b>3 DH</b></div>
-                    <div class="product"><span>COCA 1.5 L</span><b>9 DH</b></div>
-                    <div class="product"><span>COCA CANETTE</span><b>5 DH</b></div>
-                    <div class="product"><span>COCA CHERRY VANILLA</span><b>12 DH</b></div>
-                    <div class="product"><span>COCA COLA 1L</span><b>8 DH</b></div>
-                    <div class="product"><span>COCA COLA 2 L</span><b>12 DH</b></div>
-                    <div class="product"><span>COCA MAXI</span><b>5,5 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original 1,3L</span><b>8,75 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original 1L</span><b>7,50 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original 25cl</span><b>2,90 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original 25cl can.</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original 33cl can.</span><b>8,25 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original 45cl</span><b>5,25 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original Pack 4×1L</span><b>29,95 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original Pack 6×25cl</span><b>30,00 DH</b></div>
-                    <div class="product"><span>Coca-Cola Original Pack 6×33cl</span><b>50,95 DH</b></div>
-                    <div class="product"><span>Coca-Cola Zero 1L</span><b>7,50 DH</b></div>
-                    <div class="product"><span>Coca-Cola Zero 25cl can.</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Coca-Cola Zero 33cl can.</span><b>8,50 DH</b></div>
-                    <div class="product"><span>Coca-Cola Zero 45cl</span><b>5,50 DH</b></div>
-                    <div class="product"><span>Coca-Cola Zero Pack 4×1L</span><b>29,95 DH</b></div>
-                    <div class="product"><span>FANTA 1.5 L</span><b>7,5 DH</b></div>
-                    <div class="product"><span>FANTA CANNETTE</span><b>5 DH</b></div>
-                    <div class="product"><span>Fanta Citron 25cl can.</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Fanta Orange 25cl can.</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Fanta Orange Low Cal 1,3L</span><b>6,95 DH</b></div>
-                    <div class="product"><span>FRUT JUS 1L</span><b>6 DH</b></div>
-                    <div class="product"><span>HAWAII 1.5 L</span><b>11 DH</b></div>
-                    <div class="product"><span>HAWAII 70CL</span><b>3,5 DH</b></div>
-                    <div class="product"><span>HAWAII CANNETTE</span><b>5 DH</b></div>
-                    <div class="product"><span>HAWAI 1 L</span><b>9 DH</b></div>
-                    <div class="product"><span>Hawai Ananas 1,3L</span><b>10,95 DH</b></div>
-                    <div class="product"><span>Hawai Ananas 1L</span><b>8,25 DH</b></div>
-                    <div class="product"><span>Hawai Ananas 25cl</span><b>4,95 DH</b></div>
-                    <div class="product"><span>Hawai Tropical 1,3L</span><b>10,75 DH</b></div>
-                    <div class="product"><span>Hawai Tropical 1L</span><b>8,25 DH</b></div>
-                    <div class="product"><span>Hawai Tropical 25cl</span><b>4,95 DH</b></div>
-                    <div class="product"><span>Hawai Tropical 33cl</span><b>8,50 DH</b></div>
-                    <div class="product"><span>Hawai Tropical Pack 4×1L</span><b>33,95 DH</b></div>
-                    <div class="product"><span>ICE Cola 1.5L</span><b>5,90 DH</b></div>
-                    <div class="product"><span>ICE Limonade 1.5L</span><b>5,90 DH</b></div>
-                    <div class="product"><span>ICE Orange 1.5L</span><b>5,90 DH</b></div>
-                    <div class="product"><span>ICE Pomme 1.5L</span><b>5,90 DH</b></div>
-                    <div class="product"><span>MARRAKECH</span><b>2 DH</b></div>
-                    <div class="product"><span>MARRAKECH 1 L</span><b>13 DH</b></div>
-                    <div class="product"><span>Mirinda Orange 1.5L</span><b>7,00 DH</b></div>
-                    <div class="product"><span>Mirinda Orange 1L</span><b>6,00 DH</b></div>
-                    <div class="product"><span>Mirinda Orange 33cl</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Mirinda Pomme 1.5L</span><b>7,00 DH</b></div>
-                    <div class="product"><span>MONSTER NOIR COCA</span><b>20 DH</b></div>
-                    <div class="product"><span>OIASIS VERRE</span><b>15 DH</b></div>
-                    <div class="product"><span>OULMES 1 L</span><b>8 DH</b></div>
-                    <div class="product"><span>OULMES 0.5 L</span><b>5 DH</b></div>
-                    <div class="product"><span>OULMESS MINI</span><b>4 DH</b></div>
-                    <div class="product"><span>Oulmès Eau Gazeuse 1,5L</span><b>8,00 DH</b></div>
-                    <div class="product"><span>Oulmès Eau Gazeuse 1L</span><b>7,00 DH</b></div>
-                    <div class="product"><span>Oulmès Eau Gazeuse 25cl</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Oulmès Eau Gazeuse 50cl</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Oulmès Eau Gazeuse Pack 6×1L</span><b>40,00 DH</b></div>
-                    <div class="product"><span>Pepsi 1.5L</span><b>6,95 DH</b></div>
-                    <div class="product"><span>Pepsi 1L</span><b>6,00 DH</b></div>
-                    <div class="product"><span>Pepsi 25cl</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Pepsi 33cl Canette</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Pepsi 50cl</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Pepsi Black 1L</span><b>6,00 DH</b></div>
-                    <div class="product"><span>Pepsi Black 33cl</span><b>5,25 DH</b></div>
-                    <div class="product"><span>Pom's 1,7L</span><b>10,95 DH</b></div>
-                    <div class="product"><span>Pom's 1L</span><b>8,25 DH</b></div>
-                    <div class="product"><span>Pom's 33cl</span><b>8,50 DH</b></div>
-                    <div class="product"><span>PUPLY PETIT</span><b>4,5 DH</b></div>
-                    <div class="product"><span>REDBULL COLORS</span><b>20 DH</b></div>
-                    <div class="product"><span>Schweppes Citron 1L</span><b>11,75 DH</b></div>
-                    <div class="product"><span>Schweppes Citron 33cl</span><b>8,50 DH</b></div>
-                    <div class="product"><span>Schweppes Citron 45cl</span><b>7,25 DH</b></div>
-                    <div class="product"><span>Schweppes Tonic 1L</span><b>11,75 DH</b></div>
-                    <div class="product"><span>SHWEPS CITRON 1 L</span><b>0 DH</b></div>
-                    <div class="product"><span>SHWEPS COLORS TURKIE</span><b>18 DH</b></div>
-                    <div class="product"><span>SHWEPS MOJITO 1L</span><b>13 DH</b></div>
-                    <div class="product"><span>SHWEPS MOJITO CANETTE</span><b>6 DH</b></div>
-                    <div class="product"><span>SHWEPS TONIC MAXI</span><b>7,5 DH</b></div>
-                    <div class="product"><span>Sprite 1L</span><b>11,95 DH</b></div>
-                    <div class="product"><span>Sprite 25cl can.</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Sprite 33cl can.</span><b>5,25 DH</b></div>
-                    <div class="product"><span>SPRITE 1.5 L</span><b>7,5 DH</b></div>
-                    <div class="product"><span>SPRITE</span><b>3 DH</b></div>
-                    <div class="product"><span>Sprite Zero 1L</span><b>11,95 DH</b></div>
-                </div>
-            </section>
+      <div class="hero-note">
+        <span><i class="fas fa-check-circle"></i> 100% naturel</span>
+        <span><i class="fas fa-truck"></i> livraison offerte</span>
+        <span><i class="fas fa-undo-alt"></i> 30 jours</span>
+      </div>
+    </section>
 
-            <!-- EAUX MINÉRALES -->
-            <section class="category">
-                <h2><span class="cat-icon">💧</span> EAUX MINÉRALES</h2>
-                <div class="products-grid">
-                    <div class="product"><span>Aïn Atlas 1.5L</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Aïn Ifrane 1.5L</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Aïn Ifrane 33cl</span><b>2,00 DH</b></div>
-                    <div class="product"><span>Aïn Ifrane 5L</span><b>12,75 DH</b></div>
-                    <div class="product"><span>Aïn Ifrane 50cl</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Aïn Saïss 1.5L</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Aïn Soltane 1.5L</span><b>5,00 DH</b></div>
-                    <div class="product"><span>AIN SAISS 0.5 L</span><b>3 DH</b></div>
-                    <div class="product"><span>AIN SAISS 1.5 L</span><b>5 DH</b></div>
-                    <div class="product"><span>AIN SAISS 5 L</span><b>10 DH</b></div>
-                    <div class="product"><span>Aquafina 1.5L</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Bahia 1.5L</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Ciel 1.5L</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Evian 1.5L</span><b>18,00 DH</b></div>
-                    <div class="product"><span>OULMES 0.5 L</span><b>5 DH</b></div>
-                    <div class="product"><span>OULMES 1 L</span><b>8 DH</b></div>
-                    <div class="product"><span>OULMES 1.5 L</span><b>10 DH</b></div>
-                    <div class="product"><span>Perrier 33cl</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Sidi Ali 1.5L</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Sidi Ali 2L</span><b>6,00 DH</b></div>
-                    <div class="product"><span>Sidi Ali 50cl</span><b>3,00 DH</b></div>
-                    <div class="product"><span>SIDI ALI 0.5 L</span><b>3 DH</b></div>
-                    <div class="product"><span>SIDI ALI 1.5 L</span><b>6 DH</b></div>
-                    <div class="product"><span>SIDI ALI 5 L</span><b>12 DH</b></div>
-                    <div class="product"><span>Sidi Harazem 1.5L</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Volvic 1.5L</span><b>15,00 DH</b></div>
-                </div>
-            </section>
+    <!-- CATÉGORIES -->
+    <div class="categories">
+      <span class="cat-item" data-category="Soin">Soin</span>
+      <span class="cat-item" data-category="Maquillage">Maquillage</span>
+      <span class="cat-item" data-category="Vitamines">Vitamines</span>
+      <span class="cat-item" data-category="Ensemble">Ensemble</span>
+      <span class="cat-item" data-category="Coquet">Coquet</span>
+      <span class="cat-item" data-category="Accessoires">Accessoires</span>
+      <span class="cat-item" data-category="Sport">Sport</span>
+    </div>
 
-            <!-- LAITIERS -->
-            <section class="category">
-                <h2><span class="cat-icon">🥛</span> LAITIERS</h2>
-                <div class="products-grid">
-                    <div class="product"><span>BRASSE 70CL</span><b>3,5 DH</b></div>
-                    <div class="product"><span>BRASSE MAXI</span><b>6 DH</b></div>
-                    <div class="product"><span>CARAMEL CHERGUI MAXI</span><b>8 DH</b></div>
-                    <div class="product"><span>CREMY CHERGUI</span><b>2,5 DH</b></div>
-                    <div class="product"><span>DAYA</span><b>6 DH</b></div>
-                    <div class="product"><span>DAYA PETIT</span><b>3,5 DH</b></div>
-                    <div class="product"><span>FAWAKIH</span><b>5 DH</b></div>
-                    <div class="product"><span>FAWAKIH 1 L</span><b>13 DH</b></div>
-                    <div class="product"><span>JBEN CHERGUI</span><b>15 DH</b></div>
-                    <div class="product"><span>JNANE DANONE</span><b>2,5 DH</b></div>
-                    <div class="product"><span>KEFIR PETIT</span><b>12 DH</b></div>
-                    <div class="product"><span>LAIT NORMAL</span><b>4 DH</b></div>
-                    <div class="product"><span>LEBEN PETIT</span><b>5 DH</b></div>
-                    <div class="product"><span>PLAISIR PETIT CHERGUI</span><b>4 DH</b></div>
-                    <div class="product"><span>PROTEIN CHERGUI ASSIR</span><b>20 DH</b></div>
-                    <div class="product"><span>PROTEIN DANONE</span><b>15 DH</b></div>
-                    <div class="product"><span>RAIB BANANE GRAND</span><b>12 DH</b></div>
-                    <div class="product"><span>RAIB BANANE PETIT</span><b>6 DH</b></div>
-                    <div class="product"><span>RAIBI ROUGE</span><b>2,5 DH</b></div>
-                </div>
-            </section>
+    <!-- COLLECTION SECTION -->
+    <div class="silver-section">
+      <div class="silver-content">
+        <h3><i class="fas fa-heart"></i> Collection Wellness</h3>
+        <p>Soin · beauté · bien-être · vitalité</p>
+        <button class="btn-secondary" id="silverBtn">Découvrir</button>
+      </div>
+    </div>
 
-            <!-- LAITS JAOUDA -->
-            <section class="category">
-                <h2><span class="cat-icon">🥛</span> LAITS JAOUDA</h2>
-                <div class="products-grid">
-                    <div class="product"><span>Beurre pasteurisé Jaouda 1Kg</span><b>74,90 DH</b></div>
-                    <div class="product"><span>Crème cuisson Jaouda 500ml</span><b>17,95 DH</b></div>
-                    <div class="product"><span>Crème dessert chocolat Jaouda</span><b>15,95 DH</b></div>
-                    <div class="product"><span>Flan caramel Jaouda Pack 8</span><b>15,95 DH</b></div>
-                    <div class="product"><span>Ghilal Jaouda Pack 8</span><b>15,95 DH</b></div>
-                    <div class="product"><span>Jben Jaouda 160g</span><b>12,00 DH</b></div>
-                    <div class="product"><span>Kéfir naturel Jaouda 320g</span><b>7,95 DH</b></div>
-                    <div class="product"><span>Lait croissance Jaouda 0,5L</span><b>7,00 DH</b></div>
-                    <div class="product"><span>Lait frais naturel Jaouda 0,5L</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Lait nature UHT 200ml</span><b>2,50 DH</b></div>
-                    <div class="product"><span>Lait UHT Demi-écrémé Jaouda</span><b>11,50 DH</b></div>
-                    <div class="product"><span>Lait UHT Entier Jaouda 1L</span><b>11,00 DH</b></div>
-                    <div class="product"><span>Lben Jaouda 0,5L</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Nectar orange Press'Up 950g</span><b>8,95 DH</b></div>
-                    <div class="product"><span>Pack lait UHT entier 6×1L</span><b>55,95 DH</b></div>
-                    <div class="product"><span>Perly fromage frais 80g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Perly fromage frais Pack 8</span><b>18,50 DH</b></div>
-                    <div class="product"><span>Perly Nature sucré 80g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Press'Up Orange Jaouda 230g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Raïb Jaouda 900g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Raïbi Jaouda grenade 165g</span><b>2,00 DH</b></div>
-                    <div class="product"><span>Yaourt à boire P'tit Déj</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Yaourt Nature Jaouda 110g</span><b>2,50 DH</b></div>
-                </div>
-            </section>
-
-            <!-- LAITS CENTRALE / SALIM -->
-            <section class="category">
-                <h2><span class="cat-icon">🥛</span> LAITS CENTRALE/SALIM</h2>
-                <div class="products-grid">
-                    <div class="product"><span>Actimel 100g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Activia à boire 300g</span><b>6,00 DH</b></div>
-                    <div class="product"><span>Activia Céréales 120g</span><b>4,50 DH</b></div>
-                    <div class="product"><span>Activia Fraise 110g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Activia Fruits 110g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Activia Nature 110g</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Beurre Centrale 200g</span><b>18,00 DH</b></div>
-                    <div class="product"><span>Beurre Centrale 500g</span><b>45,00 DH</b></div>
-                    <div class="product"><span>Carré Salim 8 portions</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Crème Xtra-Crème 200ml</span><b>8,00 DH</b></div>
-                    <div class="product"><span>Dan'up Fraise 180g</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Dan'up Fruits 180g</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Dan'up Maxi 850g</span><b>12,00 DH</b></div>
-                    <div class="product"><span>Danino Chocolat 80g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Danino Fraise 80g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Danone Assil Fraise 110g</span><b>2,50 DH</b></div>
-                    <div class="product"><span>Danone Assil Fruits 110g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Danone Assil Nature 110g</span><b>2,50 DH</b></div>
-                    <div class="product"><span>Danone Assil Vanille 110g</span><b>2,50 DH</b></div>
-                    <div class="product"><span>Danone Velouté Fruits 110g</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Danone Velouté Nature 110g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Danao Fruits 1L</span><b>12,00 DH</b></div>
-                    <div class="product"><span>Danao Orange 1L</span><b>12,00 DH</b></div>
-                    <div class="product"><span>Danette Caramel 125g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Danette Chocolat 125g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Danette Pack 4 (4×125g)</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Danette Vanille 125g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Gervais Fromage frais 80g</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Jebli Fromage frais 80g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Lait demi-écrémé Centrale</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Lait entier Centrale 1L</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Lait frais Centrale 1L</span><b>3,50 DH</b></div>
-                    <div class="product"><span>Lait frais Centrale 470ml</span><b>2,50 DH</b></div>
-                    <div class="product"><span>Lait UHT Salim 1L</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Lait UHT Salim 200ml</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Lben Salim 1L</span><b>9,00 DH</b></div>
-                    <div class="product"><span>Lben Salim 470ml</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Max Danone 125g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>P'tit Dan'up 90g</span><b>2,00 DH</b></div>
-                    <div class="product"><span>Raïb Salim 470g</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Raïb Salim 900g</span><b>10,00 DH</b></div>
-                </div>
-            </section>
-
-        </div><!-- fin colonne 1 -->
-
-        <!-- =========================
-        COLONNE 2
-        ========================= -->
-        <div class="column">
-
-            <!-- ENERGY -->
-            <section class="category">
-                <h2><span class="cat-icon">⚡</span> ENERGY</h2>
-                <div class="products-grid">
-                    <div class="product"><span>BURN ENERGY</span><b>11 DH</b></div>
-                    <div class="product"><span>ENERGY ZEGEA</span><b>7 DH</b></div>
-                    <div class="product"><span>EXTREME ENERGY</span><b>7 DH</b></div>
-                    <div class="product"><span>MONSTER ENERGY TURK</span><b>25 DH</b></div>
-                    <div class="product"><span>PREDATOR</span><b>7 DH</b></div>
-                    <div class="product"><span>REDBULL COLORS</span><b>20 DH</b></div>
-                    <div class="product"><span>ROCKSTAR ENERGY</span><b>20 DH</b></div>
-                    <div class="product"><span>ROCKSTAR FRESH</span><b>0 DH</b></div>
-                    <div class="product"><span>STING ENERGY</span><b>6 DH</b></div>
-                </div>
-            </section>
-
-            <!-- BISCUITS -->
-            <section class="category">
-                <h2><span class="cat-icon">🍪</span> BISCUITS</h2>
-                <div class="products-grid">
-                    <div class="product"><span>AIGUEBELLE</span><b>1 DH</b></div>
-                    <div class="product"><span>AIGUEBELLE</span><b>2 DH</b></div>
-                    <div class="product"><span>AIGUEBELLE TABLETTE</span><b>7 DH</b></div>
-                    <div class="product"><span>AMADA STARZ</span><b>3 DH</b></div>
-                    <div class="product"><span>AMADA STIX</span><b>7 DH</b></div>
-                    <div class="product"><span>Biscotti EXCELO 60pcs</span><b>50,80 DH</b></div>
-                    <div class="product"><span>Boîte Chocolat Aiguebelle</span><b>45,00 DH</b></div>
-                    <div class="product"><span>Bonbons Assortis 100g</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Bonbons Assortis 250g</span><b>12,00 DH</b></div>
-                    <div class="product"><span>BONO</span><b>1 DH</b></div>
-                    <div class="product"><span>Bono Wafer Chocolat 24g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>CAKE COCO</span><b>2 DH</b></div>
-                    <div class="product"><span>Cake Chocolat BIMO 300g</span><b>12,00 DH</b></div>
-                    <div class="product"><span>CAPRI</span><b>2 DH</b></div>
-                    <div class="product"><span>Capri Choco EXCELO 125g</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Capri Choco EXCELO 50g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Caramel Aiguebelle 100g</span><b>5,00 DH</b></div>
-                    <div class="product"><span>CHOCOLAT</span><b>1 DH</b></div>
-                    <div class="product"><span>Chocolat Dessert Noir 140g</span><b>21,95 DH</b></div>
-                    <div class="product"><span>Chocolat Pâtissier 175g</span><b>32,75 DH</b></div>
-                    <div class="product"><span>CHOCUP</span><b>1 DH</b></div>
-                    <div class="product"><span>CIGAR HENRYS</span><b>1 DH</b></div>
-                    <div class="product"><span>Cigar Henry's 22g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>CIGAR LEKA</span><b>1 DH</b></div>
-                    <div class="product"><span>CLORETS</span><b>0,5 DH</b></div>
-                    <div class="product"><span>Crackers BIMO 100g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>DéliChoc BIMO 150g</span><b>5,00 DH</b></div>
-                    <div class="product"><span>DONUT BEE</span><b>2 DH</b></div>
-                    <div class="product"><span>ETO</span><b>2 DH</b></div>
-                    <div class="product"><span>EYO</span><b>1 DH</b></div>
-                    <div class="product"><span>Eyoo Cream EXCELO 30g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>Fluffy EXCELO 50g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Galette Bretonne EXCELO</span><b>2,10 DH</b></div>
-                    <div class="product"><span>Gaufrette Chocolat BIMO</span><b>1,50 DH</b></div>
-                    <div class="product"><span>Gaufrette Vanille BIMO</span><b>1,50 DH</b></div>
-                    <div class="product"><span>Golden BIMO 125g</span><b>2,50 DH</b></div>
-                    <div class="product"><span>Golden BIMO 250g</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Golden BIMO 50g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>GULLON OREO ZERO SUGAR</span><b>4 DH</b></div>
-                    <div class="product"><span>HENRYS</span><b>1 DH</b></div>
-                    <div class="product"><span>HENRYS</span><b>2,5 DH</b></div>
-                    <div class="product"><span>Henry's Boîte métal 617g</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Henry's Boîte métal 800g</span><b>45,00 DH</b></div>
-                    <div class="product"><span>ITRI</span><b>1 DH</b></div>
-                    <div class="product"><span>JAMAL CAKE</span><b>2 DH</b></div>
-                    <div class="product"><span>KINDER BUENO</span><b>8 DH</b></div>
-                    <div class="product"><span>KINDER CAKE</span><b>5 DH</b></div>
-                    <div class="product"><span>KING COOKIES</span><b>2 DH</b></div>
-                    <div class="product"><span>King Cookies Chocolat 50g</span><b>2,00 DH</b></div>
-                    <div class="product"><span>KITKAT GRAND</span><b>7 DH</b></div>
-                    <div class="product"><span>LEKA GAUFRETTE</span><b>1 DH</b></div>
-                    <div class="product"><span>Madeleine BIMO 250g</span><b>8,00 DH</b></div>
-                    <div class="product"><span>MARIA ELDORADA</span><b>6 DH</b></div>
-                    <div class="product"><span>MARS</span><b>7 DH</b></div>
-                    <div class="product"><span>MERINDINA</span><b>2 DH</b></div>
-                    <div class="product"><span>Merendina BIMO 35g</span><b>1,50 DH</b></div>
-                    <div class="product"><span>MILKA</span><b>12 DH</b></div>
-                    <div class="product"><span>MM</span><b>8 DH</b></div>
-                    <div class="product"><span>MOMO</span><b>1 DH</b></div>
-                    <div class="product"><span>NAPOLITAIN</span><b>1 DH</b></div>
-                    <div class="product"><span>NAPOLITAIN TABLETTE</span><b>8 DH</b></div>
-                    <div class="product"><span>NOCCO 4 DH</span><b>4 DH</b></div>
-                    <div class="product"><span>NOCCO 5 DH</span><b>5 DH</b></div>
-                    <div class="product"><span>NOCCO CHOCO CROK</span><b>3 DH</b></div>
-                    <div class="product"><span>NOCCO MINI BARRE</span><b>2 DH</b></div>
-                    <div class="product"><span>NOOCO Barre Croustillante</span><b>3,00 DH</b></div>
-                    <div class="product"><span>NOOCO Barre Nougat Cacahuète</span><b>5,95 DH</b></div>
-                    <div class="product"><span>NOOCO Barre Nougat Caramel</span><b>5,95 DH</b></div>
-                    <div class="product"><span>NOOCO Biscuit Chocolat Lait</span><b>4,95 DH</b></div>
-                    <div class="product"><span>NOOCO Biscuit Crok Chocolat</span><b>2,95 DH</b></div>
-                    <div class="product"><span>NOOCO Biscuit Sandwich</span><b>1,90 DH</b></div>
-                    <div class="product"><span>NOOCO Mini Barre Crispy</span><b>4,75 DH</b></div>
-                    <div class="product"><span>NOOCO Pack Chocolat Lait</span><b>28,75 DH</b></div>
-                    <div class="product"><span>NUTELLA BISCUIT</span><b>8 DH</b></div>
-                    <div class="product"><span>OREO</span><b>2 DH</b></div>
-                    <div class="product"><span>OREO</span><b>3,5 DH</b></div>
-                    <div class="product"><span>OREO</span><b>4 DH</b></div>
-                    <div class="product"><span>OZMO CAKE</span><b>3 DH</b></div>
-                    <div class="product"><span>OZMO CORNET</span><b>6 DH</b></div>
-                    <div class="product"><span>OZMO FUN</span><b>6 DH</b></div>
-                    <div class="product"><span>OZMO HOPPO</span><b>7 DH</b></div>
-                    <div class="product"><span>OZMO HOXI POXY</span><b>7 DH</b></div>
-                    <div class="product"><span>Petit Beurre BIMO 200g</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Petit Henry's 1Kg</span><b>25,75 DH</b></div>
-                    <div class="product"><span>Petit Henry's 42g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>Petit Henry's 85g</span><b>2,00 DH</b></div>
-                    <div class="product"><span>Prince BIMO 150g</span><b>4,50 DH</b></div>
-                    <div class="product"><span>SABLE</span><b>1 DH</b></div>
-                    <div class="product"><span>SABLE</span><b>1,5 DH</b></div>
-                    <div class="product"><span>SABLE</span><b>2,5 DH</b></div>
-                    <div class="product"><span>Sablé Coco 1Kg</span><b>25,95 DH</b></div>
-                    <div class="product"><span>Sablé Coco 42g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>Sablé Coco Cacao 45g</span><b>1,45 DH</b></div>
-                    <div class="product"><span>Sablé Original 1Kg</span><b>28,95 DH</b></div>
-                    <div class="product"><span>Sablé Original 42g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>Sablito BIMO 100g</span><b>2,50 DH</b></div>
-                    <div class="product"><span>SAVLE</span><b>1 DH</b></div>
-                    <div class="product"><span>SNEAKERS</span><b>7 DH</b></div>
-                    <div class="product"><span>Solty BIMO 60g</span><b>2,00 DH</b></div>
-                    <div class="product"><span>SPOOFY</span><b>2 DH</b></div>
-                    <div class="product"><span>SPOOFY</span><b>5 DH</b></div>
-                    <div class="product"><span>SUPREME BE</span><b>2 DH</b></div>
-                    <div class="product"><span>Supreme EXCELO 60g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>SWEETIES</span><b>5 DH</b></div>
-                    <div class="product"><span>Tablette Blanc Aiguebelle</span><b>12,95 DH</b></div>
-                    <div class="product"><span>Tablette Lait Aiguebelle</span><b>12,95 DH</b></div>
-                    <div class="product"><span>Tablette Noir 55% 100g</span><b>12,95 DH</b></div>
-                    <div class="product"><span>Tablette Noir 55% 45g</span><b>5,95 DH</b></div>
-                    <div class="product"><span>Tagger BIMO 80g</span><b>2,00 DH</b></div>
-                    <div class="product"><span>TAMAM</span><b>3 DH</b></div>
-                    <div class="product"><span>TONIC BIMO</span><b>1 DH</b></div>
-                    <div class="product"><span>Top Cookies Chocolat 30g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>Top Cookies Vanille 30g</span><b>1,00 DH</b></div>
-                    <div class="product"><span>TOP BEE</span><b>2 DH</b></div>
-                    <div class="product"><span>Wafer Chocolat EXCELO</span><b>1,50 DH</b></div>
-                    <div class="product"><span>Wafer Vanille EXCELO</span><b>1,50 DH</b></div>
-                </div>
-            </section>
-
-            <!-- CHIPS - SALE -->
-            <section class="category">
-                <h2><span class="cat-icon">🥜</span> CHIPS - SALE</h2>
-                <div class="products-grid">
-                    <div class="product"><span>AGAJOU</span><b>5 DH</b></div>
-                    <div class="product"><span>AMENDE 100 GR</span><b>15 DH</b></div>
-                    <div class="product"><span>Cheetos Cheese Balls 100g</span><b>18,00 DH</b></div>
-                    <div class="product"><span>Cheetos Cheese Balls 50g</span><b>8,00 DH</b></div>
-                    <div class="product"><span>Cheetos Flaming Hot 80g</span><b>14,95 DH</b></div>
-                    <div class="product"><span>Cheetos Flaming Hot 96g</span><b>17,95 DH</b></div>
-                    <div class="product"><span>Cheetos Gustosines 96g</span><b>14,95 DH</b></div>
-                    <div class="product"><span>Cheetos Palitos 35g</span><b>4,00 DH</b></div>
-                    <div class="product"><span>Cheetos Palitos 96g</span><b>17,75 DH</b></div>
-                    <div class="product"><span>Cheetos Pelotazos 130g</span><b>14,95 DH</b></div>
-                    <div class="product"><span>Cheetos Rolitos 100g</span><b>18,90 DH</b></div>
-                    <div class="product"><span>CONIKOS</span><b>3 DH</b></div>
-                    <div class="product"><span>KAKAW SACHE</span><b>2 DH</b></div>
-                    <div class="product"><span>LEADER</span><b>1 DH</b></div>
-                    <div class="product"><span>LEADER</span><b>3 DH</b></div>
-                    <div class="product"><span>Leader Campesina 85g</span><b>11,00 DH</b></div>
-                    <div class="product"><span>Leader Chili 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Chili 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Fromage 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Fromage 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Kebab 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Kebab 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Paprika 35g</span><b>3,20 DH</b></div>
-                    <div class="product"><span>Leader Paprika 90g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader Sel 30g</span><b>3,00 DH</b></div>
-                    <div class="product"><span>Leader Sel 85g</span><b>10,50 DH</b></div>
-                    <div class="product"><span>Leader X-Trem Crème Oignon</span><b>3,99 DH</b></div>
-                    <div class="product"><span>NUTS MIX PISTACH AGAJOU</span><b>40 DH</b></div>
-                    <div class="product"><span>PIPAS EL INDIO</span><b>3 DH</b></div>
-                    <div class="product"><span>PIPAS ZARI3A NOUARA</span><b>3 DH</b></div>
-                    <div class="product"><span>PISTACH</span><b>3 DH</b></div>
-                    <div class="product"><span>PISTACH 125 GR</span><b>15 DH</b></div>
-                    <div class="product"><span>PISTACH AQAJOU</span><b>5 DH</b></div>
-                    <div class="product"><span>POTAGER</span><b>1 DH</b></div>
-                    <div class="product"><span>Pringles BBQ 165g</span><b>21,95 DH</b></div>
-                    <div class="product"><span>Pringles BBQ 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Cheese 165g</span><b>21,95 DH</b></div>
-                    <div class="product"><span>Pringles Hot Spicy 165g</span><b>21,95 DH</b></div>
-                    <div class="product"><span>Pringles Hot Spicy 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Original 165g</span><b>19,00 DH</b></div>
-                    <div class="product"><span>Pringles Original 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Paprika 165g</span><b>19,00 DH</b></div>
-                    <div class="product"><span>Pringles Paprika 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Pringles Sour Cream Onion 165g</span><b>19,00 DH</b></div>
-                    <div class="product"><span>Pringles Sour Cream Onion 40g</span><b>10,00 DH</b></div>
-                    <div class="product"><span>PRINGLEZ PETIT</span><b>10 DH</b></div>
-                </div>
-            </section>
-
-        </div><!-- fin colonne 2 -->
-
-        <!-- =========================
-        COLONNE 3
-        ========================= -->
-        <div class="column">
-
-            <!-- MENAGE -->
-            <section class="category">
-                <h2><span class="cat-icon">🧺</span> MENAGE</h2>
-                <div class="products-grid">
-                    <div class="product"><span>Ariel Lessive Machine 5,5Kg</span><b>109,95 DH</b></div>
-                    <div class="product"><span>Ariel Lessive Main 1Kg</span><b>20,90 DH</b></div>
-                    <div class="product"><span>Ariel Liquide Lessive 2,5L</span><b>69,95 DH</b></div>
-                    <div class="product"><span>Ariel Liquide Lessive 4L</span><b>130,00 DH</b></div>
-                    <div class="product"><span>Ariel Pods 15 capsules</span><b>32,95 DH</b></div>
-                    <div class="product"><span>Ariel Pods 45 capsules</span><b>95,00 DH</b></div>
-                    <div class="product"><span>Dari Liquide Vaisselle</span><b>9,00 DH</b></div>
-                    <div class="product"><span>El Kef Lessive Liquide 3L</span><b>79,95 DH</b></div>
-                    <div class="product"><span>El Kef Lessive Main 900g</span><b>15,00 DH</b></div>
-                    <div class="product"><span>El Kef Pâte Lavante 900g</span><b>9,95 DH</b></div>
-                    <div class="product"><span>Fairy Liquide Vaisselle</span><b>18,00 DH</b></div>
-                    <div class="product"><span>Finish Tablettes 50 unités</span><b>95,00 DH</b></div>
-                    <div class="product"><span>Javel Ace 2,5L</span><b>24,50 DH</b></div>
-                    <div class="product"><span>Javel Maxis' 1L</span><b>5,95 DH</b></div>
-                    <div class="product"><span>Magix + Maxis' Javel Pack</span><b>19,95 DH</b></div>
-                    <div class="product"><span>Magix Gold Lessive Main</span><b>15,95 DH</b></div>
-                    <div class="product"><span>Magix Lessive Main 1Kg</span><b>15,95 DH</b></div>
-                    <div class="product"><span>Magix Machine Liquide 5L</span><b>69,95 DH</b></div>
-                    <div class="product"><span>Magix Machine Poudre 6Kg</span><b>97,95 DH</b></div>
-                    <div class="product"><span>Magix Matic Fraîcheur Océan</span><b>69,95 DH</b></div>
-                    <div class="product"><span>Magix Savon de Marseille</span><b>69,95 DH</b></div>
-                    <div class="product"><span>Maxis' Eau de Javel 1L</span><b>5,95 DH</b></div>
-                    <div class="product"><span>Maxis' Eau de Javel 2L</span><b>10,95 DH</b></div>
-                    <div class="product"><span>Maxis' Liquide Vaisselle</span><b>10,95 DH</b></div>
-                    <div class="product"><span>Maxis' Nettoyant Sol 1L</span><b>12,95 DH</b></div>
-                    <div class="product"><span>Mio Lessive Machine 5Kg</span><b>95,95 DH</b></div>
-                    <div class="product"><span>Mio Lessive Main 1Kg</span><b>14,95 DH</b></div>
-                    <div class="product"><span>Mio Liquide Lessive 3L</span><b>99,95 DH</b></div>
-                    <div class="product"><span>Mio Liquide Vaisselle</span><b>8,95 DH</b></div>
-                    <div class="product"><span>Mr Propre Nettoyant Sol</span><b>25,00 DH</b></div>
-                    <div class="product"><span>Omo Lessive Main 2Kg</span><b>39,90 DH</b></div>
-                    <div class="product"><span>Omo Lessive Main Citron</span><b>31,35 DH</b></div>
-                    <div class="product"><span>Omo Liquide 4L</span><b>142,25 DH</b></div>
-                    <div class="product"><span>Omo Liquide Lavande 2,5L</span><b>69,95 DH</b></div>
-                    <div class="product"><span>Omo Liquide Machine 5L</span><b>132,95 DH</b></div>
-                    <div class="product"><span>Omo Machine Poudre 5,5Kg</span><b>109,95 DH</b></div>
-                    <div class="product"><span>Omo Machine Poudre 9Kg</span><b>144,50 DH</b></div>
-                    <div class="product"><span>Oni Eau de Javel 1L</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Oni Lessive Machine 3Kg</span><b>45,00 DH</b></div>
-                    <div class="product"><span>Oni Lessive Main 1Kg</span><b>12,00 DH</b></div>
-                    <div class="product"><span>Oni Liquide Vaisselle</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Paic Liquide Vaisselle</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Sango Nettoyant Sol</span><b>17,95 DH</b></div>
-                    <div class="product"><span>Tide Capsules 15</span><b>33,00 DH</b></div>
-                    <div class="product"><span>Tide Lessive Liquide 3Kg</span><b>89,95 DH</b></div>
-                    <div class="product"><span>Tide Lessive Liquide 3L</span><b>89,95 DH</b></div>
-                    <div class="product"><span>Tide Lessive Machine 3Kg</span><b>70,00 DH</b></div>
-                    <div class="product"><span>Tide Lessive Main 1Kg</span><b>20,90 DH</b></div>
-                    <div class="product"><span>Tide Lessive Main 1,5Kg</span><b>41,50 DH</b></div>
-                    <div class="product"><span>Tide Lessive Main 375g</span><b>8,95 DH</b></div>
-                    <div class="product"><span>Tide Lessive Main 700g</span><b>20,95 DH</b></div>
-                </div>
-            </section>
-
-            <!-- ALIMENTATION -->
-            <section class="category">
-                <h2><span class="cat-icon">🛒</span> ALIMENTATION</h2>
-                <div class="products-grid">
-                    <div class="product"><span>AVOCAT</span><b>5 DH</b></div>
-                    <div class="product"><span>BAROUD THE GRAND</span><b>17 DH</b></div>
-                    <div class="product"><span>BAROUD THE PETIT</span><b>8,5 DH</b></div>
-                    <div class="product"><span>CASHER</span><b>3 DH</b></div>
-                    <div class="product"><span>CAT</span><b>5 DH</b></div>
-                    <div class="product"><span>CRYSTAL 1 L</span><b>18 DH</b></div>
-                    <div class="product"><span>DELICIA ABRICOT MOYENNE</span><b>15 DH</b></div>
-                    <div class="product"><span>FORMAGE 96</span><b>1 DH</b></div>
-                    <div class="product"><span>FORMAGE CARRE JAUNE</span><b>24 DH</b></div>
-                    <div class="product"><span>HOT SAUCE STAR</span><b>7 DH</b></div>
-                    <div class="product"><span>INDOMIE</span><b>2,5 DH</b></div>
-                    <div class="product"><span>KETCHUP STAR</span><b>15 DH</b></div>
-                    <div class="product"><span>KIRI</span><b>2 DH</b></div>
-                    <div class="product"><span>LIO 1 L</span><b>17 DH</b></div>
-                    <div class="product"><span>LIO 1/2 L</span><b>9 DH</b></div>
-                    <div class="product"><span>MAYONAIZ PETIT</span><b>7 DH</b></div>
-                    <div class="product"><span>MAYONNAISE MOYENNE STAR</span><b>13 DH</b></div>
-                    <div class="product"><span>MOTARD PETIT</span><b>7 DH</b></div>
-                    <div class="product"><span>NASS KOMIRA</span><b>1 DH</b></div>
-                    <div class="product"><span>NESCAFE SACHE</span><b>1 DH</b></div>
-                    <div class="product"><span>NUTELLA PETIT</span><b>35 DH</b></div>
-                    <div class="product"><span>OLLA</span><b>2 DH</b></div>
-                    <div class="product"><span>OLLA SAUCE BLANCHE</span><b>5 DH</b></div>
-                    <div class="product"><span>OUEFS</span><b>1,5 DH</b></div>
-                    <div class="product"><span>SANIDA</span><b>5,5 DH</b></div>
-                    <div class="product"><span>SAUCE BURGER CHEEZY</span><b>20 DH</b></div>
-                    <div class="product"><span>SOLIS</span><b>3 DH</b></div>
-                    <div class="product"><span>SOULTANE THE PETIT</span><b>8,5 DH</b></div>
-                    <div class="product"><span>THE SEBAA GRAND</span><b>20 DH</b></div>
-                    <div class="product"><span>THE SEBAA PETIT</span><b>10 DH</b></div>
-                    <div class="product"><span>TRIDENT</span><b>0,5 DH</b></div>
-                </div>
-            </section>
-
-            <!-- BEAUTY -->
-            <section class="category">
-                <h2><span class="cat-icon">🧴</span> BEAUTY</h2>
-                <div class="products-grid">
-                    <div class="product"><span>Always Serviette Pack</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Axe Déodorant Spray</span><b>30,00 DH</b></div>
-                    <div class="product"><span>Bic Flex 3 Pack 4</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Bic Rasoir Pack 10</span><b>25,00 DH</b></div>
-                    <div class="product"><span>BIC RAZOIRE</span><b>1,5 DH</b></div>
-                    <div class="product"><span>BROSSE DENT</span><b>5 DH</b></div>
-                    <div class="product"><span>CADUM PETIT</span><b>7 DH</b></div>
-                    <div class="product"><span>CLINIX</span><b>1,5 DH</b></div>
-                    <div class="product"><span>COLGATE MOYEN</span><b>8 DH</b></div>
-                    <div class="product"><span>Colgate Brosse Kids</span><b>12,00 DH</b></div>
-                    <div class="product"><span>Colgate Brosse Medium</span><b>10,00 DH</b></div>
-                    <div class="product"><span>Colgate Herbal 100ml</span><b>18,00 DH</b></div>
-                    <div class="product"><span>Colgate Max Fresh 75ml</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Colgate Sensitive 75ml</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Colgate Total Original</span><b>22,00 DH</b></div>
-                    <div class="product"><span>Colgate Triple Action</span><b>12,00 DH</b></div>
-                    <div class="product"><span>DOVE SAVON</span><b>—</b></div>
-                    <div class="product"><span>Dove Déodorant Spray</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Dove Gel Douche Amande</span><b>59,00 DH</b></div>
-                    <div class="product"><span>Dove Gel Douche Karité</span><b>59,00 DH</b></div>
-                    <div class="product"><span>Dove Gel Douche Original</span><b>25,00 DH</b></div>
-                    <div class="product"><span>Dove Pack Savon 4×90g</span><b>55,00 DH</b></div>
-                    <div class="product"><span>Dove Roll-On Original</span><b>25,00 DH</b></div>
-                    <div class="product"><span>Dove Savon Karité 90g</span><b>8,50 DH</b></div>
-                    <div class="product"><span>Dove Savon Original 100g</span><b>8,00 DH</b></div>
-                    <div class="product"><span>Dove Shampooing Avocado</span><b>54,00 DH</b></div>
-                    <div class="product"><span>Dove Shampooing Intensive</span><b>52,00 DH</b></div>
-                    <div class="product"><span>Gel à raser Gillette</span><b>45,00 DH</b></div>
-                    <div class="product"><span>GILETTE</span><b>5 DH</b></div>
-                    <div class="product"><span>GILETTE</span><b>6 DH</b></div>
-                    <div class="product"><span>Gillette Blue II Plus</span><b>40,00 DH</b></div>
-                    <div class="product"><span>Gillette Blue II Jetable</span><b>25,00 DH</b></div>
-                    <div class="product"><span>GILETTE BLUE 3</span><b>10 DH</b></div>
-                    <div class="product"><span>Gillette Mach3 Lames</span><b>85,00 DH</b></div>
-                    <div class="product"><span>HEAD SHOULDER PETIT</span><b>12 DH</b></div>
-                    <div class="product"><span>Head & Shoulders Anti-Pell</span><b>55,00 DH</b></div>
-                    <div class="product"><span>Head & Shoulders Classic</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Head & Shoulders Men Ultra</span><b>60,00 DH</b></div>
-                    <div class="product"><span>Head & Shoulders Menthol</span><b>38,00 DH</b></div>
-                    <div class="product"><span>Lactovit Gel Douche</span><b>59,00 DH</b></div>
-                    <div class="product"><span>Lux Gel Douche 250ml</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Lux Savon 100g</span><b>6,00 DH</b></div>
-                    <div class="product"><span>Mousse à raser Gillette</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Nana Serviette Pack</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Nivea Déodorant Spray</span><b>30,00 DH</b></div>
-                    <div class="product"><span>Nivea Gel Douche Creme</span><b>39,00 DH</b></div>
-                    <div class="product"><span>Nivea Gel Douche Men</span><b>39,00 DH</b></div>
-                    <div class="product"><span>Nivea Gel Douche Sport</span><b>39,00 DH</b></div>
-                    <div class="product"><span>Nivea Gel Douche Sensitive</span><b>39,00 DH</b></div>
-                    <div class="product"><span>Nivea Roll-On 50ml</span><b>28,00 DH</b></div>
-                    <div class="product"><span>Nivea Savon Creme Care</span><b>7,00 DH</b></div>
-                    <div class="product"><span>Nivea Savon Creme Soft</span><b>7,00 DH</b></div>
-                    <div class="product"><span>Nivea Shampooing Classic</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Nivea Shampooing Men</span><b>40,00 DH</b></div>
-                    <div class="product"><span>Old Spice Déodorant</span><b>35,00 DH</b></div>
-                    <div class="product"><span>Palmolive Gel Douche Lait</span><b>25,00 DH</b></div>
-                    <div class="product"><span>Palmolive Gel Douche Men</span><b>25,00 DH</b></div>
-                    <div class="product"><span>Palmolive Gel Douche Olive</span><b>25,00 DH</b></div>
-                    <div class="product"><span>Palmolive Savon Lait 90g</span><b>6,00 DH</b></div>
-                    <div class="product"><span>Palmolive Savon Naturel</span><b>5,00 DH</b></div>
-                    <div class="product"><span>Palmolive Shampooing</span><b>35,00 DH</b></div>
-                    <div class="product"><span>PANTENE PETIT</span><b>11 DH</b></div>
-                    <div class="product"><span>SHAMPO VITAIA PETIT</span><b>7 DH</b></div>
-                    <div class="product"><span>SHAMPOING SACHE</span><b>0,5 DH</b></div>
-                    <div class="product"><span>Signal Brosse à dents</span><b>8,00 DH</b></div>
-                    <div class="product"><span>Signal Herbal 75ml</span><b>15,00 DH</b></div>
-                    <div class="product"><span>Signal Integral 8 75ml</span><b>12,00 DH</b></div>
-                    <div class="product"><span>SIGNAL PETIT</span><b>5 DH</b></div>
-                    <div class="product"><span>Signal Protection Caries</span><b>12,00 DH</b></div>
-                    <div class="product"><span>Signal White Now 75ml</span><b>18,00 DH</b></div>
-                    <div class="product"><span>TAOUS SAVON</span><b>6 DH</b></div>
-                    <div class="product"><span>Vaseline Lotion Corps</span><b>30,00 DH</b></div>
-                    <div class="product"><span>ZIZOIRE IRIDIUM</span><b>5 DH</b></div>
-                </div>
-            </section>
-
-        </div><!-- fin colonne 3 -->
-
-    </main>
-
-    <!-- =========================
-    FOOTER - TITRE 1.5cm / ICÔNES 2cm / TEXTE 1.5cm
-    ========================= -->
+    <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-title">MERCI POUR VOTRE VISITE</div>
-
-        <div class="contact-grid">
-            <div class="contact-item">
-                <span class="contact-icon">📍</span>
-                <div class="contact-text">
-                    <small>ADRESSE</small>
-                    <strong>12, Rue des Saveurs<br>Casablanca</strong>
-                </div>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">📞</span>
-                <div class="contact-text">
-                    <small>TÉLÉPHONE</small>
-                    <strong>+212 6 12 34 56 78</strong>
-                </div>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">💬</span>
-                <div class="contact-text">
-                    <small>WHATSAPP</small>
-                    <strong>+212 6 12 34 56 78</strong>
-                </div>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">📷</span>
-                <div class="contact-text">
-                    <small>INSTAGRAM</small>
-                    <strong>@monmenu</strong>
-                </div>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">🕒</span>
-                <div class="contact-text">
-                    <small>HORAIRES</small>
-                    <strong>Lun-Sam 8h – 22h</strong>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">— bon appétit —</div>
+      <div class="footer-links">
+        <a href="#" data-footer="about">À propos</a>
+        <a href="#" data-footer="faq">FAQ</a>
+        <a href="#" data-footer="shipping">Livraison</a>
+        <a href="#" data-footer="returns">Retours</a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="font-size: 0.6rem;">© 2026 MANORA</span>
+        <span style="color: #d4cfc6;">|</span>
+        <span style="font-size: 0.6rem; letter-spacing: 0.1em;">Beauty & Wellness</span>
+      </div>
+      <div class="footer-social">
+        <i class="fab fa-instagram" data-social="instagram"></i>
+        <i class="fab fa-pinterest-p" data-social="pinterest"></i>
+        <i class="fab fa-youtube" data-social="youtube"></i>
+      </div>
     </footer>
 
-</div>
+  </div> <!-- fin wrapper -->
 
+  <!-- MODAL AUTHENTIFICATION -->
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-modal">
+      <button class="auth-close" id="authClose"><i class="fas fa-times"></i></button>
+      
+      <div class="auth-header">
+        <h2><i class="fas fa-leaf" style="color: #e8a87c;"></i> Bienvenue chez MANORA</h2>
+        <p>Connectez-vous ou créez un compte</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Connexion</button>
+        <button class="auth-tab" data-tab="register">Inscription</button>
+      </div>
+
+      <!-- Formulaire Connexion -->
+      <form class="auth-form" id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" id="loginEmail" placeholder="votre@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword"><i class="fas fa-lock"></i> Mot de passe</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required />
+        </div>
+        <div id="loginError" class="auth-error hidden"></div>
+        <button type="submit" class="auth-submit" id="loginBtn">Se connecter</button>
+        <p class="auth-forgot"><a href="#" id="resetPasswordLink">Mot de passe oublié ?</a></p>
+      </form>
+
+      <!-- Formulaire Inscription -->
+      <form class="auth-form hidden" id="registerForm">
+        <div class="form-group">
+          <label for="registerName"><i class="fas fa-user"></i> Nom complet</label>
+          <input type="text" id="registerName" placeholder="Jean Dupont" required />
+        </div>
+        <div class="form-group">
+          <label for="registerEmail"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" id="registerEmail" placeholder="votre@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="registerPassword"><i class="fas fa-lock"></i> Mot de passe</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" required />
+          <small style="font-size: 0.6rem; color: #999;">Minimum 6 caractères</small>
+        </div>
+        <div class="form-group">
+          <label for="registerConfirm"><i class="fas fa-check-circle"></i> Confirmer</label>
+          <input type="password" id="registerConfirm" placeholder="••••••••" required />
+        </div>
+        <div id="registerError" class="auth-error hidden"></div>
+        <button type="submit" class="auth-submit" id="registerBtn">Créer mon compte</button>
+        <p class="auth-terms">En créant un compte, vous acceptez nos <a href="#">conditions d'utilisation</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  
+  <!-- Configuration Firebase -->
+  <script>
+    // ===== CONFIGURATION FIREBASE =====
+    // REMPLACEZ CES VALEURS PAR VOTRE PROPRE CONFIGURATION FIREBASE
+    const firebaseConfig = {
+      apiKey: "VOTRE_API_KEY",
+      authDomain: "VOTRE_PROJET.firebaseapp.com",
+      projectId: "VOTRE_PROJET_ID",
+      storageBucket: "VOTRE_PROJET.appspot.com",
+      messagingSenderId: "VOTRE_SENDER_ID",
+      appId: "VOTRE_APP_ID"
+    };
+
+    // Initialiser Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
 </body>
 </html>
